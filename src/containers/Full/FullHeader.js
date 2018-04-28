@@ -20,22 +20,11 @@ class FullHeader extends Component {
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
         <AppNavbarBrand
-          full={{ src: process.env.PUBLIC_URL + 'assets/img/brand/logo.svg', width: 89, height: 25, alt: 'CoreUI Logo' }}
+          full={{ src: process.env.PUBLIC_URL + 'assets/img/brand/logo2.png', width: 120, height: 25, alt: 'CoreUI Logo' }}
           minimized={{ src: process.env.PUBLIC_URL + 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo' }}
         />
         <AppSidebarToggler className="d-md-down-none" display="lg" />
 
-        <Nav className="d-md-down-none" navbar>
-          <NavItem className="px-3">
-            <NavLink href="/">Dashboard</NavLink>
-          </NavItem>
-          <NavItem className="px-3">
-            <NavLink href="#">Users</NavLink>
-          </NavItem>
-          <NavItem className="px-3">
-            <NavLink href="#">Settings</NavLink>
-          </NavItem>
-        </Nav>
         <Nav className="ml-auto" navbar>
           <NavItem className="d-md-down-none">
             <NavLink href="#"><i className="icon-bell"></i><Badge pill color="danger">5</Badge></NavLink>
