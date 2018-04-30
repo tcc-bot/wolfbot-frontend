@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import './App.css';
-// Styles
 // Import Flag Icons Set
 import 'flag-icon-css/css/flag-icon.min.css';
 // Import Font Awesome Icons Set
@@ -12,12 +10,9 @@ import 'simple-line-icons/css/simple-line-icons.css';
 import './scss/style.css'
 // import '../node_modules/@coreui/styles/scss/_dropdown-menu-right.scss';
 
-// Containers
-import { Full } from './containers';
+
 // Pages
 import { Login, Page404, Page500, Register } from './views/Pages';
-
-import { renderRoutes } from 'react-router-config';
 
 import AuthLogin from './views/Pages/Login/authLogin'
 

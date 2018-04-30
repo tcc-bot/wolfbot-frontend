@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Button, Card, CardBody, CardGroup, Col, Container, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import { Button, Card, CardBody, CardGroup, Col, Container, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 
 import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+
 import { login } from '../../../_actions/authActions'
 import InputLogin from './InputLogin'
+import Alerts from '../../../containers/Components/Alerts'
 
 class Login extends Component {
   constructor(props) {
@@ -15,7 +17,6 @@ class Login extends Component {
 
   onSubmit(values) {
     const { login } = this.props
-    console.log(values)
     login(values)
   }
 
@@ -23,6 +24,7 @@ class Login extends Component {
     const { handleSubmit } = this.props
     return (
       <div className="app flex-row align-items-center">
+      <Alerts />
         <Container>
           <Row className="justify-content-center">
             <Col md="8">

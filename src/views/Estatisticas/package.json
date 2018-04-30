@@ -2,5 +2,5 @@
     "name": "Estatisticas",
     "version": "0.0.0",
     "private": true,
-    "main": "./Estatisticas.js"
+    "main": "./Estatisticas.jsx"
 }

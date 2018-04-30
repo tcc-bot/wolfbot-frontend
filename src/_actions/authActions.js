@@ -1,5 +1,7 @@
+import { toastr } from 'react-redux-toastr'
 import axios from 'axios'
 import consts from '../_consts/const'
+
 
 export function login(values) {
     return submit(values, `${consts.OAPI_URL}/login`)
@@ -8,19 +10,15 @@ export function signup(values) {
     return submit(values, `${consts.OAPI_URL}/signup`)
 }
 function submit(values, url) {
-    console.log(values)
     return dispatch => {
         axios.post(url, values)
-            .then(resp => {
-                dispatch([
+            .then(resp => 
+                dispatch(
                     { type: 'USER_FETCHED', payload: resp.data }
-                ])
-            })
+                )
+            )
             .catch(e => {
-
-                console.log(e.resp)
-
-                //error => toastr.error('Erro', error)
+                toastr.error('Erro', e.response.data.message)
             })
     }
 }
