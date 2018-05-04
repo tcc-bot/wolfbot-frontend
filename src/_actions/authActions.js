@@ -1,26 +1,54 @@
+import { toastr } from 'react-redux-toastr'
 import axios from 'axios'
 import consts from '../_consts/const'
+import { history } from '../_helpers/history'
+
 
 export function login(values) {
-    return submit(values, `${consts.OAPI_URL}/login`)
-}
-export function signup(values) {
-    return submit(values, `${consts.OAPI_URL}/signup`)
-}
-function submit(values, url) {
-    console.log(values)
+    const url = `${consts.OAPI_URL}/login`
     return dispatch => {
         axios.post(url, values)
-            .then(resp => {
-                dispatch([
+            .then(resp =>
+                dispatch(
                     { type: 'USER_FETCHED', payload: resp.data }
-                ])
-            })
+                )
+            )
             .catch(e => {
+                toastr.error('Erro', e.response.data.message)
+            })
+    }
+}
+export function signup(values) {
+    const url = `${consts.OAPI_URL}/signup`
 
-                console.log(e.resp)
+    return dispatch => {
+        axios.post(url, values)
+            .then(resp =>
+                dispatch(
+                    { type: 'USER_FETCHED', payload: resp.data }, 
+                    history.push('/'),
+                    toastr.success('Sucesso', 'Usuário registrado com sucesso')
 
-                //error => toastr.error('Erro', error)
+                )
+            )
+            .catch(e => {
+                toastr.error('Erro', e.response.data.message)
+            })
+    }
+}
+function submit(values, url) {
+    return dispatch => {
+        axios.post(url, values)
+            .then(resp =>
+                dispatch(
+                    { type: 'USER_FETCHED', payload: resp.data }, 
+                    history.push('/'),
+                    toastr.success('Sucesso', 'Usuário registrado com sucesso')
+
+                )
+            )
+            .catch(e => {
+                toastr.error('Erro', e.response.data.message)
             })
     }
 }

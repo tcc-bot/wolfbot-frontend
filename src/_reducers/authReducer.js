@@ -1,6 +1,6 @@
-const user = 'user'
+const userKey = 'user_bot'
 const INITIAL_STATE = {
-    user: JSON.parse(localStorage.getItem(user)),
+    user: JSON.parse(localStorage.getItem(userKey)),
     validToken: false
 }
 export default (state = INITIAL_STATE, action) => {
@@ -9,11 +9,11 @@ export default (state = INITIAL_STATE, action) => {
             if (action.payload) {
                 return { ...state, validToken: true }
             } else {
-                localStorage.removeItem(user)
+                localStorage.removeItem(userKey)
                 return { ...state, validToken: false, user: null }
             }
         case 'USER_FETCHED':
-            localStorage.setItem(user, JSON.stringify(action.payload))
+            localStorage.setItem(userKey, JSON.stringify(action.payload))
             return { ...state, user: action.payload, validToken: true }
         default:
             return state
