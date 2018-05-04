@@ -1,7 +1,7 @@
 import {
   Dashboard,
   Estatisticas,
-  Configuracao
+  Configuracao,
 } from './views';
 import Full from './containers/Full';
 

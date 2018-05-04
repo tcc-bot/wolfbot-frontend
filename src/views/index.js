@@ -1,7 +1,7 @@
-import Dashboard from './Dashboard';
+import Dashboard from './Dashboard'
 import Estatisticas from './Estatisticas'
 import Configuracao from './Configuracao'
-import { Login, Page404, Page500, Register } from './Pages';
+import { Login, Page404, Page500, Register } from './Pages'
 
 
 export {
@@ -11,6 +11,6 @@ export {
   Login,
   Dashboard,
   Estatisticas,
-  Configuracao
+  Configuracao,
 };
 

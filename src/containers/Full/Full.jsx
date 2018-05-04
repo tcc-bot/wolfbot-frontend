@@ -48,7 +48,7 @@ class Full extends Component {
                       <Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => (
                         <route.component {...props} />
                       )} />)
-                      : <Redirect from="/" to="/dashboard" />;
+                      : (null);
                   },
                 )}
               </Switch>
