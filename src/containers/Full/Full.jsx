@@ -3,7 +3,6 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { Container } from 'reactstrap';
 
 import {
-  AppAside,
   AppBreadcrumb,
   AppFooter,
   AppHeader,
@@ -20,7 +19,6 @@ import navigation from '../../_nav';
 
 // routes config
 import routes from '../../routes';
-import FullAside from './FullAside';
 import FullFooter from './FullFooter';
 import FullHeader from './FullHeader';
 
@@ -28,7 +26,7 @@ class Full extends Component {
   render() {
     return (
       <div className="app">
-        <AppHeader fixed>
+        <AppHeader fixed >
           <FullHeader />
         </AppHeader>
         <div className="app-body">
@@ -51,12 +49,10 @@ class Full extends Component {
                       : (null);
                   },
                 )}
+                <Redirect from="/" to="/dashboard" />
               </Switch>
             </Container>
           </main>
-          <AppAside fixed hidden>
-            <FullAside />
-          </AppAside>
         </div>
         <AppFooter>
           <FullFooter />

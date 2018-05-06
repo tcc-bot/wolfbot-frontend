@@ -36,22 +36,6 @@ export function signup(values) {
             })
     }
 }
-function submit(values, url) {
-    return dispatch => {
-        axios.post(url, values)
-            .then(resp =>
-                dispatch(
-                    { type: 'USER_FETCHED', payload: resp.data }, 
-                    history.push('/'),
-                    toastr.success('Sucesso', 'Usuário registrado com sucesso')
-
-                )
-            )
-            .catch(e => {
-                toastr.error('Erro', e.response.data.message)
-            })
-    }
-}
 
 export function logout() {
     return { type: 'TOKEN_VALIDATED', payload: false }

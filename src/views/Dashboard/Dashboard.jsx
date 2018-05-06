@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Row } from 'reactstrap';
+import { Row, Button, Card, CardHeader, CardBody, Table, Col, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
+import TablePosicoes from './TablePosicoes'
+import TableSaldo from './TableSaldo'
 import Alerts from '../../containers/Components/Alerts'
 
 class Dashboard extends Component {
@@ -12,9 +14,10 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-      <Alerts />
+        <Alerts />
         <Row>
-
+          <TablePosicoes />
+          <TableSaldo />
         </Row>
       </div>
     );
