@@ -14,7 +14,9 @@ export function login(values) {
                 )
             )
             .catch(e => {
-                toastr.error('Erro', e.response.data.message)
+                for (var i = 0; i < e.response.data.errors.length; i++) {
+                    toastr.error("Erro", e.response.data.errors[i].message);
+                }
             })
     }
 }
@@ -25,14 +27,16 @@ export function signup(values) {
         axios.post(url, values)
             .then(resp =>
                 dispatch(
-                    { type: 'USER_FETCHED', payload: resp.data }, 
+                    { type: 'USER_FETCHED', payload: resp.data },
                     history.push('/'),
                     toastr.success('Sucesso', 'Usuário registrado com sucesso')
 
                 )
             )
             .catch(e => {
-                toastr.error('Erro', e.response.data.message)
+                for (var i = 0; i < e.response.data.errors.length; i++) {
+                    toastr.error("Erro", e.response.data.errors[i].message);
+                }
             })
     }
 }
