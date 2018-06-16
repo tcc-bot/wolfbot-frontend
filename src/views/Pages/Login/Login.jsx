@@ -24,18 +24,20 @@ class Login extends Component {
   render() {
     const { handleSubmit } = this.props
     return (
-      <div className="app flex-row align-items-center">
+      <div className="app flex-row align-items-center ComponentAuth">
         <Alerts />
-        <Container>
+        <Container className='ContainerAuth'>
           <Row className="justify-content-center">
-            <h1>WolfBoot</h1>
+            <div className='bg-white'>
+              <h1 id='TitleLogin'>WOLFBOT</h1>
+            </div>
           </Row>
           <Row className="justify-content-center">
             <Col md="8">
               <CardGroup>
                 <Card className="p-4">
-                  <CardBody>
-                    <h1>Entrar</h1>
+                  <CardBody className='CardBody_Login'>
+                    <h1 id='TitleEntrar_Login'>Entrar</h1>
                     <p className="text-muted">Entre em sua conta</p>
                     <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
                       <InputGroup className="mb-3">
@@ -56,21 +58,21 @@ class Login extends Component {
                       </InputGroup>
                       <Row>
                         <Col xs="6">
-                          <Button type="submit" color="primary" className="px-4">Entrar</Button>
+                          <Button type="submit" id='BtnEntrar_Login' className="px-4">Entrar</Button>
                         </Col>
                         <Col xs="6" className="text-right">
-                          <Button color="link" className="px-0">Esqueceu sua senha?</Button>
+                          <Button color="link" className="px-0"><a id='BtnEsqueceuSenha_Login'>Esqueceu sua senha?</a></Button>
                         </Col>
                       </Row>
                     </form>
                   </CardBody>
                 </Card>
-                <Card className="text-white bg-primary py-5 d-md-down-none" style={{ width: 44 + '%' }}>
-                  <CardBody className="text-center">
+                <Card className="text-white py-5 d-md-down-none" id='CardRegister_Login' style={{ width: 44 + '%' }}>
+                  <CardBody className="text-center CardBody_Login">
                     <div>
                       <h2>Registrar</h2>
                       <p>Registre-se para utilizar o bot trader WolfBot.</p>
-                      <Link to="/register"><Button color="primary" className="mt-3">Registrar agora!</Button></Link>
+                      <Link to="/register"><Button id='BtnRegistrar_Login' className="mt-3"><a style={{ color: '#0a3b64' }}> Registrar agora!</a></Button></Link>
                     </div>
                   </CardBody>
                 </Card>
@@ -78,7 +80,7 @@ class Login extends Component {
             </Col>
           </Row>
         </Container>
-      </div>
+      </div >
     );
   }
 }
