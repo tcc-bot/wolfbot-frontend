@@ -23,13 +23,13 @@ class Register extends Component {
   render() {
     const { handleSubmit } = this.props
     return (
-      <div className="app flex-row align-items-center">
+      <div className="app flex-row align-items-center ComponentAuth">
         <Alerts />
-        <Container>
+        <Container className="ContainerAuth">
           <Row className="justify-content-center">
             <Col md="6">
               <Card className="mx-4">
-                <CardBody className="p-4">
+                <CardBody className="p-4" id='CardBody_Register'>
                   <h1>Registrar</h1>
                   <p className="text-muted">Crie sua conta</p>
                   <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
@@ -66,13 +66,13 @@ class Register extends Component {
                     <Button type="submit" color="success" block>Cadastrar</Button>
                   </form>
                 </CardBody>
-                <CardFooter className="p-4">
+                <CardFooter className="p-4" id='CardFooter_Register'>
                   <Row>
                     <Col xs="12" sm="6">
-                      <Button className="btn-facebook" block><span>facebook</span></Button>
+                      <Button className="btn-facebook" block><span>Facebook</span></Button>
                     </Col>
                     <Col xs="12" sm="6">
-                      <Button className="btn-twitter" block><span>twitter</span></Button>
+                      <Button className="btn-twitter" block><span>Twitter</span></Button>
                     </Col>
                   </Row>
                 </CardFooter>

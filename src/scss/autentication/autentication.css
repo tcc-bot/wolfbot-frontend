@@ -1,0 +1,45 @@
+.ComponentAuth{
+  background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/JrbItQz/technology-network-loop-background_vxe4qnnce__F0000.png');
+}
+.ContainerAuth h1{
+  font-family: 'Exo', sans-serif;
+  font-weight: bold;
+}
+.CardBody_Login h2{
+  font-family:  'Exo', sans-serif;
+  font-weight: bold;
+}
+#CardBody_Register{
+  background-color: #0a3b64;
+  color:#FFFFFF;
+}
+#CardBody_Register h2{
+  font-family:  'Exo', sans-serif;
+  font-weight: bold;
+}
+#CardFooter_Register{
+  background-color: #0a3b64;
+  color:#FFFFFF;
+}
+#TitleLogin{
+  color:#0a3b64;
+}
+#TitleEntrar_Login{
+  color:#0a3b64;
+}
+.text-muted{
+  font-weight: 400;
+}
+#BtnEsqueceuSenha_Login{
+  color:#0a3b64;
+}
+#BtnEntrar_Login{
+  background-color:#0a3b64;
+  color:#FFFFFF;
+}
+#CardRegister_Login{
+  background-color:#0a3b64;
+}
+#BtnRegistrar_Login{
+  background-color: white;
+}
