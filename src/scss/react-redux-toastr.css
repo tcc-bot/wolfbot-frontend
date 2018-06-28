@@ -373,16 +373,16 @@ body.toastr-confirm-active {
     height: 5px;
 }
 .redux-toastr .toastr .toastr-status.success {
-    background-color: #60bb71;
+    background-color: #4dbd74;
 }
 .redux-toastr .toastr .toastr-status.warning {
-    background-color: #f7a336;
+    background-color: #ffc107;
 }
 .redux-toastr .toastr .toastr-status.info {
-    background-color: #58abc3;
+    background-color: #63c2de;
 }
 .redux-toastr .toastr .toastr-status.error {
-    background-color: #db6a64;
+    background-color: #f86c6b;
 }
 .redux-toastr .toastr .rrt-left-container, .redux-toastr .toastr .rrt-right-container {
     float: left;
@@ -451,25 +451,25 @@ body.toastr-confirm-active {
     color: white;
 }
 .redux-toastr .toastr.rrt-info {
-    background-color: #58abc3;
+    background-color: #63c2de;
 }
 .redux-toastr .toastr.rrt-info .rrt-progressbar {
     background-color: #378298;
 }
 .redux-toastr .toastr.rrt-success {
-    background-color: #60bb71;
+    background-color: #4dbd74;
 }
 .redux-toastr .toastr.rrt-success .rrt-progressbar {
     background-color: #3e914d;
 }
 .redux-toastr .toastr.rrt-warning {
-    background-color: #f7a336;
+    background-color: #ffc107;
 }
 .redux-toastr .toastr.rrt-warning .rrt-progressbar {
     background-color: #d87e09;
 }
 .redux-toastr .toastr.rrt-error {
-    background-color: #db6a64;
+    background-color: #f86c6b;
 }
 .redux-toastr .toastr.rrt-error .rrt-progressbar {
     background-color: #c5352e;

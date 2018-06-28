@@ -10,10 +10,6 @@ import 'simple-line-icons/css/simple-line-icons.css';
 import './scss/style.css'
 // import '../node_modules/@coreui/styles/scss/_dropdown-menu-right.scss';
 
-// Import CSS Modules Wolfbot
-import './scss/autentication/autentication.css'
-
-
 // Pages
 import { Login, Page404, Page500, Register } from './views/Pages';
 

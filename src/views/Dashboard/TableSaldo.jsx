@@ -12,10 +12,10 @@ class TableSaldo extends Component {
     render() {
         return (
             <Col xs="6" lg="3">
-                <Card className="card text-white bg-dark">
-                    <CardHeader className="h5" >
+                <Card className="card">
+                    <CardHeader>
                         <i className=" fa icon-wallet"></i> Carteira de Ativos
-              </CardHeader>
+                    </CardHeader>
                     <CardBody>
                         <Table responsive size="sm">
                             <thead>
@@ -48,13 +48,21 @@ class TableSaldo extends Component {
                             </tbody>
                         </Table>
                         <Pagination className="pagination pagination-sm" >
-                            <PaginationItem><PaginationLink previous tag="button">Prev</PaginationLink></PaginationItem>
+                            <PaginationItem>
+                                <PaginationLink previous tag="button">Anterior</PaginationLink>
+                            </PaginationItem>
                             <PaginationItem active>
                                 <PaginationLink tag="button">1</PaginationLink>
                             </PaginationItem>
-                            <PaginationItem><PaginationLink tag="button">2</PaginationLink></PaginationItem>
-                            <PaginationItem><PaginationLink tag="button">3</PaginationLink></PaginationItem>
-                            <PaginationItem><PaginationLink next tag="button">Next</PaginationLink></PaginationItem>
+                            <PaginationItem>
+                                <PaginationLink tag="button">2</PaginationLink>
+                            </PaginationItem>
+                            <PaginationItem>
+                                <PaginationLink tag="button">3</PaginationLink>
+                            </PaginationItem>
+                            <PaginationItem>
+                                <PaginationLink next tag="button">Próximo</PaginationLink>
+                            </PaginationItem>
                         </Pagination>
                     </CardBody>
                 </Card>

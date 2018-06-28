@@ -1,1 +1,134 @@
 // Here you can add other styles
+
+
+//*********************ALTERAÇÕES NO TEMPLATE*************************************
+
+  .card {
+    background-color: #3a4149;
+    border: 1px solid #23282c;
+  }
+
+  .app-header{
+    background-color: #3a4149;
+    border-bottom: 1px solid #23282c;
+  }
+
+  .sidebar{
+    background-color: #3a4149;
+    border-right: 1px solid #23282c;
+  }
+
+  .sidebar .nav-link.active {
+    background: #343b41;
+    border-right: 1px solid #23282c;
+  }
+
+  .breadcrumb{
+    background-color: #3a4149;
+    border-bottom: 1px solid #23282c;
+  }
+
+  .breadcrumb-item.active {
+    color: #e4e7ea;
+  }
+
+  .page-link {
+    background-color: #343b41;
+    border: 1px solid #23282c;
+  }
+
+  .page-link:hover {
+    background-color: #2c3236;
+    border-color: #23282c;
+  }
+
+  .app-header .navbar-toggler:hover .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%2320a8d8' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+  .app-header .navbar-toggler-icon {
+    height: 23px;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23e4e7ea' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+
+  .table th,
+  .table td {
+    border-top: 1px solid #23282c;
+  }
+
+  .table thead th {
+    border-bottom: 2px solid #23282c;
+  }
+
+  .body{
+    color: #e4e7ea
+  }
+
+  .card-header {
+    background-color: #343b41;
+    border-bottom: 1px solid #23282c;
+  }
+
+  .app-footer {
+    color: #e4e7ea;
+    background-color: #3a4149;
+    border-top: 1px solid #23282c;
+  }
+
+  .input-group-text {
+    color: #e4e7ea;
+    background-color: #343b41;
+    border: 1px solid #23282c;
+  }
+
+  .form-control {
+    color: #e4e7ea;
+    background-color: #515b65;
+    border: 1px solid #23282c;
+  }
+
+  .form-control:focus {
+    color: #e4e7ea;
+    background-color: #515b65;
+    border-color: #8ad4ee;
+    box-shadow: 0 0 0 0.2rem rgba(32, 168, 216, 0.25);
+  }
+
+  .form-control::placeholder {
+    color: #e4e7ea;
+  }
+
+
+// ************************************PAGINA DE LOGIN****************************************
+
+  .ComponentAuth{
+    background-image: url('/assets/img/bg-login.jpg');
+    background-size: 100%;
+  }
+  
+  #logoMarca{
+    align-content: center;
+  }
+
+  #cardLogin{
+    background-color: rgba(35,40,44,0.8);
+    font-family: 'Exo', sans-serif;
+    color:#20a8d8;
+  }
+
+  #cardRegister{
+    background-color: rgba(27,30,32,0.8);
+    font-family: 'Exo', sans-serif;
+    color:#ffc107;
+  }
+
+  #cardFooterRegister{
+    background-color: rgba(27,30,32,0.1);
+    border-top: 1px solid #23282c;
+  }
+
+  #textCardRegister{
+    margin-top: 7px;
+    margin-right: 2px;
+  }
+
+  

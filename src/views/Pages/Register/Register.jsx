@@ -4,6 +4,7 @@ import { Button, Card, CardBody, CardFooter, Col, Container, InputGroup, InputGr
 import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Link } from 'react-router-dom'
 
 import { signup } from '../../../_actions/authActions'
 import Input from '../../../containers/Components/Input'
@@ -28,8 +29,8 @@ class Register extends Component {
         <Container className="ContainerAuth">
           <Row className="justify-content-center">
             <Col md="6">
-              <Card className="mx-4">
-                <CardBody className="p-4" id='CardBody_Register'>
+              <Card id="cardRegister" className="mx-4">
+                <CardBody className="p-4">
                   <h1>Registrar</h1>
                   <p className="text-muted">Crie sua conta</p>
                   <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
@@ -63,10 +64,14 @@ class Register extends Component {
                       </InputGroupAddon>
                       <Field component={Input} type="password" name="confirm_password" placeholder="Repetir password" />
                     </InputGroup>
-                    <Button type="submit" color="success" block>Cadastrar</Button>
+                    <Button type="submit" className="btn btn-outline-success" block>Cadastrar</Button>
                   </form>
+                <Row className="justify-content-center">
+                  <p id="textCardRegister" className="text-muted">Já tem uma conta?</p>
+                  <Link to="/login"><Button color="link" className="px-0"><a>Entrar</a></Button></Link>
+                </Row>
                 </CardBody>
-                <CardFooter className="p-4" id='CardFooter_Register'>
+                <CardFooter id="cardFooterRegister" className="p-4">
                   <Row>
                     <Col xs="12" sm="6">
                       <Button className="btn-facebook" block><span>Facebook</span></Button>

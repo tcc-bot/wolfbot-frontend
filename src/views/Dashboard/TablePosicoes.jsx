@@ -12,10 +12,10 @@ class TablePosicoes extends Component {
     render() {
         return (
             <Col xs="12" lg="9">
-                <Card className="card text-white bg-dark">
-                    <CardHeader className="h5">
+                <Card className="card">
+                    <CardHeader>
                         <i className="fa fa-random"></i> Posições Abertas
-              </CardHeader>
+                    </CardHeader>
                     <CardBody>
                         <Table responsive>
                             <thead>
@@ -36,8 +36,8 @@ class TablePosicoes extends Component {
                                     <td>7.00%</td>
                                     <td>5 dias</td>
                                     <td>
-                                        <Button className="btn btn-success btn-sm mr-1 margin-right: 1rem">Vender Posição</Button>
-                                        <Button className="btn btn-info btn-sm">Info</Button>
+                                        <Button className="btn btn-outline-success btn-sm mr-1 margin-right: 1rem">Vender Posição</Button>
+                                        <Button className="btn btn-outline-info btn-sm">Info</Button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -47,8 +47,8 @@ class TablePosicoes extends Component {
                                     <td>3.00%</td>
                                     <td>3 dias</td>
                                     <td>
-                                        <Button className="btn btn-success btn-sm mr-1 margin-right: 1rem">Vender Posição</Button>
-                                        <Button className="btn btn-info btn-sm">Info</Button>
+                                    <Button className="btn btn-outline-success btn-sm mr-1 margin-right: 1rem">Vender Posição</Button>
+                                        <Button className="btn btn-outline-info btn-sm">Info</Button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -58,8 +58,8 @@ class TablePosicoes extends Component {
                                     <td>7.00%</td>
                                     <td>5 dias</td>
                                     <td>
-                                        <Button className="btn btn-success btn-sm mr-1 margin-right: 1rem">Vender Posição</Button>
-                                        <Button className="btn btn-info btn-sm">Info</Button>
+                                    <Button className="btn btn-outline-success btn-sm mr-1 margin-right: 1rem">Vender Posição</Button>
+                                        <Button className="btn btn-outline-info btn-sm">Info</Button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -69,8 +69,8 @@ class TablePosicoes extends Component {
                                     <td>7.00%</td>
                                     <td>5 dias</td>
                                     <td>
-                                        <Button className="btn btn-success btn-sm mr-1 margin-right: 1rem">Vender Posição</Button>
-                                        <Button className="btn btn-info btn-sm">Info</Button>
+                                    <Button className="btn btn-outline-success btn-sm mr-1 margin-right: 1rem">Vender Posição</Button>
+                                        <Button className="btn btn-outline-info btn-sm">Info</Button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -80,15 +80,15 @@ class TablePosicoes extends Component {
                                     <td>7.00%</td>
                                     <td>5 dias</td>
                                     <td>
-                                        <Button className="btn btn-success btn-sm mr-1 margin-right: 1rem">Vender Posição</Button>
-                                        <Button className="btn btn-info btn-sm">Info</Button>
+                                    <Button className="btn btn-outline-success btn-sm mr-1 margin-right: 1rem">Vender Posição</Button>
+                                        <Button className="btn btn-outline-info btn-sm">Info</Button>
                                     </td>
                                 </tr>
                             </tbody>
                         </Table>
                         <Pagination>
                             <PaginationItem>
-                                <PaginationLink previous tag="button"></PaginationLink>
+                                <PaginationLink previous tag="button">Anterior</PaginationLink>
                             </PaginationItem>
                             <PaginationItem active>
                                 <PaginationLink tag="button">1</PaginationLink>
@@ -103,7 +103,7 @@ class TablePosicoes extends Component {
                                 <PaginationLink tag="button">4</PaginationLink>
                             </PaginationItem>
                             <PaginationItem>
-                                <PaginationLink next tag="button"></PaginationLink>
+                                <PaginationLink next tag="button">Próximo</PaginationLink>
                             </PaginationItem>
                         </Pagination>
                     </CardBody>
