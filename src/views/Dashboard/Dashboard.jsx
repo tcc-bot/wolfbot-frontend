@@ -3,6 +3,7 @@ import { Row, Button, Card, CardHeader, CardBody, Table, Col, Pagination, Pagina
 import TablePosicoes from './TablePosicoes'
 import TableSaldo from './TableSaldo'
 import Alerts from '../../containers/Components/Alerts'
+import TablePosicoes2 from './TablePosicoes2';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class Dashboard extends Component {
         <Row>
           <TablePosicoes />
           <TableSaldo />
+          <TablePosicoes2 />
         </Row>
       </div>
     );

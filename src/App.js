@@ -10,6 +10,9 @@ import 'simple-line-icons/css/simple-line-icons.css';
 import './scss/style.css'
 // import '../node_modules/@coreui/styles/scss/_dropdown-menu-right.scss';
 
+//css react-table
+import './scss/react-tables.css'
+
 // Pages
 import { Login, Page404, Page500, Register } from './views/Pages';
 
