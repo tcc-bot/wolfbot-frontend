@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 
-import { login } from '../../../_actions/authActions'
+import { login, atualizaTelaLogin } from '../../../_actions/authActions'
 import Input from '../../../containers/Components/Input'
 import Alerts from '../../../containers/Components/Alerts'
 
@@ -19,6 +19,10 @@ class Login extends Component {
   onSubmit(values) {
     const { login } = this.props
     login(values)
+  }
+
+  componentWillMount() {
+    this.props.atualizaTelaLogin();
   }
 
   render() {
@@ -79,5 +83,5 @@ class Login extends Component {
 }
 
 Login = reduxForm({ form: 'authForm' })(Login)
-const mapDispatchToProps = dispatch => bindActionCreators({ login }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ login, atualizaTelaLogin }, dispatch)
 export default connect(null, mapDispatchToProps)(Login)

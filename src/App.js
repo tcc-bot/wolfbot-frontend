@@ -14,7 +14,7 @@ import './scss/style.css'
 import './scss/react-tables.css'
 
 // Pages
-import { Login, Page404, Page500, Register, PasswordRecovery } from './views/Pages';
+import { Login, Page404, Page500, Register, PasswordRecovery, EmailSendPasswordRecovery } from './views/Pages';
 
 import AuthLogin from './views/Pages/Login/authLogin'
 
@@ -28,6 +28,7 @@ class App extends Component {
           <Route exact path="/404" name="Page 404" component={Page404} />
           <Route exact path="/500" name="Page 500" component={Page500} />
           <Route exact path="/passwordrecovery" name="Password Recovery Page" component={PasswordRecovery} />
+          <Route exact path="/emailsendpasswordrecovery" name="Email Send Password Recovery Page" component={EmailSendPasswordRecovery} />
           <Route path="/" name="AuthLogin" component={AuthLogin} />
         </Switch>
       </HashRouter>

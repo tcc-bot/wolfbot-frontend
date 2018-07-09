@@ -70,3 +70,7 @@ export function passwordRecovery(email) {
       .catch(e => toastr.error("Erro", e.response.data.errors.message))
   }
 }
+
+export function atualizaTelaLogin() {
+  return { type: 'PAGE_LOGIN_UPDATED', payload: false }
+}

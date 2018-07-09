@@ -1,0 +1,6 @@
+{
+  "name": "EmailSendPasswordRecovery",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./EmailSendPasswordRecovery.jsx"
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Card, CardBody, CardGroup, Col, Container, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
 
 import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
@@ -58,11 +59,16 @@ class PasswordRecovery extends Component {
             </Col>
           </Row>
         </Container>
+        {this.props.redirectPageEmailSucess ? <Redirect from="/" to="/emailsendpasswordrecovery" /> : null}
       </div >
     );
   }
 }
 
 PasswordRecovery = reduxForm({ form: 'authForm' })(PasswordRecovery)
+
+const mapStateToProps = (state) => ({
+  redirectPageEmailSucess: state.auth.passwordRecovery
+})
 const mapDispatchToProps = dispatch => bindActionCreators({ passwordRecovery }, dispatch)
-export default connect(null, mapDispatchToProps)(PasswordRecovery)
+export default connect(mapStateToProps, mapDispatchToProps)(PasswordRecovery)

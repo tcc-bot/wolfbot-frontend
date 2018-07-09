@@ -20,6 +20,9 @@ export default (state = INITIAL_STATE, action) => {
       if (action.payload) {
         return { ...state, passwordRecovery: action.payload }
       }
+    case 'PAGE_LOGIN_UPDATED': {
+      return { ...state, passwordRecovery: action.payload }
+    }
     default:
       return state
   }
