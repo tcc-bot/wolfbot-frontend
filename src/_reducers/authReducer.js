@@ -2,7 +2,9 @@ const userKey = 'user_bot'
 const INITIAL_STATE = {
   user: JSON.parse(localStorage.getItem(userKey)),
   validToken: false,
-  passwordRecovery: false
+  passwordRecovery: false,
+  changePasswordPermition: true,
+  changePasswordHash: '',
 }
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -22,6 +24,14 @@ export default (state = INITIAL_STATE, action) => {
       }
     case 'PAGE_LOGIN_UPDATED': {
       return { ...state, passwordRecovery: action.payload }
+    }
+    case 'CHANGE_PASSWORD_CONFIRM': {
+      if (action.payload.permitionChangePassword) {
+        return { ...state, changePasswordPermition: true, changePasswordHash: action.payload.hash }
+      }
+      else {
+        return { ...state, changePasswordPermition: false, changePasswordHash: null }
+      }
     }
     default:
       return state

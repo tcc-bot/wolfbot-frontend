@@ -7,7 +7,8 @@ import {
   Page500,
   Register,
   PasswordRecovery,
-  EmailSendPasswordRecovery
+  EmailSendPasswordRecovery,
+  ChangePassword
 } from './Pages'
 
 
@@ -20,6 +21,7 @@ export {
   Estatisticas,
   Configuracao,
   PasswordRecovery,
-  EmailSendPasswordRecovery
+  EmailSendPasswordRecovery,
+  ChangePassword
 };
 
