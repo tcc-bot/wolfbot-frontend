@@ -9977,13 +9977,6 @@ body {
   height: 23px;
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23e4e7ea' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
 
-.table th,
-.table td {
-  border-top: 1px solid #23282c; }
-
-.table thead th {
-  border-bottom: 2px solid #23282c; }
-
 .body {
   color: #e4e7ea; }
 
@@ -10014,6 +10007,37 @@ body {
 
 .form-control::placeholder {
   color: #e4e7ea; }
+
+.dropdown-menu {
+  color: #e4e7ea;
+  background-color: #3a4149;
+  border: 1px solid #23282c; }
+
+.dropdown-header {
+  color: #e4e7ea;
+  background-color: #343b41;
+  border-bottom: 1px solid #23282c; }
+
+.dropdown-item {
+  color: #e4e7ea;
+  border-bottom: 1px solid #23282c; }
+
+.dropdown-item:hover, .dropdown-item:focus {
+  color: #e4e7ea;
+  background-color: #2f353a; }
+
+.text-white {
+  color: #e4e7ea; }
+
+.bg-dark {
+  color: #e4e7ea; }
+
+#iconFullHeader {
+  margin-right: 10px;
+  color: #e4e7ea; }
+
+#iconFullHeader:hover {
+  color: #20a8d8; }
 
 .ComponentAuth {
   background-image: url("/assets/img/bg-login.jpg");

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { DropdownItem, DropdownMenu, DropdownToggle, Nav} from 'reactstrap';
+import { Badge, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem, NavLink } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-import { AppHeaderDropdown, AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
+import { AppAsideToggler, AppHeaderDropdown, AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { logout } from '../../_actions/authActions'
@@ -20,9 +20,6 @@ class FullHeader extends Component {
   }
 
   render() {
-
-    const { nome, email } = this.props.user
-
     return (
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
@@ -31,16 +28,16 @@ class FullHeader extends Component {
           minimized={{ src: process.env.PUBLIC_URL + 'assets/img/brand/logo-icon.svg', width: 30, height: 30, alt: 'CoreUI Logo' }}
         />
         <AppSidebarToggler className="d-md-down-none" display="lg" />
-
         <Nav className="ml-auto" navbar>
           <AppHeaderDropdown direction="down">
-            <DropdownToggle nav className="mr-3 margin-right: 1rem" >
-              <div>
-                <h5>{nome}</h5>
-              </div>
+            <DropdownToggle nav>
+            <i id="iconFullHeader" class="fa fa-user-circle fa-3x"></i>
             </DropdownToggle>
             <DropdownMenu right style={{ right: 'auto' }}>
-              <DropdownItem onClick={this.props.logout} ><i className="fa fa-lock"></i> Sair</DropdownItem>
+              <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
+              <DropdownItem><i className="fa fa-user"></i> Profile</DropdownItem>
+              <DropdownItem><i className="fa fa-wrench"></i> Configurações</DropdownItem>
+              <DropdownItem onClick={this.props.logout}><i className="fa fa-lock"></i> Sair</DropdownItem>
             </DropdownMenu>
           </AppHeaderDropdown>
         </Nav>

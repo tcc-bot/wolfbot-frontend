@@ -29,7 +29,7 @@ class Full extends Component {
         <AppHeader fixed >
           <FullHeader />
         </AppHeader>
-        <div className="app-body bg-dark text-white">
+        <div className="app-body bg-dark">
           <AppSidebar fixed display="lg">
             <AppSidebarHeader />
             <AppSidebarForm />
