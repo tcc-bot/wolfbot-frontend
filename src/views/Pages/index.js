@@ -4,6 +4,7 @@ import Page500 from './Page500';
 import Register from './Register';
 import PasswordRecovery from './PasswordRecovery';
 import EmailSendPasswordRecovery from './EmailSendPasswordRecovery';
+import ChangePassword from './ChangePassword';
 
 export {
   Login,
@@ -11,5 +12,6 @@ export {
   Page500,
   Register,
   PasswordRecovery,
-  EmailSendPasswordRecovery
+  EmailSendPasswordRecovery,
+  ChangePassword
 };

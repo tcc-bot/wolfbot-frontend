@@ -64,13 +64,22 @@ export function passwordRecovery(email) {
     axios.post(`${consts.OAPI_URL_LOCALHOST}/passwordrecovery`, email)
       .then(resp => {
         dispatch({ type: 'PASSWORD_RECOVERY', payload: resp.data.valid }
-          , toastr.success('Sucesso', 'Email enviado com sucesso')
+          , toastr.success('Sucesso', 'Email para recuperação da senha foi enviado!')
         )
       })
       .catch(e => toastr.error("Erro", e.response.data.errors.message))
   }
 }
 
-export function atualizaTelaLogin() {
+export function loadLoginPage() {
   return { type: 'PAGE_LOGIN_UPDATED', payload: false }
+}
+
+export function loadChangePasswordPage(parameter) {
+  return {
+    type: 'CHANGE_PASSWORD_CONFIRM', payload: {
+      permitionChangePassword: (parameter) ? true : false,
+      hash: (parameter) ? parameter : null
+    }
+  }
 }

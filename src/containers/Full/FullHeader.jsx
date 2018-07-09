@@ -31,7 +31,7 @@ class FullHeader extends Component {
         <Nav className="ml-auto" navbar>
           <AppHeaderDropdown direction="down">
             <DropdownToggle nav>
-            <i id="iconFullHeader" class="fa fa-user-circle fa-3x"></i>
+              <i id="iconFullHeader" class="fa fa-user-circle fa-3x"></i>
             </DropdownToggle>
             <DropdownMenu right style={{ right: 'auto' }}>
               <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
@@ -49,6 +49,6 @@ class FullHeader extends Component {
 FullHeader.propTypes = propTypes;
 FullHeader.defaultProps = defaultProps;
 
-const mapStateToProps = state => ({user: state.auth.user})
+const mapStateToProps = state => ({ user: state.auth.user })
 const mapDispatchToProps = dispatch => bindActionCreators({ logout }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(FullHeader)
