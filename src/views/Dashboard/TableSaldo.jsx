@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Button, Card, CardHeader, CardBody, Table, Col, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
+import { Card, CardHeader, CardBody, Col } from 'reactstrap';
+
+import ReactTable from "react-table";
 
 
 class TableSaldo extends Component {
@@ -10,60 +12,39 @@ class TableSaldo extends Component {
     }
 
     render() {
+        const data = [
+            { moeda: 'BTC', quantidade: 0.34256400 },
+            { moeda: 'XMR', quantidade: 0.56473400 },
+            { moeda: 'DASH', quantidade: 0.67853409 },
+            { moeda: 'ETC', quantidade: 0.56789054 },
+            { moeda: 'ETH', quantidade: 0.79043217 },
+            { moeda: 'XMR', quantidade: 0.87654908 },
+            { moeda: 'BTC', quantidade: 0.14563278 },
+            { moeda: 'BTC', quantidade: 0.90876890 },
+
+        ]
+
+        const columns = [{
+            Header: 'Moeda',
+            accessor: 'moeda' // String-based value accessors!
+        }, {
+            Header: 'Quantidade',
+            accessor: 'quantidade',
+        }]
+
         return (
-            <Col xs="6" lg="3">
+            <Col xs="3" lg="4" sm="12">
                 <Card className="card">
                     <CardHeader>
-                        <i className=" fa icon-wallet"></i> Carteira de Ativos
+                        <i className="fa icon-wallet"></i> Carteira de Ativos
                     </CardHeader>
                     <CardBody>
-                        <Table responsive size="sm">
-                            <thead>
-                                <tr>
-                                    <th>Moeda</th>
-                                    <th>Saldo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>BTC</td>
-                                    <td>0.00240000</td>
-                                </tr>
-                                <tr>
-                                    <td>ETH</td>
-                                    <td>0.98006743</td>
-                                </tr>
-                                <tr>
-                                    <td>XRP</td>
-                                    <td>23.23400000</td>
-                                </tr>
-                                <tr>
-                                    <td>TRT</td>
-                                    <td>123.90870000</td>
-                                </tr>
-                                <tr>
-                                    <td>XMR</td>
-                                    <td>18.00000340</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                        <Pagination className="pagination pagination-sm" >
-                            <PaginationItem>
-                                <PaginationLink previous tag="button">Anterior</PaginationLink>
-                            </PaginationItem>
-                            <PaginationItem active>
-                                <PaginationLink tag="button">1</PaginationLink>
-                            </PaginationItem>
-                            <PaginationItem>
-                                <PaginationLink tag="button">2</PaginationLink>
-                            </PaginationItem>
-                            <PaginationItem>
-                                <PaginationLink tag="button">3</PaginationLink>
-                            </PaginationItem>
-                            <PaginationItem>
-                                <PaginationLink next tag="button">Próximo</PaginationLink>
-                            </PaginationItem>
-                        </Pagination>
+                        <ReactTable
+                            data={data}
+                            columns={columns}
+                            defaultPageSize={5}
+                            className="-striped -highlight"
+                        />
                     </CardBody>
                 </Card>
             </Col>
