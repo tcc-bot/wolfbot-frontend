@@ -63,8 +63,8 @@ export function passwordRecovery(email) {
   return dispatch => {
     axios.post(`${consts.OAPI_URL_LOCALHOST}/passwordrecovery`, email)
       .then(resp => {
-        dispatch({ type: 'PASSWORD_RECOVERY', payload: resp.data.valid }
-          , toastr.success('Sucesso', 'Email para recuperação da senha foi enviado!')
+        dispatch({ type: 'PASSWORD_RECOVERY', payload: resp.data.success }
+          , toastr.success('Sucesso', 'O Email para redefinição de senha foi enviado!')
         )
       })
       .catch(e => toastr.error("Erro", e.response.data.errors.message))
