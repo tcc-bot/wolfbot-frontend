@@ -1,0 +1,6 @@
+{
+    "name": "Carteira",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./Carteira.jsx"
+}

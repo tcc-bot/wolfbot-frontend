@@ -6,6 +6,11 @@ export default {
       icon: 'icon-speedometer',
     },
     {
+      name: 'Carteira',
+      url: '/carteira',
+      icon: 'icon-wallet',
+    },
+    {
       name: 'Estatisticas',
       url: '/estatisticas',
       icon: 'icon-chart',
