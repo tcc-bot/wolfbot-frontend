@@ -3,6 +3,8 @@ import { Row } from 'reactstrap';
 import TablePosicoes from './TablePosicoes'
 import Alerts from '../../containers/Components/Alerts'
 import ResumoOperacoes from './ResumoOperacoes'
+import ResumoInvestimento from './ResumoInvestimento';
+import BotaoRobo from './BotaoRobo'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -17,7 +19,9 @@ class Dashboard extends Component {
         <Alerts />
         <Row>
           <ResumoOperacoes />
+          <ResumoInvestimento />
           <TablePosicoes />
+          <BotaoRobo />
         </Row>
       </div>
     );

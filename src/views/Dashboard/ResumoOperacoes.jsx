@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Col, Card, CardHeader, CardBody } from 'reactstrap'
+import { Row, Col, Card, CardHeader, CardBody } from 'reactstrap'
 
 import { PieChart, Pie, Cell, Tooltip } from 'recharts'
 
@@ -43,7 +43,7 @@ class ResumoOperacoes extends Component {
                         <i className="fa fa-pie-chart" ></i> Resumo de Operações
                     </CardHeader>
                     <CardBody>
-                        <div className="row" >
+                        <Row>
                             <Col lg="4" >
                                 <PieChart width={150} height={150}>
                                     <Pie
@@ -65,7 +65,7 @@ class ResumoOperacoes extends Component {
                             <Col lg="8" className="text-center" >
                                 <h4>Total de Ordens Abertas</h4>
                                 <hr />
-                                <div className="row">
+                                <Row>
                                     <Col>
                                         <h6>Custo</h6>
                                         <p>24,87653494</p>
@@ -82,9 +82,9 @@ class ResumoOperacoes extends Component {
                                         <h6>Nº Ordens</h6>
                                         <p>34</p>
                                     </Col>
-                                </div>
+                                </Row>
                             </Col>
-                        </div>
+                        </Row>
                     </CardBody>
                 </Card>
             </Col>
