@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Row, Button, Card, CardHeader, CardBody, Table, Col, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
+import { Row } from 'reactstrap';
 import TablePosicoes from './TablePosicoes'
-import TableSaldo from './TableSaldo'
 import Alerts from '../../containers/Components/Alerts'
-import ResumoOperacoes from './ResumoOperacoes';
+import ResumoOperacoes from './ResumoOperacoes'
+import ResumoInvestimento from './ResumoInvestimento';
+import BotaoRobo from './BotaoRobo'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -18,8 +19,9 @@ class Dashboard extends Component {
         <Alerts />
         <Row>
           <ResumoOperacoes />
+          <ResumoInvestimento />
           <TablePosicoes />
-          <TableSaldo />
+          <BotaoRobo />
         </Row>
       </div>
     );

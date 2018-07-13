@@ -7,6 +7,8 @@ import ReactTable from "react-table";
 class TablePosicoes extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+        }
     }
 
 

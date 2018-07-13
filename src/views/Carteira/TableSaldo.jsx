@@ -33,7 +33,7 @@ class TableSaldo extends Component {
         }]
 
         return (
-            <Col xs="3" lg="4" sm="12">
+            <Col xs="3" lg="8" sm="12">
                 <Card className="card">
                     <CardHeader>
                         <i className="fa icon-wallet"></i> Carteira de Ativos
