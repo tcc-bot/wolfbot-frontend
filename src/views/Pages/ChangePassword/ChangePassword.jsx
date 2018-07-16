@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as qs from 'query-string'
 
-import { loadChangePasswordPage } from '../../../_actions/authActions'
+import { loadChangePasswordPage, changePassword } from '../../../_actions/authActions'
 import Input from '../../../containers/Components/Input'
 import Alerts from '../../../containers/Components/Alerts'
 
@@ -19,8 +19,8 @@ class ChangePassword extends Component {
 
   }
 
-  onSubmit() {
-
+  onSubmit(values) {
+    this.props.changePassword(values, this.props.changePasswordHash);
   }
 
   componentDidMount() {
@@ -88,5 +88,5 @@ const mapStateToProps = (state) => ({
   redirect: state.auth.changePasswordPermition,
   changePasswordHash: state.auth.changePasswordHash
 })
-const mapDispatchToProps = dispatch => bindActionCreators({ loadChangePasswordPage }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ loadChangePasswordPage, changePassword }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(ChangePassword)

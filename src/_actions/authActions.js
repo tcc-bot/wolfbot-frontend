@@ -5,7 +5,7 @@ import { history } from '../_helpers/history'
 
 
 export function login(values) {
-  const url = `${consts.OAPI_URL}/login`
+  const url = `${consts.OAPI_URL_LOCALHOST}/login`
   return dispatch => {
     axios.post(url, values)
       .then(resp =>
@@ -21,7 +21,7 @@ export function login(values) {
   }
 }
 export function signup(values) {
-  const url = `${consts.OAPI_URL}/signup`
+  const url = `${consts.OAPI_URL_LOCALHOST}/signup`
 
   return dispatch => {
     axios.post(url, values)
@@ -48,7 +48,7 @@ export function logout() {
 export function validateToken(token) {
   return dispatch => {
     if (token) {
-      axios.post(`${consts.OAPI_URL}/validateToken`, { token })
+      axios.post(`${consts.OAPI_URL_LOCALHOST}/validateToken`, { token })
         .then(resp => {
           dispatch({ type: 'TOKEN_VALIDATED', payload: resp.data.valid })
         })
@@ -63,7 +63,7 @@ export function passwordRecovery(email) {
   return dispatch => {
     axios.post(`${consts.OAPI_URL_LOCALHOST}/passwordrecovery`, email)
       .then(resp => {
-        dispatch({ type: 'PASSWORD_RECOVERY', payload: resp.data.success }
+        dispatch({ type: 'PASSWORD_RECOVERY', payload: resp.data.valid }
           , toastr.success('Sucesso', 'O Email para redefinição de senha foi enviado!')
         )
       })
@@ -76,10 +76,44 @@ export function loadLoginPage() {
 }
 
 export function loadChangePasswordPage(parameter) {
-  return {
-    type: 'CHANGE_PASSWORD_CONFIRM', payload: {
-      permitionChangePassword: (parameter) ? true : false,
-      hash: (parameter) ? parameter : null
-    }
+  const objChangePassword = {
+    changepasswordhash: parameter
+  };
+  return dispatch => {
+    axios.post(`${consts.OAPI_URL_LOCALHOST}/changepasswordpermition`, objChangePassword)
+      .then(resp => {
+        const obj = {
+          success: resp.data.success,
+          hash: resp.data.hash
+        }
+        dispatch({ type: 'CHANGE_PASSWORD_CONFIRM', payload: obj }
+          , toastr.success("Sucesso", "Realize a alteração da senha"))
+      })
+      .catch(e => {
+        for (var i = 0; i < e.response.data.errors.length; i++) {
+          toastr.error("Erro", e.response.data.errors[i].message);
+        }
+        dispatch({ type: 'CHANGE_PASSWORD_DENIED', payload: e.response.data })
+      })
+  }
+}
+
+export function changePassword(values, changePasswordHash) {
+  const objChangePassword = {
+    password: values.password,
+    passwordConfirm: values.passwordConfirm,
+    changePasswordHash: changePasswordHash
+  };
+  return dispatch => {
+    axios.post(`${consts.OAPI_URL_LOCALHOST}/changepassword`, objChangePassword)
+      .then(resp => {
+        dispatch({ type: 'PASSWORD_CHANGED', payload: resp.data.success }
+          , toastr.success('Sucesso', resp.data.message))
+      })
+      .catch(e => {
+        for (var i = 0; i < e.response.data.errors.length; i++) {
+          toastr.error("Erro", e.response.data.errors[i].message);
+        }
+      })
   }
 }
