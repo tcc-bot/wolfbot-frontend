@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Input, Form } from 'reactstrap';
 
 import Alerts from '../../containers/Components/Alerts'
+import SelectExchanges from './SelectExchanges'
 
 class Configuracao extends Component {
     constructor(props) {
@@ -24,21 +25,17 @@ class Configuracao extends Component {
                             <CardBody>
                                 <Form>
                                     <InputGroup className="mb-3">
-                                        <Col lg="2">
+                                        <Col lg="1">
                                             <Label >
                                                 <h6>Exchange</h6>
                                             </Label>
                                         </Col>
                                         <Col>
-                                            <select name="moedas" id="moedas">
-                                                <option value="valor1">Valor 1</option>
-                                                <option value="valor2" selected>Valor 2</option>
-                                                <option value="valor3">Valor 3</option>
-                                            </select>
+                                            <SelectExchanges />
                                         </Col>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <Col lg="2">
+                                        <Col lg="1">
                                             <Label>
                                                 <h6>API Key</h6>
                                             </Label>
@@ -48,7 +45,7 @@ class Configuracao extends Component {
                                         </Col>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <Col lg="2">
+                                        <Col lg="1">
                                             <Label>
                                                 <h6>API Secret</h6>
                                             </Label>
