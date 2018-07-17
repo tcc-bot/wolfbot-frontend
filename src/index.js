@@ -5,7 +5,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
-import reducers from './_reducers/reducers'
+import reducers from './reducers'
 
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__

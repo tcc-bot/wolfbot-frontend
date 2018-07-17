@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { AppHeaderDropdown, AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { logout } from '../../_actions/authActions'
+import { logout } from '../../views/Pages/Login/authActions'
 
 const propTypes = {
   children: PropTypes.node,
