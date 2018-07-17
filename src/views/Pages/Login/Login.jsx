@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 
-import { login, loadLoginPage } from '../../../_actions/authActions'
+import { login, loadLoginPage } from './authActions'
 import Input from '../../../containers/Components/Input'
 import Alerts from '../../../containers/Components/Alerts'
 
