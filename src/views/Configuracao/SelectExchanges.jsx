@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
-import { Row } from 'reactstrap';
+
+import Select from 'react-select'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { getExchanges } from './ConfiguracaoActions'
+
 
 class SelectExchanges extends Component {
     constructor(props) {
         super(props);
     }
 
-    render() {
+    componentWillMount(){
+        this.props.getExchanges()
+    }
 
+    render() {
+        console.log(this.props.data)
         return (
-            <select name="moedas" id="moedas">
-                <option value="valor1">Valor 1</option>
-                <option value="valor2" selected>Valor 2</option>
-                <option value="valor3">Valor 3</option>
-            </select>
+            <div>
+                <Select options={this.props.data.data} />
+            </div>
         );
     }
 }
 
-export default SelectExchanges;
+const mapStateToProps = state => ({ data: state.configuracao.data })
+const mapDispatchToProps = dispatch => bindActionCreators({getExchanges}, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(SelectExchanges)
