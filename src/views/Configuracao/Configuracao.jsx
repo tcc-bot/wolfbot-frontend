@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Input, Form } from 'reactstrap';
+import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap';
 
 import Alerts from '../../containers/Components/Alerts'
+import Input from '../../containers/Components/Input'
 import SelectExchanges from './SelectExchanges'
+import { reduxForm, Field } from 'redux-form'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { salvarConfiguracao } from './ConfiguracaoActions'
 
 class Configuracao extends Component {
     constructor(props) {
@@ -12,7 +17,13 @@ class Configuracao extends Component {
         };
     }
 
+    onSubmit(values) {
+        const { salvarConfiguracao } = this.props
+        salvarConfiguracao(values)
+    }
+
     render() {
+        const { handleSubmit } = this.props
         return (
             <div className="animated fadeIn">
                 <Alerts />
@@ -23,7 +34,7 @@ class Configuracao extends Component {
                                 <i className="icon-settings"></i> Configuração
                             </CardHeader>
                             <CardBody>
-                                <Form>
+                                <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
                                     <InputGroup className="mb-3">
                                         <Col lg="1">
                                             <Label >
@@ -41,7 +52,7 @@ class Configuracao extends Component {
                                             </Label>
                                         </Col>
                                         <Col>
-                                            <Input type="text" className="form-control" />
+                                            <Field component={Input} type="text" name="key" placeholder="ApiKey" className="form-control" />
                                         </Col>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
@@ -51,11 +62,16 @@ class Configuracao extends Component {
                                             </Label>
                                         </Col>
                                         <Col>
-                                            <Input type="text" className="form-control" />
+                                            <Field component={Input} type="text" name="secret" placeholder="ApiSecret" className="form-control" />
                                         </Col>
                                     </InputGroup>
+                                    <Row>
+                                        <Col xs="6">
+                                            <Button type="submit" className="btn-outline-success">Salvar Configuração</Button>
+                                        </Col>
+                                    </Row>
                                     <hr />
-                                </Form>
+                                </form>
                             </CardBody>
                         </Card>
                     </Col>
@@ -65,4 +81,6 @@ class Configuracao extends Component {
     }
 }
 
-export default Configuracao;
+Configuracao = reduxForm({ form: 'formConfig' })(Configuracao)
+const mapDispatchToProps = dispatch => bindActionCreators({ salvarConfiguracao }, dispatch)
+export default connect(null, mapDispatchToProps)(Configuracao)
