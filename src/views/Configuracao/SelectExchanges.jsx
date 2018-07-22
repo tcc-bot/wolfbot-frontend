@@ -11,20 +11,24 @@ class SelectExchanges extends Component {
         super(props);
     }
 
-    componentWillMount(){
+
+
+    componentWillMount() {
         this.props.getExchanges()
     }
 
     render() {
-        console.log(this.props.data)
+        console.log(this.props.data.data)
         return (
             <div>
-                <Select options={this.props.data.data} />
+                <Select
+                    options={this.props.data.data}
+                />
             </div>
         );
     }
 }
 
-const mapStateToProps = state => ({ data: state.configuracao.data })
-const mapDispatchToProps = dispatch => bindActionCreators({getExchanges}, dispatch)
+const mapStateToProps = state => ({ data: state.selectConfig.data })
+const mapDispatchToProps = dispatch => bindActionCreators({ getExchanges }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(SelectExchanges)

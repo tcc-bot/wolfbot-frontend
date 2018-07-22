@@ -1,9 +1,12 @@
-const INITIAL_STATE = { data: [{ value: "Bittrex", label: "Bittrex" }] }
-
-export default function (state = INITIAL_STATE, action) {
+const exchangeToken = 'exchange_token'
+const INITIAL_STATE = {
+    exchangeToken: JSON.parse(localStorage.getItem(exchangeToken))
+}
+export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'EXCHANGES_FETCHED':
-            return { ...state, data: action.payload.data }
+        case 'CONFIGURATION_SAVED':
+            localStorage.setItem(exchangeToken, JSON.stringify(action.payload))
+            return { ...state, exchange: action.payload.data }
         default:
             return state
     }
