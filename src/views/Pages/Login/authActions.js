@@ -90,9 +90,6 @@ export function loadChangePasswordPage(parameter) {
           , toastr.success("Sucesso", "Realize a alteração da senha"))
       })
       .catch(e => {
-        for (var i = 0; i < e.response.data.errors.length; i++) {
-          toastr.error("Erro", e.response.data.errors[i].message);
-        }
         dispatch({ type: 'CHANGE_PASSWORD_DENIED', payload: e.response.data })
       })
   }
