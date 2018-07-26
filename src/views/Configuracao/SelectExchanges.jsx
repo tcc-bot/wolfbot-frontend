@@ -24,9 +24,6 @@ class SelectExchanges extends Component {
   }
 
   render() {
-    const { selectedOptions } = this.state
-    const value = selectedOptions.value
-
     return (
       <div>
         <Select
