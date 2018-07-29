@@ -13,6 +13,7 @@ export default (state = INITIAL_STATE, action) => {
         return { ...state, validToken: true }
       } else {
         localStorage.removeItem(userKey)
+        localStorage.removeItem('exchange_bot')
         return { ...state, validToken: false, user: null }
       }
     case 'USER_FETCHED':

@@ -34,8 +34,10 @@ class Configuracao extends Component {
         const { handleSubmit } = this.props
         return (
             <div className="animated fadeIn">
-                <Alerts />
                 <Row>
+                    <div>
+                        <Alerts />
+                    </div>
                     <Col xs="12" lg="12" sm="12">
                         <Card className="card">
                             <CardHeader>
@@ -91,7 +93,7 @@ class Configuracao extends Component {
 
 Configuracao = reduxForm({ form: 'formConfig' })(Configuracao)
 const mapDispatchToProps = dispatch => bindActionCreators({ salvarConfiguracao }, dispatch)
-const mapStateToProps = state => ({ 
+const mapStateToProps = state => ({
     exchangeSelected: state.selectConfig.exchangeSelected,
     user: state.auth.user
 })

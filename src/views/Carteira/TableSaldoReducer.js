@@ -1,12 +1,20 @@
-const exchangeKey = 'exchange_bot'
 const INITIAL_STATE = {
-    exchange: JSON.parse(localStorage.getItem(exchangeKey))
+    saldo: [{moeda: '', quantidade: ''}]
 }
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'EXCHANGE_FETCHED':
-            localStorage.setItem(exchangeKey, JSON.stringify(action.payload.data))
-            return { ...state, exchange: action.payload.data }
+        case 'SALDO_FETCHED':
+            const saldoJSON = JSON.stringify(action.payload.data)
+            const saldoObjeto = JSON.parse(saldoJSON)
+            const saldo = saldoObjeto.data.info.filter(function(e){
+                if(e.Balance > 0){
+                    return e
+                }
+            })
+            const saldoFinal = saldo.map(function(e){
+                return {moeda: e.Currency, quantidade: e.Balance}
+            })
+            return { ...state, saldo: saldoFinal }
         default:
             return state
     }

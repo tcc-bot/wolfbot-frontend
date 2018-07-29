@@ -3,6 +3,7 @@ import { toastr } from 'react-redux-toastr'
 
 const BASE_URL = 'http://localhost:8080'
 
+
 export function getExchanges() {
   const request = axios.get(`${BASE_URL}/exchange`)
 
@@ -31,7 +32,8 @@ export function salvarConfiguracao(values) {
     axios.post(url, values)
       .then(resp =>
         dispatch(
-          { type: 'CONFIGURATION_SAVED', payload: resp.data }
+          { type: 'CONFIGURATION_SAVED', payload: resp.data },
+          toastr.success('Sucesso', 'Usuário registrado com sucesso')
         )
       )
       .catch(e => {

@@ -1,12 +1,11 @@
 const exchangeToken = 'exchange_token'
 const INITIAL_STATE = {
-    exchangeToken: JSON.parse(localStorage.getItem(exchangeToken))
+    exchange_token: {}
 }
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case 'CONFIGURATION_SAVED':
-            localStorage.setItem(exchangeToken, JSON.stringify(action.payload))
-            return { ...state, exchange: action.payload.data }
+            return { ...state, exchange_token: action.payload.data }
         default:
             return state
     }
