@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { toastr } from 'react-redux-toastr'
 
 const BASE_URL = 'http://localhost:8080'
 

@@ -8,9 +8,6 @@ import { bindActionCreators } from 'redux'
 
 
 class TableSaldo extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentWillMount() {
         this.props.getSaldo()

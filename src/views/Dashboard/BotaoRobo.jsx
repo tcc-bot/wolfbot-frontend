@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Label, Input, Row, Col, Card, CardHeader, CardBody } from 'reactstrap'
+import { Row, Col, Card, CardHeader, CardBody } from 'reactstrap'
 
 import Switch from "react-switch"
 

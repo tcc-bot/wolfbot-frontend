@@ -49,7 +49,7 @@ class PasswordRecovery extends Component {
                           <Button type="submit" className="btn-outline-primary">Enviar</Button>
                         </Col>
                         <Col xs="6" className="text-right">
-                          <Link to="/login"><Button color="link" className="px-0"><a>Voltar</a></Button></Link>
+                          <Link to="/login"><Button color="link" className="px-0">Voltar</Button></Link>
                         </Col>
                       </Row>
                     </form>

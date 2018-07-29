@@ -19,25 +19,22 @@ export default (state = INITIAL_STATE, action) => {
     case 'USER_FETCHED':
       localStorage.setItem(userKey, JSON.stringify(action.payload))
       return { ...state, user: action.payload, validToken: true }
-    case 'PASSWORD_RECOVERY': {
+    case 'PASSWORD_RECOVERY':
       if (action.payload) {
         return { ...state, passwordRecovery: action.payload }
       }
-    }
-    case 'PAGE_LOGIN_UPDATED': {
+      break;
+    case 'PAGE_LOGIN_UPDATED':
       return { ...state, passwordRecovery: action.payload }
-    }
-    case 'CHANGE_PASSWORD_CONFIRM': {
+    case 'CHANGE_PASSWORD_CONFIRM':
       if (action.payload.success) {
         return { ...state, changePasswordPermition: true, changePasswordHash: action.payload.hash }
       }
       else {
         return { ...state, changePasswordPermition: false, changePasswordHash: null }
       }
-    }
-    case 'CHANGE_PASSWORD_DENIED': {
+    case 'CHANGE_PASSWORD_DENIED':
       return { ...state, changePasswordPermition: false, changePasswordHash: null }
-    }
     default:
       return state
   }

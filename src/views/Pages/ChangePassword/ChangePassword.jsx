@@ -29,7 +29,7 @@ class ChangePassword extends Component {
 
 
   render() {
-    if (this.props.redirect == false) {
+    if (this.props.redirect === false) {
       window.location.reload();
     }
     const { handleSubmit } = this.props

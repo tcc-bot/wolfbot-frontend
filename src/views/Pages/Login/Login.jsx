@@ -60,7 +60,7 @@ class Login extends Component {
                           <Button type="submit" className="btn-outline-primary">Entrar</Button>
                         </Col>
                         <Col xs="6" className="text-right">
-                          <Link to="/passwordrecovery"><Button color="link" className="px-0"><a>Esqueceu sua senha?</a></Button></Link>
+                          <Link to="/passwordrecovery"><Button color="link" className="px-0">Esqueceu sua senha?</Button></Link>
                         </Col>
                       </Row>
                     </form>
@@ -70,7 +70,7 @@ class Login extends Component {
                   <CardBody className="text-center">
                     <h2>Registrar</h2>
                     <p className="text-muted">Registre-se para utilizar o bot trader WolfBot e comece a negociar hoje!.</p>
-                    <Link to="/register"><Button className="mt-3 btn-outline-warning"><a> Registrar agora!</a></Button></Link>
+                    <Link to="/register"><Button className="mt-3 btn-outline-warning"> Registrar agora!</Button></Link>
                   </CardBody>
                 </Card>
               </CardGroup>

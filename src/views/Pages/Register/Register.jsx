@@ -68,7 +68,7 @@ class Register extends Component {
                   </form>
                 <Row className="justify-content-center">
                   <p id="textCardRegister" className="text-muted">Já tem uma conta?</p>
-                  <Link to="/login"><Button color="link" className="px-0"><a>Entrar</a></Button></Link>
+                  <Link to="/login"><Button color="link" className="px-0">Entrar</Button></Link>
                 </Row>
                 </CardBody>
                 <CardFooter id="cardFooterRegister" className="p-4">

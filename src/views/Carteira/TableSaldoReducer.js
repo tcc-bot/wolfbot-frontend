@@ -9,6 +9,8 @@ export default (state = INITIAL_STATE, action) => {
             const saldo = saldoObjeto.data.info.filter(function(e){
                 if(e.Balance > 0){
                     return e
+                } else{
+                    return false
                 }
             })
             const saldoFinal = saldo.map(function(e){
