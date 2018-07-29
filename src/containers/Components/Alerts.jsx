@@ -7,7 +7,7 @@ export default props => (
         timeOut={3000}
         newestOnTop={false}
         preventDuplicates={true}
-        position='top-right'
+        position='top-center'
         transitionIn='fadeIn'
         transitionOut='fadeOut' />
 )

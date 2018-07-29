@@ -1,28 +1,22 @@
 import React, { Component } from 'react';
 import { Card, CardHeader, CardBody, Col } from 'reactstrap';
+import { getSaldo } from './CarteiraActions'
 
 import ReactTable from "react-table";
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 
 class TableSaldo extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-        }
+    }
+
+    componentWillMount() {
+        this.props.getSaldo()
     }
 
     render() {
-        const data = [
-            { moeda: 'BTC', quantidade: 0.34256400 },
-            { moeda: 'XMR', quantidade: 0.56473400 },
-            { moeda: 'DASH', quantidade: 0.67853409 },
-            { moeda: 'ETC', quantidade: 0.56789054 },
-            { moeda: 'ETH', quantidade: 0.79043217 },
-            { moeda: 'XMR', quantidade: 0.87654908 },
-            { moeda: 'BTC', quantidade: 0.14563278 },
-            { moeda: 'BTC', quantidade: 0.90876890 },
-
-        ]
 
         const columns = [{
             Header: 'Moeda',
@@ -40,7 +34,7 @@ class TableSaldo extends Component {
                     </CardHeader>
                     <CardBody>
                         <ReactTable
-                            data={data}
+                            data={this.props.saldo}
                             columns={columns}
                             defaultPageSize={5}
                             className="-striped -highlight"
@@ -52,5 +46,9 @@ class TableSaldo extends Component {
     }
 }
 
-export default TableSaldo;
+const mapStateToProps = state => ({
+    saldo: state.tableSaldo.saldo
+  })
+  const mapDispatchToProps = dispatch => bindActionCreators({ getSaldo }, dispatch)
+  export default connect(mapStateToProps, mapDispatchToProps)(TableSaldo)
 
