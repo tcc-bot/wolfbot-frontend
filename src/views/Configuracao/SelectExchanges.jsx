@@ -24,12 +24,41 @@ class SelectExchanges extends Component {
   }
 
   render() {
+
+    const custonStyle = {
+      control: styles => ({ 
+        ...styles, 
+        backgroundColor: '#515b65',
+        border: '1px solid #23282c'
+       }),
+      option: (styles, { isDisabled, isFocused, isSelected }) => {
+        return {
+          ...styles,
+          backgroundColor: isDisabled ? '#515b65' : isSelected ? '#343b41' : isFocused ? '#20a8d8' : '#515b65',
+          color: isDisabled ? '#000' : isSelected ? '#e4e7ea' : null,
+          cursor: isDisabled ? 'not-allowed' : 'default',
+        };
+      },
+      input: styles => ({ 
+        ...styles, 
+        color: '#e4e7ea',
+      }),
+      placeholder: styles => ({ 
+        ...styles,
+        color: '#e4e7ea' 
+      }),
+      singleValue: styles => ({ 
+        ...styles,
+        color: '#e4e7ea' 
+      })
+    };
     return (
       <div>
         <Select
           onChange={this.handleChange}
           options={this.props.data.data}
           value={this.props.selectedOptions}
+          styles={custonStyle}
         />
       </div>
     );
