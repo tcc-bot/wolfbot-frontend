@@ -41,3 +41,4 @@ const mapStateToProps = state => ({
 })
 const mapDispatchToProps = dispatch => bindActionCreators({ getExchange }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+
