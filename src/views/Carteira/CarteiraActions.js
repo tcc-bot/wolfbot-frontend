@@ -7,11 +7,18 @@ export function getSaldo() {
     const EXCHANGE_BOT = loadLocalStorage('exchange_bot')
     const id_usuario = USER_BOT.id
     const id_exchange = EXCHANGE_BOT.id_exchange
-    const request = axios.get(`${BASE_URL}/bittrex/saldo?id_usuario=${id_usuario}&id_exchange=${id_exchange}`) 
 
-    return {
-        type: 'SALDO_FETCHED',
-        payload: request
+    if(id_exchange === ''){
+        return {
+            type: 'SALDO_NOT_FETCHED'
+        }
+    }else{
+        const request = axios.get(`${BASE_URL}/bittrex/saldo?id_usuario=${id_usuario}&id_exchange=${id_exchange}`)
+        
+        return {
+            type: 'SALDO_FETCHED',
+            payload: request
+        }
     }
 }
 

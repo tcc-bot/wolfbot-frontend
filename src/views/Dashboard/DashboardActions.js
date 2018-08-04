@@ -2,10 +2,11 @@ import axios from 'axios'
 
 const BASE_URL = 'http://localhost:8080'
 
-export function getExchange(){
+export function getExchange() {
     const USER_BOT = loadLocalStorage('user_bot')
     const request = axios.get(`${BASE_URL}/exchangeTokens?id_usuario=${USER_BOT.id}`)
-    return{
+    
+    return {
         type: 'EXCHANGE_FETCHED',
         payload: request
     }
