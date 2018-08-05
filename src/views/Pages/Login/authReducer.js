@@ -33,6 +33,8 @@ export default (state = INITIAL_STATE, action) => {
       else {
         return { ...state, changePasswordPermition: false, changePasswordHash: null }
       }
+    case 'LOAD_SESSSION_USER':
+      return { ...state, user: action.payload }
     case 'CHANGE_PASSWORD_DENIED':
       return { ...state, changePasswordPermition: false, changePasswordHash: null }
     default:

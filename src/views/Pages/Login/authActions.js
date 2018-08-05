@@ -48,7 +48,7 @@ export function logout() {
 export function validateToken(token) {
   return dispatch => {
     if (token) {
-      axios.get(`${consts.OAPI_URL_LOCALHOST}/validateToken`, { headers: { token } })
+      axios.get(`${consts.OAPI_URL_LOCALHOST}/validateToken`, { headers: { Authorization: token } })
         .then(resp => {
           dispatch({ type: 'TOKEN_VALIDATED', payload: resp.data.valid })
         })
@@ -73,6 +73,11 @@ export function passwordRecovery(email) {
 
 export function loadLoginPage() {
   return { type: 'PAGE_LOGIN_UPDATED', payload: false }
+}
+
+export function loadSession() {
+  const USER_BOT = loadLocalStorage('user_bot');
+  return { type: 'LOAD_SESSSION_USER', payload: USER_BOT }
 }
 
 export function loadChangePasswordPage(parameter) {
@@ -112,5 +117,18 @@ export function changePassword(values, changePasswordHash) {
           toastr.error("Erro", e.response.data.errors[i].message);
         }
       })
+  }
+}
+
+function loadLocalStorage(key) {
+  try {
+    const serializedState = localStorage.getItem(key)
+    if (serializedState === null) {
+      return ''
+    }
+    return JSON.parse(serializedState)
+  }
+  catch (err) {
+    return ''
   }
 }
