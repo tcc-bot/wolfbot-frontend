@@ -3,35 +3,26 @@ import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 
 import { reduxForm, Field } from 'redux-form'
 import Input from '../../containers/Components/Input'
 import ReactTable from "react-table";
-import moment from 'moment'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+
+import { listarHistorico } from './HistoricoActions';
 
 
 class TableHistorico extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    }
   }
+
+  componentWillMount() {
+    this.props.listarHistorico();
+  };
 
   render() {
 
-    const data = [
-      { date: '21/11/1995 13:00', quantidade: 0.34256400, custo: 26.78, acao: 'Venda', moeda: 'BTC', operacao: 'Manual' },
-      { date: '21/11/1995 13:00', quantidade: 0.56473400, custo: 67.98, acao: 'Compra', moeda: 'BTC', operacao: 'Manual' },
-      { date: '21/11/1995 13:00', quantidade: 0.67853409, custo: 54.89, acao: 'Venda', moeda: 'BTC', operacao: 'Manual' },
-      { date: '21/11/1995 13:00', quantidade: 0.56789054, custo: 23.89, acao: 'Venda', moeda: 'BTC', operacao: 'Automática' },
-      { date: '21/11/1995 13:00', quantidade: 0.79043217, custo: 45.67, acao: 'Compra', moeda: 'BTC', operacao: 'Manual' },
-      { date: '21/11/1995 13:00', quantidade: 0.87654908, custo: 76.45, acao: 'Venda', moeda: 'BTC', operacao: 'Automática' },
-      { date: '21/11/1995 13:00', quantidade: 0.14563278, custo: 23.34, acao: 'Venda', moeda: 'BTC', operacao: 'Manual' },
-      { date: '21/11/1995 13:00', quantidade: 0.90876890, custo: 13.65, acao: 'Venda', moeda: 'BTC', operacao: 'Automática' }
-
-    ]
-
     const columns = [{
       Header: 'Data da Operação',
-      accessor: 'date' // String-based value accessors!
+      accessor: 'dataOperacao' // String-based value accessors!
     }, {
       Header: 'Quantidade',
       accessor: 'quantidade',
@@ -46,7 +37,7 @@ class TableHistorico extends Component {
       accessor: 'moeda'
     }, {
       Header: 'Tipo de Operação',
-      accessor: 'operacao'
+      accessor: 'tipoOperacao'
     }]
 
     return (
@@ -85,11 +76,11 @@ class TableHistorico extends Component {
         <Card className="card">
           <CardBody>
             <ReactTable
-              data={data}
+              data={this.props.historicos}
               columns={columns}
-              defaultPageSize={data.length}
+              defaultPageSize={this.props.historicos.length}
               className="-striped -highlight"
-              pageSizeOptions={[data.length]}
+              pageSizeOptions={[this.props.historicos.length]}
             />
           </CardBody>
         </Card>
@@ -99,8 +90,8 @@ class TableHistorico extends Component {
 }
 
 TableHistorico = reduxForm({ form: 'formHistorico' })(TableHistorico)
-const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ listarHistorico }, dispatch)
 const mapStateToProps = state => ({
-
+  historicos: state.historico.historicos
 })
 export default connect(mapStateToProps, mapDispatchToProps)(TableHistorico)
