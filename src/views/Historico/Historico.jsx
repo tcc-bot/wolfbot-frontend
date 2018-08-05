@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap';
 import TableHistorico from './TableHistorico';
+import FormHistorico from './FormHistorico';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+import { listarHistorico } from './HistoricoActions';
 
 class Historico extends Component {
   constructor(props) {
@@ -13,6 +18,10 @@ class Historico extends Component {
       dropdownOpen: false,
       radioSelected: 2,
     };
+  }
+
+  componentDidMount() {
+    this.props.listarHistorico();
   }
 
   toggle() {
@@ -37,6 +46,7 @@ class Historico extends Component {
               <CardHeader>
                 <i className="fa fa-history"></i>Histórico de Transações</CardHeader>
               <CardBody>
+                <FormHistorico />
                 <TableHistorico />
               </CardBody>
             </Card>
@@ -47,4 +57,7 @@ class Historico extends Component {
   }
 }
 
-export default Historico;
+const mapDispatchToProps = dispatch => bindActionCreators({ listarHistorico }, dispatch)
+const mapStateToProps = state => ({
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Historico)
