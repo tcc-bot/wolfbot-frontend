@@ -10,13 +10,13 @@ import TableSaldoReducer from './views/Carteira/TableSaldoReducer'
 import CarteiraReducer from './views/Carteira/CarteiraReducer'
 
 const rootReducer = combineReducers({
-    dashboard: DashboardReducer,
-    configuracao: ConfiguracaoReducer,
-    carteira: CarteiraReducer,
-    selectConfig: ConfigSelectReducer,
-    tableSaldo: TableSaldoReducer,
-    form: formReducer,
-    auth: AuthReducer,
-    toastr: toastrReducer
+  dashboard: DashboardReducer,
+  configuracao: ConfiguracaoReducer,
+  carteira: CarteiraReducer,
+  selectConfig: ConfigSelectReducer,
+  tableSaldo: TableSaldoReducer,
+  form: formReducer,
+  auth: AuthReducer,
+  toastr: toastrReducer
 })
 export default rootReducer
