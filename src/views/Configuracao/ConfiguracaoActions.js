@@ -5,7 +5,7 @@ const BASE_URL = 'http://localhost:8080'
 
 
 export function getExchanges() {
-  const request = axios.get(`${BASE_URL}/exchange`)
+  const request = axios.get(`${BASE_URL}/exchanges/loadExchanges`)
 
   return {
     type: 'EXCHANGES_FETCHED',
@@ -18,7 +18,6 @@ export function SelectOption(selectOption) {
   return {
     type: 'EXCHANGE_SELECTED',
     payload: {
-      id_exchange: selectOption.id_exchange,
       value: selectOption.value,
       label: selectOption.label
     }
@@ -26,14 +25,14 @@ export function SelectOption(selectOption) {
 }
 
 export function salvarConfiguracao(values) {
-  const url = `${BASE_URL}/exchangeTokens`
+  const url = `${BASE_URL}/configuracao`
 
   return dispatch => {
     axios.post(url, values)
       .then(resp =>
         dispatch(
           { type: 'CONFIGURATION_SAVED', payload: resp.data },
-          toastr.success('Sucesso', 'Usuário registrado com sucesso')
+          toastr.success('Sucesso', 'Configuração salva com sucesso!')
         )
       )
       .catch(e => {
