@@ -21,6 +21,8 @@ class PasswordRecovery extends Component {
     const { passwordRecovery } = this.props
     passwordRecovery(values)
   }
+  componentWillMount() {
+  }
 
   render() {
     const { handleSubmit } = this.props

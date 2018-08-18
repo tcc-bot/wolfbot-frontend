@@ -13,18 +13,14 @@ import './scss/style.css'
 //css react-table
 import './scss/react-tables.css'
 
+import RouteControl from './_helpers/routeControl'
+import AuthLogin from './views/Pages/Login/authLogin'
+
 // Pages
 import {
-  Login,
   Page404,
-  Page500,
-  Register,
-  PasswordRecovery,
-  EmailSendPasswordRecovery,
-  ChangePassword
+  Page500
 } from './views/Pages';
-
-import AuthLogin from './views/Pages/Login/authLogin'
 
 class App extends Component {
   render() {
@@ -32,12 +28,12 @@ class App extends Component {
       <HashRouter>
         <Switch>
           <Route exact path="/login" name="Login Page" component={AuthLogin} />
-          <Route exact path="/register" name="Register Page" component={Register} />
+          <Route exact path="/register" name="Register Page" component={RouteControl} />
           <Route exact path="/404" name="Page 404" component={Page404} />
           <Route exact path="/500" name="Page 500" component={Page500} />
-          <Route exact path="/passwordrecovery" name="Password Recovery Page" component={PasswordRecovery} />
-          <Route exact path="/emailsendpasswordrecovery" name="Email Send Password Recovery Page" component={EmailSendPasswordRecovery} />
-          <Route exact path="/changepassword" name=" Change Password Page" component={ChangePassword} />
+          <Route exact path="/passwordrecovery" name="Password Recovery Page" component={RouteControl} />
+          <Route exact path="/emailsendpasswordrecovery" name="Email Send Password Recovery Page" component={RouteControl} />
+          <Route exact path="/changepassword" name=" Change Password Page" component={RouteControl} />
           <Route path="/" name="AuthLogin" component={AuthLogin} />
         </Switch>
       </HashRouter>

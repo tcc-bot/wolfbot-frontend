@@ -19,6 +19,7 @@ const routes = [
   { path: '/estatisticas', name: 'Estatisticas', component: Estatisticas },
   { path: '/backtesting', name: 'Backtesting', component: Backtesting },
   { path: '/configuracao', name: 'Configuracao', component: Configuracao },
+
 ];
 
 export default routes;
