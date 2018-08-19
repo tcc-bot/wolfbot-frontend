@@ -120,6 +120,19 @@ export function changePassword(values, changePasswordHash) {
   }
 }
 
+export function ativarConta(activeAccountHash) {
+  return dispatch => {
+    axios.post(`${consts.OAPI_URL_LOCALHOST}/active`, {activeAccountHash: activeAccountHash})
+      .then(resp => {
+        dispatch({ type: 'ACCOUNT_ACTIVE', payload: true }
+          , toastr.success('Sucesso', 'Sua Conta foi Ativada'))
+      })
+      .catch(e => {
+        toastr.error("Erro", e.response.data.errors[0].message);
+      })
+  }
+}
+
 function loadLocalStorage(key) {
   try {
     const serializedState = localStorage.getItem(key)

@@ -40,7 +40,7 @@ class Register extends Component {
                           <i className="icon-user"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Field component={Input} type="nome" name="nome" placeholder="Username" />
+                      <Field component={Input} type="nome" name="nome" placeholder="Nome" />
                     </InputGroup>
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
@@ -66,10 +66,10 @@ class Register extends Component {
                     </InputGroup>
                     <Button type="submit" className="btn btn-outline-success" block>Cadastrar</Button>
                   </form>
-                <Row className="justify-content-center">
-                  <p id="textCardRegister" className="text-muted">Já tem uma conta?</p>
-                  <Link to="/login"><Button color="link" className="px-0">Entrar</Button></Link>
-                </Row>
+                  <Row className="justify-content-center">
+                    <p id="textCardRegister" className="text-muted">Já tem uma conta?</p>
+                    <Link to="/login"><Button color="link" className="px-0">Entrar</Button></Link>
+                  </Row>
                 </CardBody>
                 <CardFooter id="cardFooterRegister" className="p-4">
                   <Row>
