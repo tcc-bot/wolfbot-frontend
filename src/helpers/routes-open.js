@@ -3,7 +3,7 @@ import {
   PasswordRecovery,
   EmailSendPasswordRecovery,
   ChangePassword
-} from './views';
+} from '../views';
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [

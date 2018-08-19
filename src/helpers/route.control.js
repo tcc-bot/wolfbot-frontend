@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Redirect, Route, Switch } from 'react-router-dom';
 
-import routes from '../routes-open';
+import routes from '../helpers/routes-open';
 import { loadSession } from '../views/Pages/Login/authActions'
 
 import {
@@ -21,16 +21,16 @@ class RouteControl extends Component {
     } else {
       return (
 
-          <Switch>
-            {routes.map((route, idx) => {
-              return route.component ? (
-                <Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => (
-                  <route.component {...props} />
-                )} />)
-                : (null);
-            },
-            )}
-          </Switch>        
+        <Switch>
+          {routes.map((route, idx) => {
+            return route.component ? (
+              <Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => (
+                <route.component {...props} />
+              )} />)
+              : (null);
+          },
+          )}
+        </Switch>
       )
     }
   }
