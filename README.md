@@ -1,1 +1,1 @@
-Wolfbot Front-End
+# WolfBot - Frontend
