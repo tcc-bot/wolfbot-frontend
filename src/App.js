@@ -7,13 +7,17 @@ import 'font-awesome/css/font-awesome.min.css';
 // Import Simple Line Icons Set
 import 'simple-line-icons/css/simple-line-icons.css';
 // Import Main styles for this application
-import './scss/style.css'
+import './assets/styles/template/style.css'
 // import '../node_modules/@coreui/styles/scss/_dropdown-menu-right.scss';
 
-//css react-table
-import './scss/react-tables.css'
+// CSS Modulos
+import './assets/styles/modulos/style-dashboard.css'
+import './assets/styles/modulos/style-historico.css'
 
-import RouteControl from './_helpers/routeControl'
+//css react-table
+import './assets/styles/template/react-tables.css'
+
+import RouteControl from './helpers/route.control'
 import AuthLogin from './views/Pages/Login/authLogin'
 
 // Pages

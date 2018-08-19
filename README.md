@@ -1,1 +1,1 @@
-Bot trader - Tcc 2018
+Wolfbot Front-End

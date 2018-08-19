@@ -14,6 +14,7 @@
   "dependencies": {
     "@coreui/coreui": "^2.0.0-beta.10",
     "@coreui/react": "^2.0.0-beta.1",
+    "@material-ui/core": "^1.5.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.0",
     "chart.js": "^2.7.2",
