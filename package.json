@@ -2,7 +2,7 @@
   "name": "WolfBot",
   "version": "1.0.0",
   "description": "Bot trader de criptomoedas",
-  "author": "Allyson Andrade, Celso Joselito e Vinícius Rocha",
+  "author": "Allyson Andrade, Celso Fernandes e Vinícius Rocha",
   "homepage": "www.wolfbot.com.br",
   "copyright": "Copyright 2018 creativeLabs ACV",
   "license": "MIT",
@@ -14,6 +14,7 @@
   "dependencies": {
     "@coreui/coreui": "^2.0.0-beta.10",
     "@coreui/react": "^2.0.0-beta.1",
+    "@material-ui/core": "^1.5.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.0",
     "chart.js": "^2.7.2",

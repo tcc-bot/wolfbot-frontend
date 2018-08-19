@@ -1,7 +1,7 @@
 import { toastr } from 'react-redux-toastr'
 import axios from 'axios'
-import consts from '../../../_consts/const'
-import { history } from '../../../_helpers/history'
+import consts from '../../../config/config-development'
+import { history } from '../../../helpers/history'
 
 
 export function login(values) {

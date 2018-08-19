@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap';
-import TableHistorico from './TableHistorico';
-import FormHistorico from './FormHistorico';
+import TableHistorico from './components/TableHistorico';
+import FormHistorico from './components/FormHistorico';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -42,7 +42,7 @@ class Historico extends Component {
       <div className="animated fadeIn">
         <Row>
           <Col xs="12" lg="12" sm="12">
-            <Card className="card">
+            <Card className="card card-style">
               <CardHeader>
                 <i className="fa fa-history"></i>Histórico de Transações</CardHeader>
               <CardBody>
