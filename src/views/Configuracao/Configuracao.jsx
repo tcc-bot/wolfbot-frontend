@@ -4,10 +4,12 @@ import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 
 import Alerts from '../../containers/components/Alerts'
 import Input from '../../containers/components/Input'
 import SelectExchanges from './components/SelectExchanges'
+import Select from 'react-select'
 import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { salvarConfiguracao } from './ConfiguracaoActions'
+import FormEstrategia from './components/FormEstrategia'
 
 class Configuracao extends Component {
   constructor(props) {
@@ -16,7 +18,6 @@ class Configuracao extends Component {
 
     };
   }
-
   onSubmit(values) {
     const { salvarConfiguracao } = this.props
     const post = {
@@ -39,10 +40,10 @@ class Configuracao extends Component {
             <Alerts />
           </div>
           <Col xs="12" lg="12" sm="12">
-            <Card className="card">
+            <Card className="card card card-style">
               <CardHeader>
                 <i className="icon-settings"></i> Configuração
-                            </CardHeader>
+              </CardHeader>
               <CardBody>
                 <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
                   <InputGroup className="mb-3">
@@ -82,7 +83,9 @@ class Configuracao extends Component {
                   </Row>
                   <hr />
                 </form>
+                <h4 style={{ textAlign: 'center' }}>Estratégia</h4>
               </CardBody>
+              <FormEstrategia />
             </Card>
           </Col>
         </Row>

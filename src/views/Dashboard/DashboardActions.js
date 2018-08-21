@@ -3,24 +3,31 @@ import axios from 'axios'
 const BASE_URL = 'http://localhost:8080'
 
 export function getExchange() {
-    const USER_BOT = loadLocalStorage('user_bot')
-    const request = axios.get(`${BASE_URL}/configuracao?id_usuario=${USER_BOT.id}`)
-    
-    return {
-        type: 'EXCHANGE_FETCHED',
-        payload: request
-    }
+  const USER_BOT = loadLocalStorage('user_bot')
+  const request = axios.get(`${BASE_URL}/configuracao?id_usuario=${USER_BOT.id}`)
+
+  return {
+    type: 'EXCHANGE_FETCHED',
+    payload: request
+  }
+}
+
+export function ligarRobo(statusRobo) {
+  return {
+    type: 'LIGAR_ROBO',
+    payload: !statusRobo
+  }
 }
 
 function loadLocalStorage(key) {
-    try {
-        const serializedState = localStorage.getItem(key)
-        if (serializedState === null) {
-            return ''
-        }
-        return JSON.parse(serializedState)
+  try {
+    const serializedState = localStorage.getItem(key)
+    if (serializedState === null) {
+      return ''
     }
-    catch (err) {
-        return ''
-    }
+    return JSON.parse(serializedState)
+  }
+  catch (err) {
+    return ''
+  }
 }

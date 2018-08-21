@@ -34,7 +34,7 @@ class SelectExchanges extends Component {
       option: (styles, { isDisabled, isFocused, isSelected }) => {
         return {
           ...styles,
-          backgroundColor: isDisabled ? '#515b65' : isSelected ? '#343b41' : isFocused ? '#20a8d8' : '#515b65',
+          backgroundColor: isDisabled ? '#515b65' : isSelected ? '#343b41' : isFocused ? 'rgb(26, 36, 44)' : '#515b65',
           color: isDisabled ? '#000' : isSelected ? '#e4e7ea' : null,
           cursor: isDisabled ? 'not-allowed' : 'default',
         };

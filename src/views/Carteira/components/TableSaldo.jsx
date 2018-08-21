@@ -25,7 +25,7 @@ class TableSaldo extends Component {
 
     return (
       <Col xs="3" lg="8" sm="12">
-        <Card className="card">
+        <Card className="card card-style">
           <CardHeader>
             <i className="fa icon-wallet"></i> Carteira de Ativos
                     </CardHeader>

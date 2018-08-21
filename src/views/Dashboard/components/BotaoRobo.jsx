@@ -1,19 +1,15 @@
 import React, { Component } from 'react'
 import { Row, Col, Card, CardHeader, CardBody } from 'reactstrap'
+import { ligarRobo } from '../DashboardActions'
+
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import Switch from "react-switch"
 
 class BotaoRobo extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      checked: false
-    }
-    this.handleChange = this.handleChange.bind(this)
-  }
-
-  handleChange(checked) {
-    this.setState({ checked })
   }
 
   render() {
@@ -31,8 +27,8 @@ class BotaoRobo extends Component {
               <Col lg="3" >
                 <label htmlFor="small-radius-switch">
                   <Switch
-                    checked={this.state.checked}
-                    onChange={this.handleChange}
+                    checked={this.props.roboLigado}
+                    onChange={() => this.props.ligarRobo(this.props.roboLigado)}
                     handleDiameter={28}
                     offColor="#f86c6b"
                     onColor="#4dbd74"
@@ -57,7 +53,7 @@ class BotaoRobo extends Component {
               <Col lg="3" >
                 <label htmlFor="small-radius-switch">
                   <Switch
-                    checked={this.state.checked}
+                    checked={false}
                     onChange={this.handleChange}
                     handleDiameter={28}
                     offColor="#f86c6b"
@@ -83,7 +79,7 @@ class BotaoRobo extends Component {
               <Col lg="3" >
                 <label htmlFor="small-radius-switch">
                   <Switch
-                    checked={this.state.checked}
+                    checked={false}
                     onChange={this.handleChange}
                     handleDiameter={28}
                     offColor="#f86c6b"
@@ -106,8 +102,9 @@ class BotaoRobo extends Component {
       </Col>
     )
   }
-
-
 }
-
-export default BotaoRobo
+const mapStateToProps = state => ({
+  roboLigado: state.dashboard.roboLigado
+})
+const mapDispatchToProps = dispatch => bindActionCreators({ ligarRobo }, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(BotaoRobo)

@@ -42,3 +42,22 @@ export function salvarConfiguracao(values) {
       })
   }
 }
+
+export function salvarEstrategia(values) {
+  const url = `${BASE_URL}/configuracao`
+
+  return dispatch => {
+    axios.post(url, values)
+      .then(resp =>
+        dispatch(
+          { type: 'CONFIGURATION_SAVED', payload: resp.data },
+          toastr.success('Sucesso', 'Configuração salva com sucesso!')
+        )
+      )
+      .catch(e => {
+        for (var i = 0; i < e.response.data.errors.length; i++) {
+          toastr.error("Erro", e.response.data.errors[i].message);
+        }
+      })
+  }
+}
