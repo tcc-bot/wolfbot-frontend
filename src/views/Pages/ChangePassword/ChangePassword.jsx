@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Card, CardBody, CardGroup, Col, Container, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
@@ -64,7 +64,7 @@ class ChangePassword extends Component {
                         </InputGroup>
                         <Row>
                           <Col xs="6">
-                            <Button type="submit" className="btn-outline-primary">Salvar Alterações</Button>
+                            <Button type="submit" className="btn-outline-primary"><Link from="/changePassword" to="/dashboard" />Salvar Alterações</Button>
                           </Col>
                         </Row>
                       </form>

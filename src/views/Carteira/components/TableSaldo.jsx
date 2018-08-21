@@ -28,7 +28,7 @@ class TableSaldo extends Component {
         <Card className="card card-style">
           <CardHeader>
             <i className="fa icon-wallet"></i> Carteira de Ativos
-                    </CardHeader>
+          </CardHeader>
           <CardBody>
             <ReactTable
               data={this.props.saldo}

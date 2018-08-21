@@ -16,7 +16,6 @@ class Carteira extends Component {
       <div className="animated fadeIn">
         <Row>
           <TableSaldo />
-          <CompraManual />
         </Row>
       </div>
     );

@@ -13,6 +13,12 @@ export function getExchange() {
 }
 
 export function ligarRobo(statusRobo) {
+  if(statusRobo == false){
+    axios.post(`${BASE_URL}/bot/acionarRobo?chave=teste&status=on`)
+  }
+  if(statusRobo == true){
+    axios.post(`${BASE_URL}/bot/acionarRobo?chave=teste&status=off`)
+  }
   return {
     type: 'LIGAR_ROBO',
     payload: !statusRobo
