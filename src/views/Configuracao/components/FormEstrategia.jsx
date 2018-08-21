@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap';
-import Input from '../../../containers/components/Input'
+import Input from '../../../containers/Components/Input'
 import Select from 'react-select'
 import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'

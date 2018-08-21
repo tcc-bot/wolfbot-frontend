@@ -8,8 +8,8 @@ import { bindActionCreators } from 'redux'
 import * as qs from 'query-string'
 
 import { loadChangePasswordPage, changePassword } from '../Login/authActions'
-import Input from '../../../containers/components/Input'
-import Alerts from '../../../containers/components/Alerts'
+import Input from '../../../containers/Components/Input'
+import Alerts from '../../../containers/Components/Alerts'
 
 class ChangePassword extends Component {
   constructor(props) {

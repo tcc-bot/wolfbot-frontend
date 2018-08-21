@@ -8,8 +8,8 @@ import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 
 import { passwordRecovery } from '../Login/authActions'
-import Input from '../../../containers/components/Input'
-import Alerts from '../../../containers/components/Alerts'
+import Input from '../../../containers/Components/Input'
+import Alerts from '../../../containers/Components/Alerts'
 
 class PasswordRecovery extends Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row } from 'reactstrap';
 import TablePosicoes from './components/TablePosicoes'
-import Alerts from '../../containers/components/Alerts'
+import Alerts from '../../containers/Components/Alerts'
 import ResumoOperacoes from './components/ResumoOperacoes'
 import ResumoInvestimento from './components/ResumoInvestimento';
 import BotaoRobo from './components/BotaoRobo'

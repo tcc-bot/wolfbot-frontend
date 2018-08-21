@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap';
 
-import Alerts from '../../containers/components/Alerts'
-import Input from '../../containers/components/Input'
+import Alerts from '../../containers/Components/Alerts'
+import Input from '../../containers/Components/Input'
 import SelectExchanges from './components/SelectExchanges'
 import Select from 'react-select'
 import { reduxForm, Field } from 'redux-form'

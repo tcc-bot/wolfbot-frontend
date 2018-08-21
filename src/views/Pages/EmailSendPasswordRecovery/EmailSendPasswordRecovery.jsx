@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardGroup, Col, Container, Row } from 'reactstrap';
 
-import Alerts from '../../../containers/components/Alerts'
+import Alerts from '../../../containers/Components/Alerts'
 
 class EmailSendPasswordRecovery extends Component {
   constructor(props) {

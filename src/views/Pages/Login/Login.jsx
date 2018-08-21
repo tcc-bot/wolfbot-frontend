@@ -7,8 +7,8 @@ import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 
 import { login, loadLoginPage } from './authActions'
-import Input from '../../../containers/components/Input'
-import Alerts from '../../../containers/components/Alerts'
+import Input from '../../../containers/Components/Input'
+import Alerts from '../../../containers/Components/Alerts'
 
 class Login extends Component {
   constructor(props) {
