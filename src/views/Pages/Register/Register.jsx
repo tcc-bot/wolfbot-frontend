@@ -66,19 +66,11 @@ class Register extends Component {
                     </InputGroup>
                     <Button type="submit" className="btn btn-outline-success" block>Cadastrar</Button>
                   </form>
+                </CardBody>
+                <CardFooter id="cardFooterRegister" className="p-4">
                   <Row className="justify-content-center">
                     <p id="textCardRegister" className="text-muted">Já tem uma conta?</p>
                     <Link to="/login"><Button color="link" className="px-0">Entrar</Button></Link>
-                  </Row>
-                </CardBody>
-                <CardFooter id="cardFooterRegister" className="p-4">
-                  <Row>
-                    <Col xs="12" sm="6">
-                      <Button className="btn-facebook" block><span>Facebook</span></Button>
-                    </Col>
-                    <Col xs="12" sm="6">
-                      <Button className="btn-twitter" block><span>Twitter</span></Button>
-                    </Col>
                   </Row>
                 </CardFooter>
               </Card>
