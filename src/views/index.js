@@ -13,7 +13,8 @@ import {
   Register,
   PasswordRecovery,
   EmailSendPasswordRecovery,
-  ChangePassword
+  ChangePassword,
+  EmailSendActiveAccount
 } from './Pages'
 
 
@@ -31,6 +32,7 @@ export {
   Configuracao,
   PasswordRecovery,
   EmailSendPasswordRecovery,
-  ChangePassword
+  ChangePassword,
+  EmailSendActiveAccount
 };
 

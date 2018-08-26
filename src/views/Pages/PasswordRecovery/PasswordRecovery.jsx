@@ -61,7 +61,7 @@ class PasswordRecovery extends Component {
             </Col>
           </Row>
         </Container>
-        {this.props.redirectPageEmailSucess ? <Redirect from="/" to="/emailsendpasswordrecovery" /> : null}
+        {this.props.redirectPageEmailSucess ? <Redirect from="/" to="/emailsendpasswordrecovery" /> : null }
       </div >
     );
   }

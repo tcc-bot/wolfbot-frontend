@@ -5,6 +5,7 @@ import Register from './Register';
 import PasswordRecovery from './PasswordRecovery';
 import EmailSendPasswordRecovery from './EmailSendPasswordRecovery';
 import ChangePassword from './ChangePassword';
+import EmailSendActiveAccount from './EmailSendActiveAccount'
 
 export {
   Login,
@@ -13,5 +14,6 @@ export {
   Register,
   PasswordRecovery,
   EmailSendPasswordRecovery,
-  ChangePassword
+  ChangePassword,
+  EmailSendActiveAccount
 };

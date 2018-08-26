@@ -10067,3 +10067,16 @@ hr {
 #textCardRegister {
   margin-top: 7px;
   margin-right: 2px; }
+
+.pageCardFooter {
+  background-color: rgba(27, 30, 32, 0.1);
+  border-top: 1px solid #23282c; }
+
+.pageCardText {
+  margin-top: 7px;
+  margin-right: 2px; }
+
+.cardAccount {
+  background-color: rgba(35, 40, 44, 0.8);
+  font-family: 'Exo', sans-serif;
+  color: #20a8d8; }

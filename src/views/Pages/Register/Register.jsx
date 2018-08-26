@@ -4,7 +4,7 @@ import { Button, Card, CardBody, CardFooter, Col, Container, InputGroup, InputGr
 import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 import { signup } from '../Login/authActions'
 import Input from '../../../containers/Components/Input'
@@ -54,7 +54,7 @@ class Register extends Component {
                           <i className="icon-lock"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Field component={Input} type="password" name="password" placeholder="Password" />
+                      <Field component={Input} type="password" name="password" placeholder="Senha" />
                     </InputGroup>
                     <InputGroup className="mb-4">
                       <InputGroupAddon addonType="prepend">
@@ -62,7 +62,7 @@ class Register extends Component {
                           <i className="icon-lock"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Field component={Input} type="password" name="confirm_password" placeholder="Repetir password" />
+                      <Field component={Input} type="password" name="confirm_password" placeholder="Confirmação da senha" />
                     </InputGroup>
                     <Button type="submit" className="btn btn-outline-success" block>Cadastrar</Button>
                   </form>
@@ -77,11 +77,15 @@ class Register extends Component {
             </Col>
           </Row>
         </Container>
+        {this.props.redirectPageEmailSucess ? <Redirect from="/" to="/emailsendactiveaccount" /> : null}
       </div>
     );
   }
 }
 
 Register = reduxForm({ form: 'authForm' })(Register)
+const mapStateToProps = (state) => ({
+  redirectPageEmailSucess: state.auth.registerSucess
+})
 const mapDispatchToProps = dispatch => bindActionCreators({ signup }, dispatch)
-export default connect(null, mapDispatchToProps)(Register)
+export default connect(mapStateToProps, mapDispatchToProps)(Register)

@@ -25,14 +25,11 @@ export function signup(values) {
 
   return dispatch => {
     axios.post(url, values)
-      .then(resp =>
+      .then(resp => {
         dispatch(
-          { type: 'USER_FETCHED', payload: resp.data },
-          history.push('/'),
-          toastr.success('Sucesso', 'Usuário registrado com sucesso')
-
+          { type: 'REGISTER_SUCCESS', payload: resp.data },
         )
-      )
+      })
       .catch(e => {
         for (var i = 0; i < e.response.data.errors.length; i++) {
           toastr.error("Erro", e.response.data.errors[i].message);
@@ -122,7 +119,7 @@ export function changePassword(values, changePasswordHash) {
 
 export function ativarConta(activeAccountHash) {
   return dispatch => {
-    axios.post(`${consts.OAPI_URL_LOCALHOST}/active`, {activeAccountHash: activeAccountHash})
+    axios.post(`${consts.OAPI_URL_LOCALHOST}/active`, { activeAccountHash: activeAccountHash })
       .then(resp => {
         dispatch({ type: 'ACCOUNT_ACTIVE', payload: true }
           , toastr.success('Sucesso', 'Sua Conta foi Ativada'))
