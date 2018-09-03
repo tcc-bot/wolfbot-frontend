@@ -48,7 +48,7 @@ class ResumoOperacoes extends Component {
               <Col lg="4" >
                 <PieChart width={150} height={150}>
                   <Pie
-                    dataKey="value"
+                    dataKey='value'
                     isAnimationActive={true}
                     data={data}
                     outerRadius={60}
@@ -58,7 +58,7 @@ class ResumoOperacoes extends Component {
                     label={renderCustomizedLabel}
                     fill="#8884d8"
                   >
-                    {data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]} />)}
+                    {data.map((entry, index) => <Cell key={COLORS} fill={COLORS[index % COLORS.length]} />)}
                   </Pie>
                   <Tooltip />
                 </PieChart>
