@@ -77,7 +77,7 @@ class Register extends Component {
             </Col>
           </Row>
         </Container>
-        {this.props.redirectPageEmailSucess ? <Redirect from="/" to="/emailsendactiveaccount" /> : null}
+        {this.props.redirectPageEmailSuccess ? <Redirect from="/" to="/emailsendactiveaccount" /> : null}
       </div>
     );
   }
@@ -85,7 +85,7 @@ class Register extends Component {
 
 Register = reduxForm({ form: 'authForm' })(Register)
 const mapStateToProps = (state) => ({
-  redirectPageEmailSucess: state.auth.registerSucess
+  redirectPageEmailSuccess: state.auth.registerSuccess
 })
 const mapDispatchToProps = dispatch => bindActionCreators({ signup }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(Register)
