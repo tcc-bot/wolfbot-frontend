@@ -22,7 +22,7 @@ class Register extends Component {
   }
 
   render() {
-    const { handleSubmit } = this.props
+    const { handleSubmit, reset } = this.props
     return (
       <div className="app flex-row align-items-center ComponentAuth">
         <Alerts />
@@ -65,6 +65,7 @@ class Register extends Component {
                       <Field component={Input} type="password" name="confirm_password" placeholder="Confirmação da senha" />
                     </InputGroup>
                     <Button type="submit" className="btn btn-outline-success" block>Cadastrar</Button>
+                    <Button type="reset" onClick={reset} className="btn btn-outline-primary" block>Limpar</Button>
                   </form>
                 </CardBody>
                 <CardFooter id="cardFooterRegister" className="p-4">
