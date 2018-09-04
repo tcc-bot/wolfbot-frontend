@@ -32,7 +32,7 @@ class ChangePassword extends Component {
     if (this.props.redirect === false) {
       window.location.reload();
     }
-    const { handleSubmit } = this.props
+    const { handleSubmit, reset } = this.props
     if (this.props.redirect)
       return (
         <div className="app flex-row align-items-center ComponentAuth">
@@ -63,8 +63,9 @@ class ChangePassword extends Component {
                           <Field component={Input} type="password" name="passwordConfirm" placeholder="Senha de Confirmação" className="form-control" />
                         </InputGroup>
                         <Row>
-                          <Col xs="6">
+                          <Col xs="8">
                             <Button type="submit" className="btn-outline-primary"><Link from="/changePassword" to="/dashboard" />Salvar Alterações</Button>
+                            <Button type="reset" onClick={reset} className="btn-outline-warning">Limpar</Button>
                           </Col>
                         </Row>
                       </form>
