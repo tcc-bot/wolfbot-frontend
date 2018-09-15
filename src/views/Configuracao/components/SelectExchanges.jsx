@@ -56,7 +56,7 @@ class SelectExchanges extends Component {
       <div>
         <Select
           onChange={this.handleChange}
-          options={this.props.data.data}
+          options={this.props.exchanges}
           value={this.props.selectedOptions}
           styles={custonStyle}
         />
@@ -65,9 +65,14 @@ class SelectExchanges extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  data: state.selectConfig.data,
-  exchangeSelected: state.selectConfig.exchangeSelected
-})
-const mapDispatchToProps = dispatch => bindActionCreators({ getExchanges, SelectOption }, dispatch)
+const mapStateToProps = state => (
+  {
+    exchanges: state.selectConfig.exchanges,
+    exchangeSelected: state.selectConfig.exchangeSelected
+  })
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    getExchanges,
+    SelectOption
+  }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(SelectExchanges)

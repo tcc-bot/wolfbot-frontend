@@ -39,7 +39,7 @@ class Configuracao extends Component {
           <div>
             <Alerts />
           </div>
-          <Col xs="12" lg="12" sm="12">
+          <Col xs="9" lg="9" sm="9">
             <Card className="card card card-style">
               <CardHeader>
                 <i className="icon-settings"></i> Configuração
@@ -47,9 +47,9 @@ class Configuracao extends Component {
               <CardBody>
                 <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
                   <InputGroup className="mb-3">
-                    <Col lg="1">
+                    <Col lg="2">
                       <Label >
-                        <h6>Exchange</h6>
+                        <h6>Exchange: </h6>
                       </Label>
                     </Col>
                     <Col>
@@ -57,9 +57,9 @@ class Configuracao extends Component {
                     </Col>
                   </InputGroup>
                   <InputGroup className="mb-3">
-                    <Col lg="1">
+                    <Col lg="2">
                       <Label>
-                        <h6>API Key</h6>
+                        <h6>API Key:</h6>
                       </Label>
                     </Col>
                     <Col>
@@ -67,28 +67,44 @@ class Configuracao extends Component {
                     </Col>
                   </InputGroup>
                   <InputGroup className="mb-3">
-                    <Col lg="1">
+                    <Col lg="2">
                       <Label>
-                        <h6>API Secret</h6>
+                        <h6>API Secret:</h6>
                       </Label>
                     </Col>
                     <Col>
                       <Field component={Input} type="text" name="secret" placeholder="ApiSecret" className="form-control" />
                     </Col>
                   </InputGroup>
+                  <br />
                   <Row>
-                    <Col xs="6">
-                      <Button type="submit" className="btn-outline-success">Salvar Configuração</Button>
+                    <Col xs="8">
+                      <Button type="submit" className="btn-outline-success" style={{ marginRight: '5px' }}>Salvar</Button>
+                      <Button type="submit" className="btn btn-outline-primary" style={{ marginRight: '5px' }}>Editar</Button>
+                      <Button type="submit" className="btn-outline-danger">Cancelar</Button>
                     </Col>
                   </Row>
                   <hr />
                 </form>
-                <h4 style={{ textAlign: 'center' }}>Estratégia</h4>
               </CardBody>
-              <FormEstrategia />
+            </Card>
+          </Col>
+          <Col xs="12" lg="3" sm="3">
+            <Card className="card card card-style">
+              <CardHeader>
+                Passo 1
+              </CardHeader>
+              <CardBody>
+                <div className="col-lg-12">
+                  <i className='fa fa-check-circle fa-3x text-success' style={{ textAlign: 'center;' }}></i>
+                </div>
+                <br />
+                Insira as credeciais necessárias da exchange para que o robô realize a conexão.
+              </CardBody>
             </Card>
           </Col>
         </Row>
+        <FormEstrategia />
       </div>
     );
   }

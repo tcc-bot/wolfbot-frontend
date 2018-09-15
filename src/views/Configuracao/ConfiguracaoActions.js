@@ -14,9 +14,39 @@ export function getExchanges() {
   }
 }
 
-export function SelectOption(selectOption) {
+export function ExchangeSelectOption(selectOption) {
   return {
     type: 'EXCHANGE_SELECTED',
+    payload: {
+      value: selectOption.value,
+      label: selectOption.label
+    }
+  }
+}
+
+export function CandlesSelectOption(selectOption) {
+  return {
+    type: 'CANDLE_SELECTED',
+    payload: {
+      value: selectOption.value,
+      label: selectOption.label
+    }
+  }
+}
+
+export function MoedasSelectOption(selectOption) {
+  return {
+    type: 'MOEDA_SELECTED',
+    payload: {
+      value: selectOption.value,
+      label: selectOption.label
+    }
+  }
+}
+
+export function IndicadoresSelectOption(selectOption) {
+  return {
+    type: 'INDICADOR_SELECTED',
     payload: {
       value: selectOption.value,
       label: selectOption.label
