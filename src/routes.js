@@ -5,7 +5,8 @@ import {
   Carteira,
   Graficos,
   Backtesting,
-  Historico
+  Historico,
+  Perfil
 } from './views';
 import Full from './containers/Full';
 
@@ -19,6 +20,7 @@ const routes = [
   { path: '/estatisticas', name: 'Estatisticas', component: Estatisticas },
   { path: '/backtesting', name: 'Backtesting', component: Backtesting },
   { path: '/configuracao', name: 'Configuracao', component: Configuracao },
+  { path: '/perfil', name: 'Perfil', component: Perfil },
 
 ];
 
