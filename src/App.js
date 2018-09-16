@@ -39,6 +39,7 @@ class App extends Component {
           <Route exact path="/emailsendpasswordrecovery" name="Email Send Password Recovery Page" component={RouteControl} />
           <Route exact path="/changepassword" name="Change Password Page" component={RouteControl} />
           <Route exact path="/emailsendactiveaccount" name="Active Account Page" component={RouteControl} />
+          <Route exact path="/passwordChanged" name="Password Changed Page" component={RouteControl} />
           <Route path="/" name="AuthLogin" component={AuthLogin} />
         </Switch>
       </HashRouter>

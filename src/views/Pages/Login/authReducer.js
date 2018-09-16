@@ -5,7 +5,8 @@ const INITIAL_STATE = {
   passwordRecovery: false,
   registerSuccess: false,
   changePasswordPermition: true,
-  changePasswordHash: ''
+  changePasswordHash: '',
+  passwordChanged: false
 }
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -40,6 +41,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, user: action.payload }
     case 'CHANGE_PASSWORD_DENIED':
       return { ...state, changePasswordPermition: false, changePasswordHash: null }
+    case 'PASSWORD_CHANGED':
+      return { ...state, passwordChanged: true }
     default:
       return state
   }

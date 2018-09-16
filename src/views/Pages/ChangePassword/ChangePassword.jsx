@@ -75,6 +75,7 @@ class ChangePassword extends Component {
               </Col>
             </Row>
           </Container>
+          {this.props.passwordChanged ? <Redirect from="/" to="/passwordChanged" /> : null}
         </div >
       );
     else {
@@ -87,7 +88,8 @@ ChangePassword = reduxForm({ form: 'authForm' })(ChangePassword)
 
 const mapStateToProps = (state) => ({
   redirect: state.auth.changePasswordPermition,
-  changePasswordHash: state.auth.changePasswordHash
+  changePasswordHash: state.auth.changePasswordHash,
+  passwordChanged: state.auth.passwordChanged
 })
 const mapDispatchToProps = dispatch => bindActionCreators({ loadChangePasswordPage, changePassword }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(ChangePassword)
