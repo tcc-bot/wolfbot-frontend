@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { Redirect, Route, Switch } from 'react-router-dom';
 
 import routes from '../helpers/routes-open';
-import { loadSession } from '../views/Pages/Login/authActions'
+import { loadSession } from '../actions/authActions'
 
 import {
   AppBreadcrumb

@@ -5,7 +5,7 @@ import Input from '../../../containers/Components/Input'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { buscarHistorico } from '../HistoricoActions';
+import { buscarHistorico } from '../../../actions/HistoricoActions';
 
 class FormHistorico extends Component {
   constructor(props) {

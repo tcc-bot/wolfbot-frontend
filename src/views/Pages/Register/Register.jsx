@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link, Redirect } from 'react-router-dom'
 
-import { signup } from '../Login/authActions'
+import { signup } from '../../../actions/authActions'
 import Input from '../../../containers/Components/Input'
 import Alerts from '../../../containers/Components/Alerts'
 

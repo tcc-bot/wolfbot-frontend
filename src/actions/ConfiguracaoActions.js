@@ -1,11 +1,9 @@
 import axios from 'axios'
 import { toastr } from 'react-redux-toastr'
-
-const BASE_URL = 'http://localhost:8080'
-
+import api from '../config/config-development'
 
 export function getExchanges() {
-  const request = axios.get(`${BASE_URL}/exchanges/loadExchanges`)
+  const request = axios.get(`${api.WOLFBOT_API_URL}/exchanges/loadExchanges`)
 
   return {
     type: 'EXCHANGES_FETCHED',
@@ -55,7 +53,7 @@ export function IndicadoresSelectOption(selectOption) {
 }
 
 export function salvarConfiguracao(values) {
-  const url = `${BASE_URL}/configuracao`
+  const url = `${api.WOLFBOT_API_URL}/configuracao`
 
   return dispatch => {
     axios.post(url, values)
@@ -74,7 +72,7 @@ export function salvarConfiguracao(values) {
 }
 
 export function salvarEstrategia(values) {
-  const url = `${BASE_URL}/configuracao`
+  const url = `${api.WOLFBOT_API_URL}/configuracao`
 
   return dispatch => {
     axios.post(url, values)

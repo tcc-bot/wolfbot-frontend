@@ -1,12 +1,11 @@
 import axios from 'axios';
 import { toastr } from 'react-redux-toastr'
-
-const BASE_URL = "http://localhost:8080";
+import api from '../config/config-development'
 
 export function listarHistorico() {
   const USER_BOT = loadLocalStorage('user_bot');
   return dispatch => {
-    axios.get(`${BASE_URL}/api/historicos`)
+    axios.get(`${api.WOLFBOT_API_URL}/api/historicos`)
       .then(resp => {
         const historicos = resp.data.data;
         dispatch({ type: 'LISTAR_HISTORICO', payload: historicos });
@@ -19,7 +18,7 @@ export function buscarHistorico(values) {
 
   const USER_BOT = loadLocalStorage('user_bot');
   return dispatch => {
-    axios.get(`${BASE_URL}/api/historicos`)
+    axios.get(`${api.WOLFBOT_API_URL}/api/historicos`)
       .then(resp => {
         const historicos = resp.data.data;
         dispatch({ type: 'LISTAR_HISTORICO', payload: historicos });

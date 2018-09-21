@@ -7,7 +7,7 @@ import {
   Backtesting,
   Historico
 } from './views';
-import Full from './containers/Full';
+import Full from './containers/Full/Full';
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
