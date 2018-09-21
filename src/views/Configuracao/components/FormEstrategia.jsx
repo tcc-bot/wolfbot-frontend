@@ -68,8 +68,8 @@ class FormEstrategia extends Component {
                     <Col md="2">
                       <Select
                         onChange={this.handleChange}
-                        options={periodo}
-                        value={periodo[0]}
+                        options={this.props.select.periodos}
+                        value={this.props.select.periodos[0]}
                         styles={custonStyle}
                         name="periodo"
                       />
@@ -82,8 +82,8 @@ class FormEstrategia extends Component {
                     <Col md='2'>
                       <Select
                         onChange={this.handleChange}
-                        options={candle}
-                        value={candle[0]}
+                        options={this.props.select.candles}
+                        value={this.props.select.candles[0]}
                         styles={custonStyle}
                         name="candle"
                       />
@@ -96,8 +96,8 @@ class FormEstrategia extends Component {
                     <Col md='3'>
                       <Select
                         onChange={this.handleChange}
-                        options={moedas}
-                        value={moedas[0]}
+                        options={this.props.select.moedas}
+                        value={this.props.select.moedas[0]}
                         styles={custonStyle}
                         name="moeda"
                       />
@@ -113,8 +113,8 @@ class FormEstrategia extends Component {
                     <Col md='2'>
                       <Select
                         onChange={this.handleChange}
-                        options={indicadores}
-                        value={indicadores[0]}
+                        options={this.props.select.indicadores}
+                        value={this.props.select.indicadores[0]}
                         styles={custonStyle}
                         name="indicador"
                       />
@@ -191,6 +191,7 @@ class FormEstrategia extends Component {
 FormEstrategia = reduxForm({ form: 'formEstrategia' })(FormEstrategia)
 const mapDispatchToProps = dispatch => bindActionCreators({ salvarEstrategia }, dispatch)
 const mapStateToProps = state => ({
-  user: state.auth.user
+  user: state.auth.user,
+  select: state.selectConfig
 })
 export default connect(mapStateToProps, mapDispatchToProps)(FormEstrategia)

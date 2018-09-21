@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Select from 'react-select'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getExchanges, SelectOption } from '../ConfiguracaoActions'
+import { getExchanges, ExchangeSelectOption } from '../ConfiguracaoActions'
 
 
 class SelectExchanges extends Component {
@@ -16,7 +16,7 @@ class SelectExchanges extends Component {
 
   handleChange = (selectedOptions) => {
     this.setState({ selectedOptions });
-    this.props.SelectOption(selectedOptions);
+    this.props.ExchangeSelectOption(selectedOptions);
   }
 
   componentWillMount() {
@@ -73,6 +73,6 @@ const mapStateToProps = state => (
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
     getExchanges,
-    SelectOption
+    ExchangeSelectOption
   }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(SelectExchanges)
