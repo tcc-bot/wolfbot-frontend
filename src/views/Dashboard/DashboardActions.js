@@ -4,7 +4,7 @@ const BASE_URL = 'http://localhost:8080'
 
 export function getExchange() {
   const USER_BOT = loadLocalStorage('user_bot')
-  const request = axios.get(`${BASE_URL}/configuracao?id_usuario=${USER_BOT.id}`)
+  const request = axios.get(`${BASE_URL}/configuracao/carregar?user_id=${USER_BOT.id}`)
 
   return {
     type: 'EXCHANGE_FETCHED',
