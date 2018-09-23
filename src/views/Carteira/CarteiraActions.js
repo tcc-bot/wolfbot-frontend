@@ -2,34 +2,32 @@ import axios from 'axios'
 
 const BASE_URL = 'http://localhost:8080'
 
-export function getSaldo() {
-    const USER_BOT = loadLocalStorage('user_bot')
-    const id_usuario = USER_BOT.id
+export function getSaldo () {
+  const USER_BOT = loadLocalStorage('user_bot')
+  const id_usuario = USER_BOT.id
 
-    if(id_usuario === ''){
-        return {
-            type: 'SALDO_NOT_FETCHED'
-        }
-    }else{
-        const request = axios.get(`${BASE_URL}/exchanges/saldo?id_usuario=${id_usuario}`)
-        
-        return {
-            type: 'SALDO_FETCHED',
-            payload: request
-        }
+  if (id_usuario === '') {
+    return {
+      type: 'SALDO_NOT_FETCHED'
     }
+  } else {
+    const request = axios.get(`${BASE_URL}/exchanges/saldo?id_usuario=${id_usuario}`)
+
+    return {
+      type: 'SALDO_FETCHED',
+      payload: request
+    }
+  }
 }
 
-function loadLocalStorage(key) {
-    try {
-        const serializedState = localStorage.getItem(key)
-        if (serializedState === null) {
-            return ''
-        }
-        return JSON.parse(serializedState)
+function loadLocalStorage (key) {
+  try {
+    const serializedState = localStorage.getItem(key)
+    if (serializedState === null) {
+      return ''
     }
-    catch (err) {
-        return ''
-    }
+    return JSON.parse(serializedState)
+  } catch (err) {
+    return ''
+  }
 }
-

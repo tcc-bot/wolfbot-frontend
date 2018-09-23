@@ -1,25 +1,24 @@
-import React, { Component } from 'react';
-import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap';
+import React, { Component } from 'react'
+import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap'
 import { reduxForm, Field } from 'redux-form'
-import ReactTable from "react-table";
+import ReactTable from 'react-table'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { buscarHistorico } from '../HistoricoActions';
+import { buscarHistorico } from '../HistoricoActions'
 
 class TableHistorico extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
   }
-  render() {
-
-    const { reset, handleSubmit } = this.props;
+  render () {
+    const { reset, handleSubmit } = this.props
     const columns = [{
       Header: 'Data da Operação',
       accessor: 'dataOperacao' // String-based value accessors!
     }, {
       Header: 'Quantidade',
-      accessor: 'quantidade',
+      accessor: 'quantidade'
     }, {
       Header: 'Custo',
       accessor: 'custo'
@@ -34,22 +33,22 @@ class TableHistorico extends Component {
       accessor: 'tipoOperacao'
     }]
     return (
-      <Col xs="12" lg="12" sm="12">
-        <Card className="card-style card">
+      <Col xs='12' lg='12' sm='12'>
+        <Card className='card-style card'>
           <CardBody>
             <ReactTable
               data={this.props.historicos}
               columns={columns}
               defaultPageSize={10}
-              className="-striped -highlight"
+              className='-striped -highlight'
               pageSizeOptions={[this.props.historicos.length]}
-              previousText="Anterior"
-              nextText="Próximo"
-              loadingText="Carregando..."
-              noDataText="Não há ordens abertas"
-              pageText="Página"
-              rowsText="linhas"
-              ofText="de"
+              previousText='Anterior'
+              nextText='Próximo'
+              loadingText='Carregando...'
+              noDataText='Não há ordens abertas'
+              pageText='Página'
+              rowsText='linhas'
+              ofText='de'
             />
           </CardBody>
         </Card>

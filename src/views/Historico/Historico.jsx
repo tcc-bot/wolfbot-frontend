@@ -1,50 +1,49 @@
-import React, { Component } from 'react';
-import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap';
-import TableHistorico from './components/TableHistorico';
-import FormHistorico from './components/FormHistorico';
+import React, { Component } from 'react'
+import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap'
+import TableHistorico from './components/TableHistorico'
+import FormHistorico from './components/FormHistorico'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { listarHistorico } from './HistoricoActions';
+import { listarHistorico } from './HistoricoActions'
 
 class Historico extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
-    this.toggle = this.toggle.bind(this);
-    this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
+    this.toggle = this.toggle.bind(this)
+    this.onRadioBtnClick = this.onRadioBtnClick.bind(this)
 
     this.state = {
       dropdownOpen: false,
-      radioSelected: 2,
-    };
+      radioSelected: 2
+    }
   }
 
-  componentDidMount() {
-    this.props.listarHistorico();
+  componentDidMount () {
+    this.props.listarHistorico()
   }
 
-  toggle() {
+  toggle () {
     this.setState({
-      dropdownOpen: !this.state.dropdownOpen,
-    });
+      dropdownOpen: !this.state.dropdownOpen
+    })
   }
 
-  onRadioBtnClick(radioSelected) {
+  onRadioBtnClick (radioSelected) {
     this.setState({
-      radioSelected: radioSelected,
-    });
+      radioSelected: radioSelected
+    })
   }
 
-  render() {
-
+  render () {
     return (
-      <div className="animated fadeIn">
+      <div className='animated fadeIn'>
         <Row>
-          <Col xs="12" lg="12" sm="12">
-            <Card className="card card-style">
+          <Col xs='12' lg='12' sm='12'>
+            <Card className='card card-style'>
               <CardHeader>
-                <i className="fa fa-history"></i>Histórico de Transações</CardHeader>
+                <i className='fa fa-history' />Histórico de Transações</CardHeader>
               <CardBody>
                 <FormHistorico />
                 <TableHistorico />
@@ -53,7 +52,7 @@ class Historico extends Component {
           </Col>
         </Row>
       </div>
-    );
+    )
   }
 }
 

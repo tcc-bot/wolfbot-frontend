@@ -27,14 +27,13 @@ export default (state = INITIAL_STATE, action) => {
       if (action.payload) {
         return { ...state, passwordRecovery: action.payload }
       }
-      break;
+      break
     case 'PAGE_LOGIN_UPDATED':
       return { ...state, passwordRecovery: action.payload, registerSuccess: false }
     case 'CHANGE_PASSWORD_CONFIRM':
       if (action.payload.success) {
         return { ...state, changePasswordPermition: true, changePasswordHash: action.payload.hash }
-      }
-      else {
+      } else {
         return { ...state, changePasswordPermition: false, changePasswordHash: null }
       }
     case 'LOAD_SESSSION_USER':

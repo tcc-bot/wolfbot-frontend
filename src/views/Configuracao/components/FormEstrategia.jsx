@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap';
+import React, { Component } from 'react'
+import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap'
 import Input from '../../../containers/Components/Input'
 import Select from 'react-select'
 import { reduxForm, Field } from 'redux-form'
@@ -9,67 +9,65 @@ import { bindActionCreators } from 'redux'
 import { salvarEstrategia } from '../ConfiguracaoActions'
 
 class FormEstrategia extends Component {
-  constructor(props) {
-    super(props);
-
+  constructor (props) {
+    super(props)
   }
 
-  onSubmit(values) {
-
+  onSubmit (values) {
     salvarEstrategia(values)
   }
 
-  render() {
+  render () {
     const indicadores = [
       {
-        "value": "MACD",
-        "label": "MACD"
+        'value': 'MACD',
+        'label': 'MACD'
       }]
 
     const moedas = [
       {
-        "value": "BTC/USDT",
-        "label": "BTC/USDT"
+        'value': 'BTC/USDT',
+        'label': 'BTC/USDT'
       }
     ]
     const candle = [
       {
-        "value": "5m",
-        "label": "5m"
-      }
-      , {
-        "value": "10m",
-        "label": "10m"
-      }
-      , {
-        "value": "15m",
-        "label": "15m"
-      }
-      , {
-        "value": "30m",
-        "label": "30m"
-      }
-      , {
-        "value": "1h",
-        "label": "1h"
-      }
-      , {
-        "value": "2h",
-        "label": "2h"
-      }
-      , {
-        "value": "5h",
-        "label": "5h"
-      }
-      , {
-        "value": "1d",
-        "label": "1d"
+        'value': '5m',
+        'label': '5m'
+      },
+      {
+        'value': '10m',
+        'label': '10m'
+      },
+      {
+        'value': '15m',
+        'label': '15m'
+      },
+      {
+        'value': '30m',
+        'label': '30m'
+      },
+      {
+        'value': '1h',
+        'label': '1h'
+      },
+      {
+        'value': '2h',
+        'label': '2h'
+      },
+      {
+        'value': '5h',
+        'label': '5h'
+      },
+      {
+        'value': '1d',
+        'label': '1d'
       }
     ]
     const periodo = [
       {
-        "value": "50",
-        "label": "50"
+        'value': '50',
+        'label': '50'
       }
     ]
     const { handleSubmit } = this.props
@@ -84,12 +82,12 @@ class FormEstrategia extends Component {
           ...styles,
           backgroundColor: isDisabled ? '#515b65' : isSelected ? '#343b41' : isFocused ? 'rgb(26, 36, 44)' : '#515b65',
           color: isDisabled ? '#000' : isSelected ? '#e4e7ea' : null,
-          cursor: isDisabled ? 'not-allowed' : 'default',
-        };
+          cursor: isDisabled ? 'not-allowed' : 'default'
+        }
       },
       input: styles => ({
         ...styles,
-        color: '#e4e7ea',
+        color: '#e4e7ea'
       }),
       placeholder: styles => ({
         ...styles,
@@ -99,12 +97,12 @@ class FormEstrategia extends Component {
         ...styles,
         color: '#e4e7ea'
       })
-    };
+    }
     return (
       <CardBody>
         <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
-          <InputGroup className="mb-3">
-            <Col lg="1">
+          <InputGroup className='mb-3'>
+            <Col lg='1'>
               <Label >
                 <h6>Periodos</h6>
               </Label>
@@ -115,10 +113,10 @@ class FormEstrategia extends Component {
                 options={periodo}
                 value={periodo[0]}
                 styles={custonStyle}
-                name="periodo"
+                name='periodo'
               />
             </Col>
-            <Col lg="1">
+            <Col lg='1'>
               <Label>
                 <h6>Tamanho Candle</h6>
               </Label>
@@ -129,12 +127,12 @@ class FormEstrategia extends Component {
                 options={candle}
                 value={candle[0]}
                 styles={custonStyle}
-                name="candle"
+                name='candle'
               />
             </Col>
           </InputGroup>
-          <InputGroup className="mb-3">
-            <Col lg="1">
+          <InputGroup className='mb-3'>
+            <Col lg='1'>
               <Label>
                 <h6>Moeda</h6>
               </Label>
@@ -145,10 +143,10 @@ class FormEstrategia extends Component {
                 options={moedas}
                 value={moedas[0]}
                 styles={custonStyle}
-                name="moeda"
+                name='moeda'
               />
             </Col>
-            <Col lg="1">
+            <Col lg='1'>
               <Label>
                 <h6>Indicador</h6>
               </Label>
@@ -159,53 +157,53 @@ class FormEstrategia extends Component {
                 options={indicadores}
                 value={indicadores[0]}
                 styles={custonStyle}
-                name="indicador"
+                name='indicador'
               />
             </Col>
           </InputGroup>
-          <InputGroup className="mb-3">
-            <Col lg="1">
+          <InputGroup className='mb-3'>
+            <Col lg='1'>
               <Label>
                 <h6>LongPeriod</h6>
               </Label>
             </Col>
             <Col md='2'>
-              <Field component={Input} type="text" name="longPeriod" className="form-control" />
+              <Field component={Input} type='text' name='longPeriod' className='form-control' />
             </Col>
-            <Col lg="1">
+            <Col lg='1'>
               <Label>
                 <h6>ShortPeriod</h6>
               </Label>
             </Col>
             <Col md='2'>
-              <Field component={Input} type="text" name="shortPeriod" className="form-control" />
+              <Field component={Input} type='text' name='shortPeriod' className='form-control' />
             </Col>
-            <Col lg="1">
+            <Col lg='1'>
               <Label>
                 <h6>SignalPeriod</h6>
               </Label>
             </Col>
             <Col md='2'>
-              <Field component={Input} type="text" name="signalPeriod" className="form-control" />
+              <Field component={Input} type='text' name='signalPeriod' className='form-control' />
             </Col>
-            <Col lg="1">
+            <Col lg='1'>
               <Label>
                 <h6>Invervalo</h6>
               </Label>
             </Col>
             <Col md='2'>
-              <Field value={"Teste"} id='intervalo' component={Input} type="text" name="intervalo" className="form-control" />
+              <Field value={'Teste'} id='intervalo' component={Input} type='text' name='intervalo' className='form-control' />
             </Col>
           </InputGroup>
           <Row>
-            <Col lg="1">
-              <Button type="submit" className="btn-outline-success">Salvar Estratégia</Button>
+            <Col lg='1'>
+              <Button type='submit' className='btn-outline-success'>Salvar Estratégia</Button>
             </Col>
           </Row>
           <hr />
         </form>
       </CardBody>
-    );
+    )
   }
 }
 

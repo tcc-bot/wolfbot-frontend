@@ -1,23 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom'
 
-import routes from '../helpers/routes-open';
+import routes from '../helpers/routes-open'
 import { loadSession } from '../views/Pages/Login/authActions'
 
 import {
   AppBreadcrumb
-} from '@coreui/react';
+} from '@coreui/react'
 
 class RouteControl extends Component {
-  componentWillMount() {
-    this.props.loadSession();
+  componentWillMount () {
+    this.props.loadSession()
   }
-  render() {
+  render () {
     const { user } = this.props.auth
     if (user) {
-      return (<Redirect from="/" to="/dashboard" />)
+      return (<Redirect from='/' to='/dashboard' />)
     } else {
       return (
 
@@ -27,8 +27,8 @@ class RouteControl extends Component {
               <Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => (
                 <route.component {...props} />
               )} />)
-              : (null);
-          },
+              : (null)
+          }
           )}
         </Switch>
       )

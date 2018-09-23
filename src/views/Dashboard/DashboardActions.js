@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const BASE_URL = 'http://localhost:8080'
 
-export function getExchange() {
+export function getExchange () {
   const USER_BOT = loadLocalStorage('user_bot')
   const request = axios.get(`${BASE_URL}/configuracao/carregar?user_id=${USER_BOT.id}`)
 
@@ -12,11 +12,11 @@ export function getExchange() {
   }
 }
 
-export function ligarRobo(statusRobo) {
-  if(statusRobo == false){
+export function ligarRobo (statusRobo) {
+  if (statusRobo == false) {
     axios.post(`${BASE_URL}/bot/acionarRobo?chave=teste&status=on`)
   }
-  if(statusRobo == true){
+  if (statusRobo == true) {
     axios.post(`${BASE_URL}/bot/acionarRobo?chave=teste&status=off`)
   }
   return {
@@ -25,15 +25,14 @@ export function ligarRobo(statusRobo) {
   }
 }
 
-function loadLocalStorage(key) {
+function loadLocalStorage (key) {
   try {
     const serializedState = localStorage.getItem(key)
     if (serializedState === null) {
       return ''
     }
     return JSON.parse(serializedState)
-  }
-  catch (err) {
+  } catch (err) {
     return ''
   }
 }

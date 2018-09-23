@@ -18,7 +18,6 @@ import {
   PasswordChanged
 } from './Pages'
 
-
 export {
   Page404,
   Page500,
@@ -36,5 +35,4 @@ export {
   ChangePassword,
   EmailSendActiveAccount,
   PasswordChanged
-};
-
+}

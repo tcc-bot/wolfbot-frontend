@@ -3,8 +3,7 @@ import { toastr } from 'react-redux-toastr'
 
 const BASE_URL = 'http://localhost:8080'
 
-
-export function getExchanges() {
+export function getExchanges () {
   const request = axios.get(`${BASE_URL}/exchanges/loadExchanges`)
 
   return {
@@ -14,7 +13,7 @@ export function getExchanges() {
   }
 }
 
-export function SelectOption(selectOption) {
+export function SelectOption (selectOption) {
   return {
     type: 'EXCHANGE_SELECTED',
     payload: {
@@ -24,7 +23,7 @@ export function SelectOption(selectOption) {
   }
 }
 
-export function salvarConfiguracao(values) {
+export function salvarConfiguracao (values) {
   const url = `${BASE_URL}/configuracao`
 
   return dispatch => {
@@ -37,13 +36,13 @@ export function salvarConfiguracao(values) {
       )
       .catch(e => {
         for (var i = 0; i < e.response.data.errors.length; i++) {
-          toastr.error("Erro", e.response.data.errors[i].message);
+          toastr.error('Erro', e.response.data.errors[i].message)
         }
       })
   }
 }
 
-export function salvarEstrategia(values) {
+export function salvarEstrategia (values) {
   const url = `${BASE_URL}/configuracao`
 
   return dispatch => {
@@ -56,7 +55,7 @@ export function salvarEstrategia(values) {
       )
       .catch(e => {
         for (var i = 0; i < e.response.data.errors.length; i++) {
-          toastr.error("Erro", e.response.data.errors[i].message);
+          toastr.error('Erro', e.response.data.errors[i].message)
         }
       })
   }

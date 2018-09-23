@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap';
+import React, { Component } from 'react'
+import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap'
 
 import Alerts from '../../containers/Components/Alerts'
 import Input from '../../containers/Components/Input'
@@ -12,13 +12,13 @@ import { salvarConfiguracao } from './ConfiguracaoActions'
 import FormEstrategia from './components/FormEstrategia'
 
 class Configuracao extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
 
-    };
+    }
   }
-  onSubmit(values) {
+  onSubmit (values) {
     const { salvarConfiguracao } = this.props
     const post = {
       key: values.key,
@@ -31,23 +31,23 @@ class Configuracao extends Component {
     salvarConfiguracao(post)
   }
 
-  render() {
+  render () {
     const { handleSubmit } = this.props
     return (
-      <div className="animated fadeIn">
+      <div className='animated fadeIn'>
         <Row>
           <div>
             <Alerts />
           </div>
-          <Col xs="12" lg="12" sm="12">
-            <Card className="card card card-style">
+          <Col xs='12' lg='12' sm='12'>
+            <Card className='card card card-style'>
               <CardHeader>
-                <i className="icon-settings"></i> Configuração
+                <i className='icon-settings' /> Configuração
               </CardHeader>
               <CardBody>
                 <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
-                  <InputGroup className="mb-3">
-                    <Col lg="1">
+                  <InputGroup className='mb-3'>
+                    <Col lg='1'>
                       <Label >
                         <h6>Exchange</h6>
                       </Label>
@@ -56,29 +56,29 @@ class Configuracao extends Component {
                       <SelectExchanges />
                     </Col>
                   </InputGroup>
-                  <InputGroup className="mb-3">
-                    <Col lg="1">
+                  <InputGroup className='mb-3'>
+                    <Col lg='1'>
                       <Label>
                         <h6>API Key</h6>
                       </Label>
                     </Col>
                     <Col>
-                      <Field component={Input} type="text" name="key" placeholder="ApiKey" className="form-control" />
+                      <Field component={Input} type='text' name='key' placeholder='ApiKey' className='form-control' />
                     </Col>
                   </InputGroup>
-                  <InputGroup className="mb-3">
-                    <Col lg="1">
+                  <InputGroup className='mb-3'>
+                    <Col lg='1'>
                       <Label>
                         <h6>API Secret</h6>
                       </Label>
                     </Col>
                     <Col>
-                      <Field component={Input} type="text" name="secret" placeholder="ApiSecret" className="form-control" />
+                      <Field component={Input} type='text' name='secret' placeholder='ApiSecret' className='form-control' />
                     </Col>
                   </InputGroup>
                   <Row>
-                    <Col xs="6">
-                      <Button type="submit" className="btn-outline-success">Salvar Configuração</Button>
+                    <Col xs='6'>
+                      <Button type='submit' className='btn-outline-success'>Salvar Configuração</Button>
                     </Col>
                   </Row>
                   <hr />
@@ -90,7 +90,7 @@ class Configuracao extends Component {
           </Col>
         </Row>
       </div>
-    );
+    )
   }
 }
 
