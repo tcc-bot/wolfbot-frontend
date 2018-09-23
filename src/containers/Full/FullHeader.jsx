@@ -27,8 +27,8 @@ class FullHeader extends Component {
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
         <AppNavbarBrand
-          full={{ src: process.env.PUBLIC_URL + 'dist/img/template/logo-icon.svg', width: 150, height: 45, alt: 'WolfBot Logo' }}
-          minimized={{ src: process.env.PUBLIC_URL + 'dist/img/template/logo-icon.svg', width: 30, height: 30, alt: 'WolfBot Logo' }}
+          full={{ src: process.env.PUBLIC_URL + 'dist/img/template/wolf-bot-logo.png', width: 150, height: 45, alt: 'WolfBot Logo' }}
+          minimized={{ src: process.env.PUBLIC_URL + 'dist/img/template/wolf-bot-icon.png', width: 30, height: 30, alt: 'WolfBot Logo' }}
         />
         <AppSidebarToggler className="d-md-down-none" display="lg" />
         <Nav className="ml-auto" navbar>
