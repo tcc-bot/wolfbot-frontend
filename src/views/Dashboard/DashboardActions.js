@@ -2,9 +2,9 @@ import axios from 'axios'
 
 const BASE_URL = 'http://localhost:8080'
 
-export function getExchange () {
+export function getExchange() {
   const USER_BOT = loadLocalStorage('user_bot')
-  const request = axios.get(`${BASE_URL}/configuracao/carregar?user_id=${USER_BOT.id}`)
+  const request = axios.get(`${BASE_URL}/api/configuracao/carregar?user_id=${USER_BOT.id}`)
 
   return {
     type: 'EXCHANGE_FETCHED',
@@ -12,12 +12,12 @@ export function getExchange () {
   }
 }
 
-export function ligarRobo (statusRobo) {
+export function ligarRobo(statusRobo) {
   if (statusRobo == false) {
-    axios.post(`${BASE_URL}/bot/acionarRobo?chave=teste&status=on`)
+    axios.post(`${BASE_URL}/api/bot/acionarRobo?chave=teste&status=on`)
   }
   if (statusRobo == true) {
-    axios.post(`${BASE_URL}/bot/acionarRobo?chave=teste&status=off`)
+    axios.post(`${BASE_URL}/api/bot/acionarRobo?chave=teste&status=off`)
   }
   return {
     type: 'LIGAR_ROBO',
@@ -25,7 +25,7 @@ export function ligarRobo (statusRobo) {
   }
 }
 
-function loadLocalStorage (key) {
+function loadLocalStorage(key) {
   try {
     const serializedState = localStorage.getItem(key)
     if (serializedState === null) {

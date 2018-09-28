@@ -3,8 +3,8 @@ import { toastr } from 'react-redux-toastr'
 
 const BASE_URL = 'http://localhost:8080'
 
-export function getExchanges () {
-  const request = axios.get(`${BASE_URL}/exchanges/loadExchanges`)
+export function getExchanges() {
+  const request = axios.get(`${BASE_URL}/api/exchanges/loadExchanges`)
 
   return {
     type: 'EXCHANGES_FETCHED',
@@ -13,7 +13,7 @@ export function getExchanges () {
   }
 }
 
-export function SelectOption (selectOption) {
+export function SelectOption(selectOption) {
   return {
     type: 'EXCHANGE_SELECTED',
     payload: {
@@ -23,8 +23,8 @@ export function SelectOption (selectOption) {
   }
 }
 
-export function salvarConfiguracao (values) {
-  const url = `${BASE_URL}/configuracao`
+export function salvarConfiguracao(values) {
+  const url = `${BASE_URL}/api/configuracao`
 
   return dispatch => {
     axios.post(url, values)
@@ -42,8 +42,8 @@ export function salvarConfiguracao (values) {
   }
 }
 
-export function salvarEstrategia (values) {
-  const url = `${BASE_URL}/configuracao`
+export function salvarEstrategia(values) {
+  const url = `${BASE_URL}/api/configuracao`
 
   return dispatch => {
     axios.post(url, values)

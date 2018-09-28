@@ -3,7 +3,7 @@ import { toastr } from 'react-redux-toastr'
 
 const BASE_URL = 'http://localhost:8080'
 
-export function listarHistorico () {
+export function listarHistorico() {
   const USER_BOT = loadLocalStorage('user_bot')
   return dispatch => {
     axios.get(`${BASE_URL}/api/historicos`)
@@ -15,7 +15,7 @@ export function listarHistorico () {
   }
 };
 
-export function buscarHistorico (values) {
+export function buscarHistorico(values) {
   const USER_BOT = loadLocalStorage('user_bot')
   return dispatch => {
     axios.get(`${BASE_URL}/api/historicos`)
@@ -27,7 +27,7 @@ export function buscarHistorico (values) {
   }
 }
 
-function loadLocalStorage (key) {
+function loadLocalStorage(key) {
   try {
     const serializedState = localStorage.getItem(key)
     if (serializedState === null) {
