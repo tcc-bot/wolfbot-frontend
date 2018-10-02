@@ -1,6 +1,0 @@
-{
-    "name": "Backtesting",
-    "version": "0.0.0",
-    "private": true,
-    "main": "./Backtesting.jsx"
-}

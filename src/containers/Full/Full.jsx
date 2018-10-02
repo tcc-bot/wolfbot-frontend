@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import { Container } from 'reactstrap';
+import React, { Component } from 'react'
+import { Redirect, Route, Switch } from 'react-router-dom'
+import { Container } from 'reactstrap'
 
 import {
   AppBreadcrumb,
@@ -11,33 +11,33 @@ import {
   AppSidebarForm,
   AppSidebarHeader,
   AppSidebarMinimizer,
-  AppSidebarNav,
-} from '@coreui/react';
+  AppSidebarNav
+} from '@coreui/react'
 
 // sidebar nav config
-import navigation from '../../_nav';
+import navigation from '../../_nav'
 
 // routes config
-import routes from '../../routes';
-import FullFooter from './FullFooter';
-import FullHeader from './FullHeader';
+import routes from '../../routes'
+import FullFooter from './FullFooter'
+import FullHeader from './FullHeader'
 
 class Full extends Component {
-  render() {
+  render () {
     return (
-      <div className="app">
+      <div className='app'>
         <AppHeader fixed >
           <FullHeader />
         </AppHeader>
-        <div className="app-body">
-          <AppSidebar fixed display="lg">
+        <div className='app-body'>
+          <AppSidebar fixed display='lg'>
             <AppSidebarHeader />
             <AppSidebarForm />
             <AppSidebarNav navConfig={navigation} {...this.props} />
             <AppSidebarFooter />
             <AppSidebarMinimizer />
           </AppSidebar>
-          <main className="main">
+          <main className='main'>
             <AppBreadcrumb appRoutes={routes} />
             <Container fluid>
               <Switch>
@@ -46,10 +46,10 @@ class Full extends Component {
                     <Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => (
                       <route.component {...props} />
                     )} />)
-                    : (null);
-                },
+                    : (null)
+                }
                 )}
-                <Redirect from="/" to="/dashboard" />
+                <Redirect from='/' to='/dashboard' />
               </Switch>
             </Container>
           </main>
@@ -58,8 +58,8 @@ class Full extends Component {
           <FullFooter />
         </AppFooter>
       </div>
-    );
+    )
   }
 }
 
-export default Full;
+export default Full

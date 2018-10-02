@@ -1,11 +1,9 @@
 import axios from 'axios'
 import { toastr } from 'react-redux-toastr'
-
-const BASE_URL = 'http://localhost:8080'
-
+import api from '../config/config-production'
 
 export function getExchanges() {
-  const request = axios.get(`${BASE_URL}/exchanges/loadExchanges`)
+  const request = axios.get(`${api.WOLFBOT_API_URL}/exchanges/loadExchanges`)
 
   return {
     type: 'EXCHANGES_FETCHED',
@@ -14,7 +12,7 @@ export function getExchanges() {
   }
 }
 
-export function SelectOption(selectOption) {
+export function ExchangeSelectOption(selectOption) {
   return {
     type: 'EXCHANGE_SELECTED',
     payload: {
@@ -24,8 +22,38 @@ export function SelectOption(selectOption) {
   }
 }
 
+export function CandlesSelectOption(selectOption) {
+  return {
+    type: 'CANDLE_SELECTED',
+    payload: {
+      value: selectOption.value,
+      label: selectOption.label
+    }
+  }
+}
+
+export function MoedasSelectOption(selectOption) {
+  return {
+    type: 'MOEDA_SELECTED',
+    payload: {
+      value: selectOption.value,
+      label: selectOption.label
+    }
+  }
+}
+
+export function IndicadoresSelectOption(selectOption) {
+  return {
+    type: 'INDICADOR_SELECTED',
+    payload: {
+      value: selectOption.value,
+      label: selectOption.label
+    }
+  }
+}
+
 export function salvarConfiguracao(values) {
-  const url = `${BASE_URL}/configuracao`
+  const url = `${api.WOLFBOT_API_URL}/configuracao`
 
   return dispatch => {
     axios.post(url, values)
@@ -37,14 +65,14 @@ export function salvarConfiguracao(values) {
       )
       .catch(e => {
         for (var i = 0; i < e.response.data.errors.length; i++) {
-          toastr.error("Erro", e.response.data.errors[i].message);
+          toastr.error('Erro', e.response.data.errors[i].message)
         }
       })
   }
 }
 
 export function salvarEstrategia(values) {
-  const url = `${BASE_URL}/configuracao`
+  const url = `${api.WOLFBOT_API_URL}/configuracao`
 
   return dispatch => {
     axios.post(url, values)
@@ -56,7 +84,7 @@ export function salvarEstrategia(values) {
       )
       .catch(e => {
         for (var i = 0; i < e.response.data.errors.length; i++) {
-          toastr.error("Erro", e.response.data.errors[i].message);
+          toastr.error('Erro', e.response.data.errors[i].message)
         }
       })
   }

@@ -4,16 +4,6 @@
 }
 
 /* Dashboard - Resumo de Operações */
-.card-style {
-  background-color: rgb(26, 36, 44);
-  font-family: 'Sawarabi Gothic', sans-serif;
-  color: rgb(204, 204, 204);
-}
-.card-header-style{
-  background-color:rgb(25, 31, 37);
-  font-family: 'Sawarabi Gothic', sans-serif;
-  color:rgb(57, 133, 168);
-}
 .col-info-operacoes{
   padding-top: 0px;
   background-color: rgb(25, 37, 48);

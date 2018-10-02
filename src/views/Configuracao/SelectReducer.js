@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
-  data: [{ value: "Bittrex", label: "Bittrex" }],
-  exchangeSelected: { value: "", label: '' }
+  data: [{ value: 'Bittrex', label: 'Bittrex' }],
+  exchangeSelected: { value: '', label: '' }
 }
 
 export default function (state = INITIAL_STATE, action) {

@@ -1,71 +1,69 @@
-import React, { Component } from 'react';
-import { Button, Card, CardBody, CardGroup, Col, Container, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
-import { Redirect, Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Button, Card, CardBody, CardGroup, Col, Container, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap'
+import { Redirect, Link } from 'react-router-dom'
 
 import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as qs from 'query-string'
 
-import { loadChangePasswordPage, changePassword } from '../Login/authActions'
+import { loadChangePasswordPage, changePassword } from '../../../_actions/authActions'
 import Input from '../../../containers/Components/Input'
 import Alerts from '../../../containers/Components/Alerts'
 
 class ChangePassword extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {}
-    this.changePasswordHash = qs.parse(this.props.location.search).parameter;
-
+    this.changePasswordHash = qs.parse(this.props.location.search).parameter
   }
 
-  onSubmit(values) {
-    this.props.changePassword(values, this.props.changePasswordHash);
+  onSubmit (values) {
+    this.props.changePassword(values, this.props.changePasswordHash)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.props.loadChangePasswordPage(this.changePasswordHash)
   }
 
-
-  render() {
+  render () {
     if (this.props.redirect === false) {
-      window.location.reload();
+      window.location.reload()
     }
     const { handleSubmit, reset } = this.props
-    if (this.props.redirect)
+    if (this.props.redirect) {
       return (
-        <div className="app flex-row align-items-center ComponentAuth">
+        <div className='app flex-row align-items-center ComponentAuth'>
           <Alerts />
           <Container className='ContainerAuth'>
-            <Row className="justify-content-center">
-              <Col md="8">
+            <Row className='justify-content-center'>
+              <Col md='8'>
                 <CardGroup>
-                  <Card id="cardLogin" className="card p-4">
+                  <Card id='cardLogin' className='card p-4'>
                     <CardBody>
                       <h1>Alteração da Senha</h1>
-                      <p className="text-muted">Insira a nova senha para a sua conta</p>
+                      <p className='text-muted'>Insira a nova senha para a sua conta</p>
                       <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
-                        <InputGroup className="mb-4">
-                          <InputGroupAddon addonType="prepend">
+                        <InputGroup className='mb-4'>
+                          <InputGroupAddon addonType='prepend'>
                             <InputGroupText>
-                              <i className="icon-lock"></i>
+                              <i className='icon-lock' />
                             </InputGroupText>
                           </InputGroupAddon>
-                          <Field component={Input} type="password" name="password" placeholder="Senha" className="form-control" />
+                          <Field component={Input} type='password' name='password' placeholder='Senha' className='form-control' />
                         </InputGroup>
-                        <InputGroup className="mb-4">
-                          <InputGroupAddon addonType="prepend">
+                        <InputGroup className='mb-4'>
+                          <InputGroupAddon addonType='prepend'>
                             <InputGroupText>
-                              <i className="icon-lock"></i>
+                              <i className='icon-lock' />
                             </InputGroupText>
                           </InputGroupAddon>
-                          <Field component={Input} type="password" name="passwordConfirm" placeholder="Senha de Confirmação" className="form-control" />
+                          <Field component={Input} type='password' name='passwordConfirm' placeholder='Senha de Confirmação' className='form-control' />
                         </InputGroup>
                         <Row>
-                          <Col xs="8">
-                            <Button type="submit" className="btn-outline-primary"><Link from="/changePassword" to="/dashboard" />Salvar Alterações</Button>
-                            <Button type="reset" onClick={reset} className="btn-outline-warning">Limpar</Button>
+                          <Col xs='8'>
+                            <Button type='submit' className='btn-outline-primary'><Link from='/changePassword' to='/dashboard' />Salvar Alterações</Button>
+                            <Button type='reset' onClick={reset} className='btn-outline-warning'>Limpar</Button>
                           </Col>
                         </Row>
                       </form>
@@ -75,11 +73,11 @@ class ChangePassword extends Component {
               </Col>
             </Row>
           </Container>
-          {this.props.passwordChanged ? <Redirect from="/" to="/passwordChanged" /> : null}
+          {this.props.passwordChanged ? <Redirect from='/' to='/passwordChanged' /> : null}
         </div >
-      );
-    else {
-      return (<Redirect from="/" to="/login" />)
+      )
+    } else {
+      return (<Redirect from='/' to='/login' />)
     }
   }
 }

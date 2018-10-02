@@ -4,7 +4,7 @@ import Configuracao from './Configuracao'
 import Carteira from './Carteira'
 import Graficos from './Graficos'
 import Historico from './Historico'
-import Backtesting from './Backtesting'
+import Backtesting from './Backtest'
 import Perfil from './Perfil'
 
 import {
@@ -18,7 +18,6 @@ import {
   EmailSendActiveAccount,
   PasswordChanged
 } from './Pages'
-
 
 export {
   Page404,
@@ -38,5 +37,4 @@ export {
   ChangePassword,
   EmailSendActiveAccount,
   PasswordChanged
-};
-
+}

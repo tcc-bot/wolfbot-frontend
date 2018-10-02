@@ -5,7 +5,7 @@ import {
   ChangePassword,
   EmailSendActiveAccount,
   PasswordChanged
-} from '../views';
+} from '../views'
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -15,6 +15,6 @@ const routes = [
   { path: '/changepassword', name: 'Change Password', component: ChangePassword },
   { path: '/emailsendactiveaccount', name: 'Active Account', component: EmailSendActiveAccount },
   { path: '/passwordChanged', name: 'Password Changed', component: PasswordChanged }
-];
+]
 
-export default routes;
+export default routes

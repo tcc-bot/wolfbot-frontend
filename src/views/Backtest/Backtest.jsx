@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Row } from 'reactstrap'
 
-class Estatisticas extends Component {
+class Backtesting extends Component {
   constructor (props) {
     super(props)
 
@@ -35,4 +35,4 @@ class Estatisticas extends Component {
   }
 }
 
-export default Estatisticas
+export default Backtesting
