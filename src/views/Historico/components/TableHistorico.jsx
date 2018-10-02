@@ -5,7 +5,7 @@ import ReactTable from 'react-table'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { buscarHistorico } from '../HistoricoActions'
+import { buscarHistorico } from '../../../_actions/HistoricoActions';
 
 class TableHistorico extends Component {
   constructor (props) {

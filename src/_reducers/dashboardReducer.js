@@ -1,6 +1,6 @@
 const exchangeKey = 'exchange_bot'
 const INITIAL_STATE = {
-  exchange: '', // JSON.parse(localStorage.getItem(exchangeKey)),
+  exchange: "", //JSON.parse(localStorage.getItem(exchangeKey)),
   roboLigado: false
 }
 export default (state = INITIAL_STATE, action) => {

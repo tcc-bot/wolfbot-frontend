@@ -11,6 +11,7 @@ import './assets/styles/template/style.css'
 // import '../node_modules/@coreui/styles/scss/_dropdown-menu-right.scss';
 
 // CSS Modulos
+import './assets/styles/modulos/styles.css'
 import './assets/styles/modulos/style-dashboard.css'
 import './assets/styles/modulos/style-historico.css'
 

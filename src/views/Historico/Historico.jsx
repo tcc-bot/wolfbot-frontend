@@ -5,7 +5,7 @@ import FormHistorico from './components/FormHistorico'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { listarHistorico } from './HistoricoActions'
+import { listarHistorico } from '../../_actions/HistoricoActions';
 
 class Historico extends Component {
   constructor (props) {

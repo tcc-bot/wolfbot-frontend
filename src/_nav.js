@@ -31,9 +31,9 @@ export default {
       icon: 'fa fa-check-square-o'
     },
     {
-      name: 'Configuracao',
+      name: 'Configuração',
       url: '/configuracao',
-      icon: 'icon-settings'
-    }
-  ]
-}
+      icon: 'icon-settings',
+    },
+  ],
+};

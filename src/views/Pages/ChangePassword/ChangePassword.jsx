@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as qs from 'query-string'
 
-import { loadChangePasswordPage, changePassword } from '../Login/authActions'
+import { loadChangePasswordPage, changePassword } from '../../../_actions/authActions'
 import Input from '../../../containers/Components/Input'
 import Alerts from '../../../containers/Components/Alerts'
 

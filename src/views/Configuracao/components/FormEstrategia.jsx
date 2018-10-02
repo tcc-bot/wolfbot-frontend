@@ -6,70 +6,19 @@ import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { salvarEstrategia } from '../ConfiguracaoActions'
+import { salvarEstrategia } from '../../../_actions/ConfiguracaoActions'
 
 class FormEstrategia extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
   }
 
-  onSubmit (values) {
+  onSubmit(values) {
     salvarEstrategia(values)
   }
 
-  render () {
-    const indicadores = [
-      {
-        'value': 'MACD',
-        'label': 'MACD'
-      }]
+  render() {
 
-    const moedas = [
-      {
-        'value': 'BTC/USDT',
-        'label': 'BTC/USDT'
-      }
-    ]
-    const candle = [
-      {
-        'value': '5m',
-        'label': '5m'
-      },
-      {
-        'value': '10m',
-        'label': '10m'
-      },
-      {
-        'value': '15m',
-        'label': '15m'
-      },
-      {
-        'value': '30m',
-        'label': '30m'
-      },
-      {
-        'value': '1h',
-        'label': '1h'
-      },
-      {
-        'value': '2h',
-        'label': '2h'
-      },
-      {
-        'value': '5h',
-        'label': '5h'
-      },
-      {
-        'value': '1d',
-        'label': '1d'
-      }
-    ]
-    const periodo = [
-      {
-        'value': '50',
-        'label': '50'
-      }
-    ]
     const { handleSubmit } = this.props
     const custonStyle = {
       control: styles => ({
@@ -99,117 +48,121 @@ class FormEstrategia extends Component {
       })
     }
     return (
-      <CardBody>
-        <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
-          <InputGroup className='mb-3'>
-            <Col lg='1'>
-              <Label >
-                <h6>Periodos</h6>
-              </Label>
-            </Col>
-            <Col md='4'>
-              <Select
-                onChange={this.handleChange}
-                options={periodo}
-                value={periodo[0]}
-                styles={custonStyle}
-                name='periodo'
-              />
-            </Col>
-            <Col lg='1'>
-              <Label>
-                <h6>Tamanho Candle</h6>
-              </Label>
-            </Col>
-            <Col md='6'>
-              <Select
-                onChange={this.handleChange}
-                options={candle}
-                value={candle[0]}
-                styles={custonStyle}
-                name='candle'
-              />
-            </Col>
-          </InputGroup>
-          <InputGroup className='mb-3'>
-            <Col lg='1'>
-              <Label>
-                <h6>Moeda</h6>
-              </Label>
-            </Col>
-            <Col md='4'>
-              <Select
-                onChange={this.handleChange}
-                options={moedas}
-                value={moedas[0]}
-                styles={custonStyle}
-                name='moeda'
-              />
-            </Col>
-            <Col lg='1'>
-              <Label>
-                <h6>Indicador</h6>
-              </Label>
-            </Col>
-            <Col md='6'>
-              <Select
-                onChange={this.handleChange}
-                options={indicadores}
-                value={indicadores[0]}
-                styles={custonStyle}
-                name='indicador'
-              />
-            </Col>
-          </InputGroup>
-          <InputGroup className='mb-3'>
-            <Col lg='1'>
-              <Label>
-                <h6>LongPeriod</h6>
-              </Label>
-            </Col>
-            <Col md='2'>
-              <Field component={Input} type='text' name='longPeriod' className='form-control' />
-            </Col>
-            <Col lg='1'>
-              <Label>
-                <h6>ShortPeriod</h6>
-              </Label>
-            </Col>
-            <Col md='2'>
-              <Field component={Input} type='text' name='shortPeriod' className='form-control' />
-            </Col>
-            <Col lg='1'>
-              <Label>
-                <h6>SignalPeriod</h6>
-              </Label>
-            </Col>
-            <Col md='2'>
-              <Field component={Input} type='text' name='signalPeriod' className='form-control' />
-            </Col>
-            <Col lg='1'>
-              <Label>
-                <h6>Invervalo</h6>
-              </Label>
-            </Col>
-            <Col md='2'>
-              <Field value={'Teste'} id='intervalo' component={Input} type='text' name='intervalo' className='form-control' />
-            </Col>
-          </InputGroup>
-          <Row>
-            <Col lg='1'>
-              <Button type='submit' className='btn-outline-success'>Salvar Estratégia</Button>
-            </Col>
-          </Row>
-          <hr />
-        </form>
-      </CardBody>
-    )
+      <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
+        <InputGroup className="mb-2">
+          <Col lg="1">
+            <Label >
+              <h6>Periodos:</h6>
+            </Label>
+          </Col>
+          <Col md="2">
+            <Select
+              onChange={this.handleChange}
+              options={this.props.select.periodos}
+              value={this.props.select.periodos[0]}
+              styles={custonStyle}
+              name="periodo"
+            />
+          </Col>
+          <Col lg="1">
+            <Label>
+              <p>Tamanho Candle:</p>
+            </Label>
+          </Col>
+          <Col md='2'>
+            <Select
+              onChange={this.handleChange}
+              options={this.props.select.candles}
+              value={this.props.select.candles[0]}
+              styles={custonStyle}
+              name="candle"
+            />
+          </Col>
+          <Col lg="1">
+            <Label>
+              <p>Moeda:</p>
+            </Label>
+          </Col>
+          <Col md='3'>
+            <Select
+              onChange={this.handleChange}
+              options={this.props.select.moedas}
+              value={this.props.select.moedas[0]}
+              styles={custonStyle}
+              name="moeda"
+            />
+          </Col>
+        </InputGroup>
+        <br />
+        <InputGroup className="mb-3">
+          <Col lg="1">
+            <Label>
+              <p>Indicador:</p>
+            </Label>
+          </Col>
+          <Col md='2'>
+            <Select
+              onChange={this.handleChange}
+              options={this.props.select.indicadores}
+              value={this.props.select.indicadores[0]}
+              styles={custonStyle}
+              name="indicador"
+            />
+          </Col>
+          <Col lg="1">
+            <Label>
+              <p>Long Period:</p>
+            </Label>
+          </Col>
+          <Col md='2'>
+            <Field component={Input} type="text" name="longPeriod" className="form-control" />
+          </Col>
+          <Col lg="1">
+            <Label>
+              <p>Short Period:</p>
+            </Label>
+          </Col>
+          <Col md='2'>
+            <Field component={Input} type="text" name="shortPeriod" className="form-control" />
+          </Col>
+          <Col lg="1">
+            <Label>
+              <p>Signal Period:</p>
+            </Label>
+          </Col>
+          <Col md='2'>
+            <Field component={Input} type="text" name="signalPeriod" className="form-control" />
+          </Col>
+        </InputGroup>
+        <br />
+        <InputGroup className="mb-3">
+          <Col lg="1">
+            <Label>
+              <p>Invervalo:</p>
+            </Label>
+          </Col>
+          <Col md='2'>
+            <Field value={"Teste"} id='intervalo' component={Input} type="text" name="intervalo" className="form-control" />
+          </Col>
+        </InputGroup>
+        <br />
+        <Row>
+          <Col xs="8">
+            <Button type="submit" className="btn-outline-success" style={{ marginRight: '5px' }}>Salvar Estratégia</Button>
+            <Button type="submit" className="btn-outline-primary" style={{ marginRight: '5px' }}>Editar</Button>
+            <Button type="submit" className="btn-outline-danger">Cancelar</Button>
+          </Col>
+        </Row>
+        <hr />
+      </form>
+    );
   }
 }
 
 FormEstrategia = reduxForm({ form: 'formEstrategia' })(FormEstrategia)
 const mapDispatchToProps = dispatch => bindActionCreators({ salvarEstrategia }, dispatch)
 const mapStateToProps = state => ({
-  user: state.auth.user
+  user: state.auth.user,
+  select: state.selectConfig
 })
 export default connect(mapStateToProps, mapDispatchToProps)(FormEstrategia)

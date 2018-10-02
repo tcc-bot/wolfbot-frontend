@@ -1,10 +1,6 @@
-@charset "UTF-8";
-
-/* Historico */
 .card-style {
   background-color: rgb(26, 36, 44);
   font-family: 'Sawarabi Gothic', sans-serif;
-  color:rgb(245, 245, 245);
 }
 .card-header-style{
   background-color:rgb(25, 31, 37);

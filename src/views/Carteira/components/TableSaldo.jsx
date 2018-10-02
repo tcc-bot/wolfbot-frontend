@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
-import { Card, CardHeader, CardBody, Col } from 'reactstrap'
-import { getSaldo } from '../CarteiraActions'
+import React, { Component } from 'react';
+import { Card, CardHeader, CardBody, Col } from 'reactstrap';
+import { getSaldo } from '../../../_actions/CarteiraActions'
 
 import ReactTable from 'react-table'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 class TableSaldo extends Component {
-  componentWillMount () {
+  componentWillMount() {
     this.props.getSaldo()
   }
 
-  render () {
+  render() {
     const columns = [{
       Header: 'Moeda',
       accessor: 'moeda' // String-based value accessors!

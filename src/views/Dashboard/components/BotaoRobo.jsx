@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col, Card, CardHeader, CardBody } from 'reactstrap'
-import { ligarRobo } from '../DashboardActions'
+import { ligarRobo } from '../../../_actions/DashboardActions'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'

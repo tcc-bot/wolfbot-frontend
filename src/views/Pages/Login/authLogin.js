@@ -5,8 +5,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import Login from './Login'
-import { validateToken, loadSession, ativarConta } from './authActions'
-import { Full } from '../../../containers'
+import { validateToken, loadSession, ativarConta } from '../../../_actions/authActions'
+import { Full } from '../../../containers';
 
 class AuthLogin extends Component {
   componentWillMount () {

@@ -5,7 +5,7 @@ import Alerts from '../../containers/Components/Alerts'
 import ResumoOperacoes from './components/ResumoOperacoes'
 import ResumoInvestimento from './components/ResumoInvestimento'
 import BotaoRobo from './components/BotaoRobo'
-import { getExchange } from './DashboardActions'
+import { getExchange } from '../../_actions/DashboardActions'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
