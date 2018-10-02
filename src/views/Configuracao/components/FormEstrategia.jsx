@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap';
+import React, { Component } from 'react'
+import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap'
 import Input from '../../../containers/Components/Input'
 import Select from 'react-select'
 import { reduxForm, Field } from 'redux-form'
@@ -10,12 +10,10 @@ import { salvarEstrategia } from '../../../_actions/ConfiguracaoActions'
 
 class FormEstrategia extends Component {
   constructor(props) {
-    super(props);
-
+    super(props)
   }
 
   onSubmit(values) {
-
     salvarEstrategia(values)
   }
 
@@ -33,12 +31,12 @@ class FormEstrategia extends Component {
           ...styles,
           backgroundColor: isDisabled ? '#515b65' : isSelected ? '#343b41' : isFocused ? 'rgb(26, 36, 44)' : '#515b65',
           color: isDisabled ? '#000' : isSelected ? '#e4e7ea' : null,
-          cursor: isDisabled ? 'not-allowed' : 'default',
-        };
+          cursor: isDisabled ? 'not-allowed' : 'default'
+        }
       },
       input: styles => ({
         ...styles,
-        color: '#e4e7ea',
+        color: '#e4e7ea'
       }),
       placeholder: styles => ({
         ...styles,
@@ -48,7 +46,7 @@ class FormEstrategia extends Component {
         ...styles,
         color: '#e4e7ea'
       })
-    };
+    }
     return (
       <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
         <InputGroup className="mb-2">

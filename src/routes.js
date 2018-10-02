@@ -4,7 +4,7 @@ import {
   Configuracao,
   Carteira,
   Graficos,
-  Backtesting,
+  Backtest,
   Historico
 } from './views';
 import Full from './containers/Full/Full';
@@ -17,9 +17,9 @@ const routes = [
   { path: '/graficos', name: 'Graficos', component: Graficos },
   { path: '/historico', name: 'Historico', component: Historico },
   { path: '/estatisticas', name: 'Estatisticas', component: Estatisticas },
-  { path: '/backtesting', name: 'Backtesting', component: Backtesting },
-  { path: '/configuracao', name: 'Configuracao', component: Configuracao },
+  { path: '/backtest', name: 'Backtest', component: Backtest },
+  { path: '/configuracao', name: 'Configuracao', component: Configuracao }
 
-];
+]
 
-export default routes;
+export default routes

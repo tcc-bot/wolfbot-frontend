@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import Alerts from '../../../containers/Components/Alerts'
 
-class EmailSendActiveAccount extends Component {
+class PasswordChanged extends Component {
   constructor (props) {
     super(props)
     this.state = {}
@@ -20,14 +20,14 @@ class EmailSendActiveAccount extends Component {
               <CardGroup>
                 <Card className='cardAccount card p-4'>
                   <CardBody>
-                    <img src='dist/img/account/email.png' width='125px' height='125px'
+                    <img src='dist/img/account/passwordChanged.png' width='125px' height='125px'
                       style={{ display: 'block', margin: '10px auto' }} />
-                    <h1 style={{ textAlign: 'center' }}>Confirme seu email!</h1>
-                    <p className='text-white'>Verifique sua caixa de entrada, pois enviamos um email para que você possa ativar sua conta</p>
+                    <h1 style={{ textAlign: 'center' }}>Sua senha foi alterada!</h1>
+                    <p className='text-white' />
                   </CardBody>
                   <CardFooter className='pageCardFooter p-4'>
                     <Row className='justify-content-center'>
-                      <p className='pageCardText text-muted'>Entrar em sua conta?</p>
+                      <p className='pageCardText text-muted'>Login?</p>
                       <Link to='/login'><Button color='link' className='px-0'>Login</Button></Link>
                     </Row>
                   </CardFooter>
@@ -48,4 +48,4 @@ class EmailSendActiveAccount extends Component {
   }
 }
 
-export default EmailSendActiveAccount
+export default PasswordChanged

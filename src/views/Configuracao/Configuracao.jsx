@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap';
+import React, { Component } from 'react'
+import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap'
 
 import Alerts from '../../containers/Components/Alerts'
 import Input from '../../containers/Components/Input'
@@ -18,10 +18,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 class Configuracao extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
 
-    };
+    }
   }
   onSubmit(values) {
     const { salvarConfiguracao } = this.props
@@ -39,7 +39,7 @@ class Configuracao extends Component {
   render() {
     const { handleSubmit } = this.props
     return (
-      <div className="animated fadeIn">
+      <div className='animated fadeIn'>
         <Row>
           <div>
             <Alerts />

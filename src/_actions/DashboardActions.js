@@ -1,9 +1,9 @@
 import axios from 'axios'
-import api from '../config/config-development'
+import api from '../config/config-production'
 
 export function getExchange() {
   const USER_BOT = loadLocalStorage('user_bot')
-  const request = axios.get(`${api.WOLFBOT_API_URL}/configuracao?id_usuario=${USER_BOT.id}`)
+  const request = axios.get(`${api.WOLFBOT_API_URL}/configuracao/carregar?user_id=${USER_BOT.id}`)
 
   return {
     type: 'EXCHANGE_FETCHED',
@@ -31,8 +31,7 @@ function loadLocalStorage(key) {
       return ''
     }
     return JSON.parse(serializedState)
-  }
-  catch (err) {
+  } catch (err) {
     return ''
   }
 }

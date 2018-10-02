@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Row } from 'reactstrap';
+import React, { Component } from 'react'
+import { Row } from 'reactstrap'
 import TablePosicoes from './components/TablePosicoes'
 import Alerts from '../../containers/Components/Alerts'
 import ResumoOperacoes from './components/ResumoOperacoes'
-import ResumoInvestimento from './components/ResumoInvestimento';
+import ResumoInvestimento from './components/ResumoInvestimento'
 import BotaoRobo from './components/BotaoRobo'
 import { getExchange } from '../../_actions/DashboardActions'
 
@@ -12,7 +12,7 @@ import { bindActionCreators } from 'redux'
 
 class Dashboard extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
     }
   }
@@ -23,7 +23,7 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div className="animated fadeIn">
+      <div className='animated fadeIn'>
         <Alerts />
         <Row>
           <ResumoOperacoes />
@@ -32,7 +32,7 @@ class Dashboard extends Component {
           <BotaoRobo />
         </Row>
       </div>
-    );
+    )
   }
 }
 
@@ -41,4 +41,3 @@ const mapStateToProps = state => ({
 })
 const mapDispatchToProps = dispatch => bindActionCreators({ getExchange }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
-

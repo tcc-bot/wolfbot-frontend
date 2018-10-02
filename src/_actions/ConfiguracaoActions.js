@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { toastr } from 'react-redux-toastr'
-import api from '../config/config-development'
+import api from '../config/config-production'
 
 export function getExchanges() {
   const request = axios.get(`${api.WOLFBOT_API_URL}/exchanges/loadExchanges`)
@@ -65,7 +65,7 @@ export function salvarConfiguracao(values) {
       )
       .catch(e => {
         for (var i = 0; i < e.response.data.errors.length; i++) {
-          toastr.error("Erro", e.response.data.errors[i].message);
+          toastr.error('Erro', e.response.data.errors[i].message)
         }
       })
   }
@@ -84,7 +84,7 @@ export function salvarEstrategia(values) {
       )
       .catch(e => {
         for (var i = 0; i < e.response.data.errors.length; i++) {
-          toastr.error("Erro", e.response.data.errors[i].message);
+          toastr.error('Erro', e.response.data.errors[i].message)
         }
       })
   }

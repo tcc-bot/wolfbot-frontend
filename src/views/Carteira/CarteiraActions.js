@@ -1,5 +1,6 @@
 import axios from 'axios'
-import api from '../config/config-production'
+
+const BASE_URL = 'http://localhost:8080'
 
 export function getSaldo() {
   const USER_BOT = loadLocalStorage('user_bot')
@@ -10,7 +11,7 @@ export function getSaldo() {
       type: 'SALDO_NOT_FETCHED'
     }
   } else {
-    const request = axios.get(`${api.WOLFBOT_API_URL}/exchanges/saldo?id_usuario=${id_usuario}`)
+    const request = axios.get(`${BASE_URL}/api/exchanges/saldo?id_usuario=${id_usuario}`)
 
     return {
       type: 'SALDO_FETCHED',
@@ -26,9 +27,7 @@ function loadLocalStorage(key) {
       return ''
     }
     return JSON.parse(serializedState)
-  }
-  catch (err) {
+  } catch (err) {
     return ''
   }
 }
-

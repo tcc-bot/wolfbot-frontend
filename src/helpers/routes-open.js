@@ -3,8 +3,9 @@ import {
   PasswordRecovery,
   EmailSendPasswordRecovery,
   ChangePassword,
-  EmailSendActiveAccount
-} from '../views';
+  EmailSendActiveAccount,
+  PasswordChanged
+} from '../views'
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -12,7 +13,8 @@ const routes = [
   { path: '/passwordrecovery', name: 'Password Recovery', component: PasswordRecovery },
   { path: '/emailsendpasswordrecovery', name: 'Email Send Password Recovery', component: EmailSendPasswordRecovery },
   { path: '/changepassword', name: 'Change Password', component: ChangePassword },
-  { path: '/emailsendactiveaccount', name: 'Active Account', component: EmailSendActiveAccount }
-];
+  { path: '/emailsendactiveaccount', name: 'Active Account', component: EmailSendActiveAccount },
+  { path: '/passwordChanged', name: 'Password Changed', component: PasswordChanged }
+]
 
-export default routes;
+export default routes

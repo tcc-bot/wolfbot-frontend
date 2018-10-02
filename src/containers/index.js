@@ -1,3 +1,3 @@
-import Full from './Full';
+import Full from './Full'
 
-export { Full };
+export { Full }

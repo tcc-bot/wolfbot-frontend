@@ -6,8 +6,8 @@ export default props => (
   <ReduxToastr
     timeOut={3000}
     newestOnTop={false}
-    preventDuplicates={true}
-    position='top-center'
+    preventDuplicates
+    position='top-right'
     transitionIn='fadeIn'
     transitionOut='fadeOut' />
 )
