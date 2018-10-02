@@ -14,14 +14,12 @@ const propTypes = {
 const defaultProps = {}
 
 class FullHeader extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
-    this.state = {}
   }
 
-  render () {
+  render() {
     const { nome } = this.props.user
-
     return (
       <React.Fragment>
         <AppSidebarToggler className='d-lg-none' display='md' mobile />
@@ -36,10 +34,10 @@ class FullHeader extends Component {
               <i id='iconFullHeader' className='fa fa-user-circle fa-3x' />
             </DropdownToggle>
             <DropdownMenu right style={{ right: 'auto' }}>
-              <DropdownItem header tag='div' className='text-center'><strong>{nome}</strong></DropdownItem>
-              <DropdownItem><i className='fa fa-user' /> Perfil</DropdownItem>
-              <DropdownItem><i className='fa fa-wrench' /> Configurações</DropdownItem>
-              <DropdownItem onClick={this.props.logout}><i className='fa fa-lock' /> Sair</DropdownItem>
+              <DropdownItem header tag="div" className="text-center"><strong>{nome}</strong></DropdownItem>
+              <DropdownItem><i className="fa fa-user"></i> Perfil</DropdownItem>
+              <DropdownItem><i className="fa fa-wrench"></i> Configurações</DropdownItem>
+              <DropdownItem onClick={this.props.logout}><i className="fa fa-lock"></i> Sair</DropdownItem>
             </DropdownMenu>
           </AppHeaderDropdown>
         </Nav>
@@ -51,6 +49,11 @@ class FullHeader extends Component {
 FullHeader.propTypes = propTypes
 FullHeader.defaultProps = defaultProps
 
-const mapStateToProps = state => ({ user: state.auth.user })
-const mapDispatchToProps = dispatch => bindActionCreators({ logout }, dispatch)
+const mapStateToProps = state => ({
+  user: state.auth.user
+})
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    logout
+  }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(FullHeader)

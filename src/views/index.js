@@ -4,7 +4,8 @@ import Configuracao from './Configuracao'
 import Carteira from './Carteira'
 import Graficos from './Graficos'
 import Historico from './Historico'
-import Backtest from './Backtest'
+import Backtesting from './Backtest'
+import Perfil from './Perfil'
 
 import {
   Login,
@@ -28,8 +29,9 @@ export {
   Graficos,
   Historico,
   Estatisticas,
-  Backtest,
+  Backtesting,
   Configuracao,
+  Perfil,
   PasswordRecovery,
   EmailSendPasswordRecovery,
   ChangePassword,

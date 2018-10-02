@@ -9,6 +9,7 @@ import ConfiguracaoReducer from './_reducers/ConfiguracaoReducer';
 import TableSaldoReducer from './_reducers/TableSaldoReducer';
 import CarteiraReducer from './_reducers/CarteiraReducer';
 import HistoricoReducer from './_reducers/HistoricoReducer';
+import PerfilReducer from './_reducers/PerfilReducer';
 
 const rootReducer = combineReducers({
   dashboard: DashboardReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   form: formReducer,
   auth: AuthReducer,
   toastr: toastrReducer,
-  historico: HistoricoReducer
+  historico: HistoricoReducer,
+  profile: PerfilReducer
 })
 export default rootReducer

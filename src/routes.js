@@ -4,8 +4,9 @@ import {
   Configuracao,
   Carteira,
   Graficos,
-  Backtest,
-  Historico
+  Backtesting,
+  Historico,
+  Perfil
 } from './views';
 import Full from './containers/Full/Full';
 
@@ -17,8 +18,9 @@ const routes = [
   { path: '/graficos', name: 'Graficos', component: Graficos },
   { path: '/historico', name: 'Historico', component: Historico },
   { path: '/estatisticas', name: 'Estatisticas', component: Estatisticas },
-  { path: '/backtest', name: 'Backtest', component: Backtest },
-  { path: '/configuracao', name: 'Configuracao', component: Configuracao }
+  { path: '/backtesting', name: 'Backtesting', component: Backtesting },
+  { path: '/configuracao', name: 'Configuracao', component: Configuracao },
+  { path: '/perfil', name: 'Perfil', component: Perfil },
 
 ]
 
