@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardHeader, CardBody, Col } from 'reactstrap';
-import { getSaldo } from '../../../actions/CarteiraActions'
+import { getSaldo } from '../../../_actions/CarteiraActions'
 
 import ReactTable from "react-table";
 import { connect } from 'react-redux'

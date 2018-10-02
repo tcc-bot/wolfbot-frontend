@@ -6,7 +6,7 @@ import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { salvarEstrategia } from '../../../actions/ConfiguracaoActions'
+import { salvarEstrategia } from '../../../_actions/ConfiguracaoActions'
 
 class FormEstrategia extends Component {
   constructor(props) {

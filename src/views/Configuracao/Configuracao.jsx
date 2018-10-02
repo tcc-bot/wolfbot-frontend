@@ -7,7 +7,7 @@ import SelectExchanges from './components/SelectExchanges'
 import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { salvarConfiguracao } from '../../actions/ConfiguracaoActions'
+import { salvarConfiguracao } from '../../_actions/ConfiguracaoActions'
 import FormEstrategia from './components/FormEstrategia'
 import PropTypes from 'prop-types';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';

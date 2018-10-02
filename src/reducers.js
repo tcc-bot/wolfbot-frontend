@@ -2,13 +2,13 @@ import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 import { reducer as toastrReducer } from 'react-redux-toastr'
 
-import DashboardReducer from './reducers/dashboardReducer';
-import AuthReducer from './reducers/authReducer';
-import ConfigSelectReducer from './reducers/SelectReducer';
-import ConfiguracaoReducer from './reducers/ConfiguracaoReducer';
-import TableSaldoReducer from './reducers/TableSaldoReducer';
-import CarteiraReducer from './reducers/CarteiraReducer';
-import HistoricoReducer from './reducers/HistoricoReducer';
+import DashboardReducer from './_reducers/dashboardReducer';
+import AuthReducer from './_reducers/authReducer';
+import ConfigSelectReducer from './_reducers/SelectReducer';
+import ConfiguracaoReducer from './_reducers/ConfiguracaoReducer';
+import TableSaldoReducer from './_reducers/TableSaldoReducer';
+import CarteiraReducer from './_reducers/CarteiraReducer';
+import HistoricoReducer from './_reducers/HistoricoReducer';
 
 const rootReducer = combineReducers({
   dashboard: DashboardReducer,

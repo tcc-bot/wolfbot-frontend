@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Select from 'react-select'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getExchanges, ExchangeSelectOption } from '../../../actions/ConfiguracaoActions'
+import { getExchanges, ExchangeSelectOption } from '../../../_actions/ConfiguracaoActions'
 
 
 class SelectExchanges extends Component {
