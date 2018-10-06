@@ -7,23 +7,38 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import PropTypes from 'prop-types';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DadosPessoais from './components/DadosPessoais';
+import { ChangeTabPerfil } from '../../_actions/PerfilActions'
+
+function TabContainer(props) {
+  return (
+    <Typography component="div" style={{ padding: 8 * 3 }}>
+      {props.children}
+    </Typography>
+  );
+}
 
 class Perfil extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
     };
+
+    TabContainer.propTypes = {
+      children: PropTypes.node.isRequired,
+    };
+
   }
 
-  render() {
+  handleChange = (event, value) => {
+    this.props.ChangeTabPerfil(value);
+  };
 
+  render() {
     return (
       <div className="animated fadeIn" >
         <Row>
@@ -37,31 +52,35 @@ class Perfil extends Component {
               </CardHeader>
               <CardBody>
                 <div className={PropTypes.object.isRequired.root}>
-                  <ExpansionPanel>
-                    <ExpansionPanelSummary
-                      style={{ backgroundColor: "#192024" }}
-                      expandIcon={<ExpandMoreIcon />}>
-                      <Typography className={PropTypes.object.isRequired.heading}>
-                        <a class="text-white">Dados pessoais</a>
-                      </Typography>
-                    </ExpansionPanelSummary>
-                    <ExpansionPanelDetails className="card-style">
-                      {/* Dados Pessoais da Conta */}
-                      <DadosPessoais />
-                    </ExpansionPanelDetails>
-                  </ExpansionPanel>
-                  <ExpansionPanel>
-                    <ExpansionPanelSummary
-                      style={{ backgroundColor: "#192024" }}
-                      expandIcon={<ExpandMoreIcon />}>
-                      <Typography className={PropTypes.object.isRequired.heading}>
-                        <a class="text-white">Alterar a senha</a>
-                      </Typography>
-                    </ExpansionPanelSummary>
-                    <ExpansionPanelDetails className="card-style">
-
-                    </ExpansionPanelDetails>
-                  </ExpansionPanel>
+                  <div className={PropTypes.object.isRequired}>
+                    <AppBar position="static" style={{ backgroundColor: "rgb(26, 36, 44)" }}>
+                      <Tabs value={this.props.tab}
+                        onChange={this.handleChange}
+                        indicatorColor="primary"
+                        textColor="inherit"
+                        scrollable
+                        scrollButtons="auto"
+                      >
+                        <Tab value="dados_pessoais" label="Dados Pessoais" />
+                        <Tab value="alterar_senha" label="Alterar a Senha" />
+                        <Tab value="opcao_3" label="Outra Opção" />
+                        <Tab value="opcao_4" label="Outra Opção" />
+                      </Tabs>
+                    </AppBar>
+                    {this.props.tab == 'dados_pessoais' &&
+                      <TabContainer>
+                        <DadosPessoais></DadosPessoais>
+                      </TabContainer>
+                    }
+                    {this.props.tab == 'alterar_senha' &&
+                      <TabContainer>
+                        Item Two
+                      </TabContainer>}
+                    {this.props.tab === 'opcao_3' &&
+                      <TabContainer>
+                        Item Three
+                      </TabContainer>}
+                  </div>
                 </div>
               </CardBody>
             </Card>
@@ -73,8 +92,10 @@ class Perfil extends Component {
 }
 
 Perfil = reduxForm({ form: 'formPerfil' })(Perfil)
-const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({
+  ChangeTabPerfil
+}, dispatch)
 const mapStateToProps = state => ({
-
+  tab: state.profile.tab_perfil
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Perfil)
