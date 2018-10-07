@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Row } from 'reactstrap'
-import TableSaldo from './screens/TableSaldo'
+
+import Ativos from './screens/Ativos'
 import CompraManual from './screens/CompraManual'
 
 class Carteira extends Component {
@@ -14,7 +15,7 @@ class Carteira extends Component {
     return (
       <div className='animated fadeIn'>
         <Row>
-          <TableSaldo />
+          <Ativos />
           <CompraManual />
         </Row>
       </div>
