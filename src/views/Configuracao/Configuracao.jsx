@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap'
 
-import Alerts from '../../containers/Components/Alerts'
-import Input from '../../containers/Components/Input'
-import SelectExchanges from './components/SelectExchanges'
+import Alerts from '../../components/ui/Alerts'
+import Input from '../../components/ui/Input'
+import SelectExchanges from './screens/SelectExchanges'
 import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { salvarConfiguracao } from '../../_actions/ConfiguracaoActions'
-import FormEstrategia from './components/FormEstrategia'
+import FormEstrategia from './screens/FormEstrategia'
 import PropTypes from 'prop-types';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';

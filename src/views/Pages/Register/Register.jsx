@@ -7,21 +7,21 @@ import { bindActionCreators } from 'redux'
 import { Link, Redirect } from 'react-router-dom'
 
 import { signup } from '../../../_actions/authActions'
-import Input from '../../../containers/Components/Input'
-import Alerts from '../../../containers/Components/Alerts'
+import Input from '../../../components/ui/Input'
+import Alerts from '../../../components/ui/Alerts'
 
 class Register extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {}
   }
 
-  onSubmit (values) {
+  onSubmit(values) {
     const { signup } = this.props
     signup(values)
   }
 
-  render () {
+  render() {
     const { handleSubmit, reset } = this.props
     return (
       <div className='app flex-row align-items-center ComponentAuth'>

@@ -31,4 +31,3 @@ function loadLocalStorage(key) {
     return ''
   }
 }
-

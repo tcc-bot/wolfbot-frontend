@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap'
 import { reduxForm, Field } from 'redux-form'
-import Input from '../../../containers/Components/Input'
+import Input from '../../../components/ui/Input'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 

@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap';
 
-import Alerts from '../../containers/Components/Alerts'
+import Alerts from '../../components/ui/Alerts'
 import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import DadosPessoais from './components/DadosPessoais';
+import DadosPessoais from './screens/DadosPessoais';
 import { ChangeTabPerfil } from '../../_actions/PerfilActions'
 
 function TabContainer(props) {
@@ -56,15 +55,14 @@ class Perfil extends Component {
                     <AppBar position="static" style={{ backgroundColor: "rgb(26, 36, 44)" }}>
                       <Tabs value={this.props.tab}
                         onChange={this.handleChange}
-                        indicatorColor="primary"
+                        indicatorColor="inherit"
                         textColor="inherit"
                         scrollable
                         scrollButtons="auto"
                       >
                         <Tab value="dados_pessoais" label="Dados Pessoais" />
                         <Tab value="alterar_senha" label="Alterar a Senha" />
-                        <Tab value="opcao_3" label="Outra Opção" />
-                        <Tab value="opcao_4" label="Outra Opção" />
+                        <Tab value="atividades" label="Atividades" />
                       </Tabs>
                     </AppBar>
                     {this.props.tab == 'dados_pessoais' &&
@@ -74,11 +72,11 @@ class Perfil extends Component {
                     }
                     {this.props.tab == 'alterar_senha' &&
                       <TabContainer>
-                        Item Two
+                        Alterar a Senha
                       </TabContainer>}
-                    {this.props.tab === 'opcao_3' &&
+                    {this.props.tab === 'atividades' &&
                       <TabContainer>
-                        Item Three
+                        Atividades
                       </TabContainer>}
                   </div>
                 </div>

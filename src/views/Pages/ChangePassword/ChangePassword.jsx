@@ -8,25 +8,25 @@ import { bindActionCreators } from 'redux'
 import * as qs from 'query-string'
 
 import { loadChangePasswordPage, changePassword } from '../../../_actions/authActions'
-import Input from '../../../containers/Components/Input'
-import Alerts from '../../../containers/Components/Alerts'
+import Input from '../../../components/ui/Input'
+import Alerts from '../../../components/ui/Alerts'
 
 class ChangePassword extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {}
     this.changePasswordHash = qs.parse(this.props.location.search).parameter
   }
 
-  onSubmit (values) {
+  onSubmit(values) {
     this.props.changePassword(values, this.props.changePasswordHash)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.loadChangePasswordPage(this.changePasswordHash)
   }
 
-  render () {
+  render() {
     if (this.props.redirect === false) {
       window.location.reload()
     }

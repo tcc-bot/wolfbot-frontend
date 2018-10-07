@@ -6,10 +6,10 @@ import { bindActionCreators } from 'redux'
 
 import Login from './Login'
 import { validateToken, loadSession, ativarConta } from '../../../_actions/authActions'
-import { Full } from '../../../containers';
+import { Full } from '../../../components';
 
 class AuthLogin extends Component {
-  componentWillMount () {
+  componentWillMount() {
     this.props.loadSession()
     const activeAccountHash = qs.parse(this.props.location.search).parameter
     if (activeAccountHash) {
@@ -21,7 +21,7 @@ class AuthLogin extends Component {
     }
   }
 
-  render () {
+  render() {
     const { user, validToken } = this.props.auth
     if (user && validToken) {
       axios.defaults.headers.common['authorization'] = user.token

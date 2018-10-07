@@ -1,6 +1,6 @@
 {
-    "name": "Historico",
-    "version": "0.0.0",
-    "private": true,
-    "main": "./Historico.jsx"
+  "name": "Historico",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Historico.jsx"
 }

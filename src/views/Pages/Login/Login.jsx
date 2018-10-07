@@ -7,25 +7,25 @@ import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 
 import { login, loadLoginPage } from '../../../_actions/authActions'
-import Input from '../../../containers/Components/Input'
-import Alerts from '../../../containers/Components/Alerts'
+import Input from '../../../components/ui/Input'
+import Alerts from '../../../components/ui/Alerts'
 
 class Login extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {}
   }
 
-  onSubmit (values) {
+  onSubmit(values) {
     const { login } = this.props
     login(values)
   }
 
-  componentWillMount () {
+  componentWillMount() {
     this.props.loadLoginPage()
   }
 
-  render () {
+  render() {
     const { handleSubmit } = this.props
     return (
       <div className='app flex-row align-items-center ComponentAuth'>

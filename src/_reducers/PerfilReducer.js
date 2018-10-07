@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   profile: false,
-  tab_perfil: ''
+  tab_perfil: 'dados_pessoais'
 }
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {

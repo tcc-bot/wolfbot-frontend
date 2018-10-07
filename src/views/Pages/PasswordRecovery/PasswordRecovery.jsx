@@ -8,23 +8,23 @@ import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 
 import { passwordRecovery } from '../../../_actions/authActions'
-import Input from '../../../containers/Components/Input'
-import Alerts from '../../../containers/Components/Alerts'
+import Input from '../../../components/ui/Input'
+import Alerts from '../../../components/ui/Alerts'
 
 class PasswordRecovery extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {}
   }
 
-  onSubmit (values) {
+  onSubmit(values) {
     const { passwordRecovery } = this.props
     passwordRecovery(values)
   }
-  componentWillMount () {
+  componentWillMount() {
   }
 
-  render () {
+  render() {
     const { handleSubmit } = this.props
     return (
       <div className='app flex-row align-items-center ComponentAuth'>
@@ -61,7 +61,7 @@ class PasswordRecovery extends Component {
             </Col>
           </Row>
         </Container>
-        {this.props.redirectPageEmailSucess ? <Redirect from='/' to='/emailsendpasswordrecovery' /> : null }
+        {this.props.redirectPageEmailSucess ? <Redirect from='/' to='/emailsendpasswordrecovery' /> : null}
       </div >
     )
   }

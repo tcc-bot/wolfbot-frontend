@@ -1,34 +1,26 @@
 import React, { Component } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
-// Import Flag Icons Set
+
 import 'flag-icon-css/css/flag-icon.min.css'
-// Import Font Awesome Icons Set
 import 'font-awesome/css/font-awesome.min.css'
-// Import Simple Line Icons Set
 import 'simple-line-icons/css/simple-line-icons.css'
-// Import Main styles for this application
-import './assets/styles/template/style.css'
-// import '../node_modules/@coreui/styles/scss/_dropdown-menu-right.scss';
 
-// CSS Modulos
-import './assets/styles/modulos/styles.css'
-import './assets/styles/modulos/style-dashboard.css'
-import './assets/styles/modulos/style-historico.css'
-
-// css react-table
 import './assets/styles/template/react-tables.css'
+import './assets/styles/template/style.css'
+
+import './assets/styles/ui/styles.css'
+import './assets/styles/ui/style-dashboard.css'
+import './assets/styles/ui/style-historico.css'
 
 import RouteControl from './helpers/route.control'
 import AuthLogin from './views/Pages/Login/authLogin'
 
-// Pages
 import {
   Page404,
   Page500
 } from './views/Pages'
-
 class App extends Component {
-  render () {
+  render() {
     return (
       <HashRouter>
         <Switch>
