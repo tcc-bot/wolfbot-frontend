@@ -4,7 +4,6 @@ import { reducer as toastrReducer } from 'react-redux-toastr'
 
 import DashboardReducer from './_reducers/dashboardReducer';
 import AuthReducer from './_reducers/authReducer';
-import ConfigSelectReducer from './_reducers/SelectReducer';
 import ConfiguracaoReducer from './_reducers/ConfiguracaoReducer';
 import CarteiraReducer from './_reducers/CarteiraReducer';
 import HistoricoReducer from './_reducers/HistoricoReducer';
@@ -14,7 +13,6 @@ const rootReducer = combineReducers({
   dashboard: DashboardReducer,
   configuracao: ConfiguracaoReducer,
   carteira: CarteiraReducer,
-  selectConfig: ConfigSelectReducer,
   form: formReducer,
   auth: AuthReducer,
   toastr: toastrReducer,

@@ -12,7 +12,7 @@ class WCard extends Component {
           <CardHeader className='wf-card-header'>
             <i className={`fa ${this.props.icon}`} /> {this.props.titleHeader}
           </CardHeader>
-          <CardBody>
+          <CardBody style={{ color: '#FFFFFF' }}>
             {this.props.children}
           </CardBody>
         </Card>

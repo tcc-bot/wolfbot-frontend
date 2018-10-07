@@ -163,6 +163,6 @@ FormEstrategia = reduxForm({ form: 'formEstrategia' })(FormEstrategia)
 const mapDispatchToProps = dispatch => bindActionCreators({ salvarEstrategia }, dispatch)
 const mapStateToProps = state => ({
   user: state.auth.user,
-  select: state.selectConfig
+  select: state.configuracao
 })
 export default connect(mapStateToProps, mapDispatchToProps)(FormEstrategia)

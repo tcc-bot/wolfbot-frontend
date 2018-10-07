@@ -12,9 +12,9 @@ export function getExchanges() {
   }
 }
 
-export function ExchangeSelectOption(selectOption) {
+export function SelectedOption(selectOption, acao) {
   return {
-    type: 'EXCHANGE_SELECTED',
+    type: acao,
     payload: {
       value: selectOption.value,
       label: selectOption.label
