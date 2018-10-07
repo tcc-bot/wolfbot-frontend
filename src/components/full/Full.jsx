@@ -15,7 +15,7 @@ import {
 } from '@coreui/react'
 
 // sidebar nav config
-import navigation from '../../_nav'
+import navigation from '../../views/_nav'
 
 // routes config
 import routes from '../../routes'
@@ -23,7 +23,7 @@ import FullFooter from './FullFooter'
 import FullHeader from './FullHeader'
 
 class Full extends Component {
-  render () {
+  render() {
     return (
       <div className='app'>
         <AppHeader fixed >

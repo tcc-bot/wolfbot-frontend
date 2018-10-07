@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 import { Card, Button, CardBody, CardFooter, CardGroup, Col, Container, Row } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
-import Alerts from '../../../containers/Components/Alerts'
+import Alerts from '../../../components/ui/Alerts'
 
 class PasswordChanged extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {}
   }
 
-  render () {
+  render() {
     return (
       <div className='app flex-row align-items-center ComponentAuth'>
         <Alerts />
@@ -20,7 +20,7 @@ class PasswordChanged extends Component {
               <CardGroup>
                 <Card className='cardAccount card p-4'>
                   <CardBody>
-                    <img src='dist/img/account/passwordChanged.png' width='125px' height='125px'
+                    <img src='dist/img/account/password_changed.png' width='125px' height='125px'
                       style={{ display: 'block', margin: '10px auto' }} />
                     <h1 style={{ textAlign: 'center' }}>Sua senha foi alterada!</h1>
                     <p className='text-white' />

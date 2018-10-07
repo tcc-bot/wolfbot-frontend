@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap'
-import TableHistorico from './screens/TableHistorico'
-import FormHistorico from './screens/FormHistorico'
+import TableHistorico from './components/TableHistorico'
+import FormHistorico from './components/FormHistorico'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
