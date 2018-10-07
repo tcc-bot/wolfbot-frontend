@@ -8,7 +8,7 @@ import 'simple-line-icons/css/simple-line-icons.css'
 import './assets/styles/template/react-tables.css'
 import './assets/styles/template/style.css'
 
-import './assets/styles/ui/styles.css'
+import './assets/styles/ui/card.css'
 import './assets/styles/ui/style-dashboard.css'
 import './assets/styles/ui/style-historico.css'
 
