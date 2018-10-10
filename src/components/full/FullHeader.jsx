@@ -14,11 +14,11 @@ const propTypes = {
 const defaultProps = {}
 
 class FullHeader extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
 
-  render() {
+  render () {
     const { nome } = this.props.user
     return (
       <React.Fragment>
@@ -34,10 +34,10 @@ class FullHeader extends Component {
               <i id='iconFullHeader' className='fa fa-user-circle fa-3x' />
             </DropdownToggle>
             <DropdownMenu right style={{ right: 'auto' }}>
-              <DropdownItem header tag="div" className="text-center"><strong>{nome}</strong></DropdownItem>
-              <DropdownItem><i className="fa fa-user"></i> Perfil</DropdownItem>
-              <DropdownItem><i className="fa fa-wrench"></i> Configurações</DropdownItem>
-              <DropdownItem onClick={this.props.logout}><i className="fa fa-lock"></i> Sair</DropdownItem>
+              <DropdownItem header tag='div' className='text-center'><strong>{nome}</strong></DropdownItem>
+              <DropdownItem><i className='fa fa-user' /> Perfil</DropdownItem>
+              <DropdownItem><i className='fa fa-wrench' /> Configurações</DropdownItem>
+              <DropdownItem onClick={this.props.logout}><i className='fa fa-lock' /> Sair</DropdownItem>
             </DropdownMenu>
           </AppHeaderDropdown>
         </Nav>

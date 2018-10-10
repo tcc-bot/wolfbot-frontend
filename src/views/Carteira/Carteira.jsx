@@ -5,13 +5,13 @@ import Ativos from './screens/Ativos'
 import CompraManual from './screens/CompraManual'
 
 class Carteira extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
     }
   }
 
-  render() {
+  render () {
     return (
       <div className='animated fadeIn'>
         <Row>

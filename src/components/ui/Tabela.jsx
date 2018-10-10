@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import ReactTable from 'react-table'
 
 class Tabela extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
-  render() {
+  render () {
     return (
       <ReactTable
         data={this.props.dados}
@@ -20,8 +20,7 @@ class Tabela extends Component {
         pageSizeOptions={[this.props.dados.length]}
         className='-striped -highlight'
         defaultPageSize={this.props.pageSizeDefault}
-      >
-      </ReactTable>
+      />
     )
   }
 }

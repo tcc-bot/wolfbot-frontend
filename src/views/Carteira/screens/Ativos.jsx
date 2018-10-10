@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -8,13 +8,11 @@ import Tabela from '../../../components/ui/Tabela'
 import { getSaldo } from '../../../_actions/CarteiraActions'
 
 class Ativos extends Component {
-
-  componentWillMount() {
+  componentWillMount () {
     this.props.getSaldo()
   }
 
-  render() {
-
+  render () {
     const columns = [{
       Header: 'Moeda',
       accessor: 'moeda'
@@ -35,8 +33,7 @@ class Ativos extends Component {
           dados={this.props.saldo}
           colunas={columns}
           pageSizeDefault={5}
-        >
-        </Tabela>
+        />
       </Card >
     )
   }

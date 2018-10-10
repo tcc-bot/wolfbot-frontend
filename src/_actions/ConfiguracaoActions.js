@@ -2,7 +2,7 @@ import axios from 'axios'
 import { toastr } from 'react-redux-toastr'
 import api from '../config/config-production'
 
-export function getExchanges() {
+export function getExchanges () {
   const request = axios.get(`${api.WOLFBOT_API_URL}/exchanges/loadExchanges`)
 
   return {
@@ -12,7 +12,7 @@ export function getExchanges() {
   }
 }
 
-export function ExchangeSelectOption(selectOption) {
+export function ExchangeSelectOption (selectOption) {
   return {
     type: 'EXCHANGE_SELECTED',
     payload: {
@@ -22,7 +22,7 @@ export function ExchangeSelectOption(selectOption) {
   }
 }
 
-export function CandlesSelectOption(selectOption) {
+export function CandlesSelectOption (selectOption) {
   return {
     type: 'CANDLE_SELECTED',
     payload: {
@@ -32,7 +32,7 @@ export function CandlesSelectOption(selectOption) {
   }
 }
 
-export function MoedasSelectOption(selectOption) {
+export function MoedasSelectOption (selectOption) {
   return {
     type: 'MOEDA_SELECTED',
     payload: {
@@ -42,7 +42,7 @@ export function MoedasSelectOption(selectOption) {
   }
 }
 
-export function IndicadoresSelectOption(selectOption) {
+export function IndicadoresSelectOption (selectOption) {
   return {
     type: 'INDICADOR_SELECTED',
     payload: {
@@ -52,7 +52,7 @@ export function IndicadoresSelectOption(selectOption) {
   }
 }
 
-export function salvarConfiguracao(values) {
+export function salvarConfiguracao (values) {
   const url = `${api.WOLFBOT_API_URL}/configuracao`
 
   return dispatch => {
@@ -71,7 +71,7 @@ export function salvarConfiguracao(values) {
   }
 }
 
-export function salvarEstrategia(values) {
+export function salvarEstrategia (values) {
   const url = `${api.WOLFBOT_API_URL}/configuracao`
 
   return dispatch => {

@@ -3,11 +3,11 @@ import { Col } from 'reactstrap'
 
 import Card from '../../../components/ui/Card'
 class CompraManual extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
 
-  render() {
+  render () {
     return (
       <Card
         xs='3'

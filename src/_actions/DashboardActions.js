@@ -1,7 +1,7 @@
 import axios from 'axios'
 import api from '../config/config-production'
 
-export function getExchange() {
+export function getExchange () {
   const USER_BOT = loadLocalStorage('user_bot')
   const request = axios.get(`${api.WOLFBOT_API_URL}/configuracao/carregar?user_id=${USER_BOT.id}`)
 
@@ -11,7 +11,7 @@ export function getExchange() {
   }
 }
 
-export function ligarRobo(statusRobo) {
+export function ligarRobo (statusRobo) {
   if (statusRobo == false) {
     axios.post(`${api.WOLFBOT_API_URL}/bot/acionarRobo?chave=teste&status=on`)
   }
@@ -24,7 +24,7 @@ export function ligarRobo(statusRobo) {
   }
 }
 
-function loadLocalStorage(key) {
+function loadLocalStorage (key) {
   try {
     const serializedState = localStorage.getItem(key)
     if (serializedState === null) {

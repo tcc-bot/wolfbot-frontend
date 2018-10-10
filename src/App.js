@@ -20,7 +20,7 @@ import {
   Page500
 } from './views/Pages'
 class App extends Component {
-  render() {
+  render () {
     return (
       <HashRouter>
         <Switch>

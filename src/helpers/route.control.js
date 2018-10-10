@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Redirect, Route, Switch } from 'react-router-dom'
 
-import routes from '../helpers/routes-open';
+import routes from '../helpers/routes-open'
 import { loadSession } from '../_actions/authActions'
 
 import {
@@ -11,10 +11,10 @@ import {
 } from '@coreui/react'
 
 class RouteControl extends Component {
-  componentWillMount() {
+  componentWillMount () {
     this.props.loadSession()
   }
-  render() {
+  render () {
     const { user } = this.props.auth
     if (user) {
       return (<Redirect from='/' to='/dashboard' />)

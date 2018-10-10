@@ -33,7 +33,7 @@ export default {
     {
       name: 'Configuração',
       url: '/configuracao',
-      icon: 'icon-settings',
-    },
-  ],
-};
+      icon: 'icon-settings'
+    }
+  ]
+}
