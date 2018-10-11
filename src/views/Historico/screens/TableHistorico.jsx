@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
-import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap'
-import { reduxForm, Field } from 'redux-form'
-import ReactTable from 'react-table'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Col } from 'reactstrap'
 
-import { buscarHistorico } from '../../../_actions/HistoricoActions';
+import Tabela from '../../../components/ui/Tabela'
 
 class TableHistorico extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
   }
-  render () {
+  render() {
     const { reset, handleSubmit } = this.props
     const columns = [{
       Header: 'Data da Operação',
-      accessor: 'dataOperacao' // String-based value accessors!
+      accessor: 'dataOperacao'
     }, {
       Header: 'Quantidade',
       accessor: 'quantidade'
@@ -34,25 +32,12 @@ class TableHistorico extends Component {
     }]
     return (
       <Col xs='12' lg='12' sm='12'>
-        <Card className='card-style card'>
-          <CardBody>
-            <ReactTable
-              data={this.props.historicos}
-              columns={columns}
-              defaultPageSize={10}
-              className='-striped -highlight'
-              pageSizeOptions={[this.props.historicos.length]}
-              previousText='Anterior'
-              nextText='Próximo'
-              loadingText='Carregando...'
-              noDataText='Não há ordens abertas'
-              pageText='Página'
-              rowsText='linhas'
-              ofText='de'
-            />
-          </CardBody>
-        </Card>
-      </Col >
+        <Tabela
+          dados={this.props.historicos}
+          colunas={columns}
+          pageSizeDefault={10}
+        />
+      </Col>
     )
   }
 }
