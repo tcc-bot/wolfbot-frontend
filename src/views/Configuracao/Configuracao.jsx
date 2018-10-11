@@ -7,7 +7,7 @@ import Alerts from '../../components/ui/Alerts'
 import Card from '../../components/ui/Card'
 import ExpansionPanel from '../../components/ui/ExpansionPanel'
 
-import FormEstrategia from './screens/FormEstrategia'
+import Estrategia from './screens/Estrategia'
 import ExchangeIntegracao from './screens/ExchangeIntegracao'
 
 
@@ -49,7 +49,7 @@ class Configuracao extends Component {
                 <a class="text-white"><i className='fa fa-exclamation-circle fa-2x text-danger' style={{ textAlign: 'center;' }}>
                 </i>&nbsp;&nbsp;&nbsp;Defina sua estratégia</a>}>
               <br />
-              <FormEstrategia />
+              <Estrategia />
             </ExpansionPanel>
           </Card>
         </Row >

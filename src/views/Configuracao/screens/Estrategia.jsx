@@ -9,7 +9,7 @@ import Select from '../../../components/ui/Select'
 
 import { salvarEstrategia } from '../../../_actions/ConfiguracaoActions'
 
-class FormEstrategia extends Component {
+class Estrategia extends Component {
   constructor(props) {
     super(props)
   }
@@ -27,7 +27,7 @@ class FormEstrategia extends Component {
         <InputGroup className="mb-2">
           <Col lg="1">
             <Label >
-              <h6>Periodos:</h6>
+              Periodos:
             </Label>
           </Col>
           <Col md="2">
@@ -122,10 +122,10 @@ class FormEstrategia extends Component {
   }
 }
 
-FormEstrategia = reduxForm({ form: 'formEstrategia' })(FormEstrategia)
+Estrategia = reduxForm({ form: 'formEstrategia' })(Estrategia)
 const mapDispatchToProps = dispatch => bindActionCreators({ salvarEstrategia }, dispatch)
 const mapStateToProps = state => ({
   user: state.auth.user,
   select: state.configuracao
 })
-export default connect(mapStateToProps, mapDispatchToProps)(FormEstrategia)
+export default connect(mapStateToProps, mapDispatchToProps)(Estrategia)
