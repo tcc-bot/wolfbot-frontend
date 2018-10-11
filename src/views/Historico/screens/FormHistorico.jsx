@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap'
+import { Row, Col, InputGroup, Label, Button } from 'reactstrap'
 import { reduxForm, Field } from 'redux-form'
-import Input from '../../../components/ui/Input'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+
+import Input from '../../../components/ui/Input'
 
 import { buscarHistorico } from '../../../_actions/HistoricoActions';
 
