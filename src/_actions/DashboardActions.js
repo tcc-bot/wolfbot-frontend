@@ -12,12 +12,12 @@ export function getExchange() {
 }
 
 export function ligarRobo(statusRobo) {
-  if (statusRobo == false) {
-    axios.post(`${api.WOLFBOT_API_URL}/bot/acionarRobo?chave=teste&status=on`)
-  }
-  if (statusRobo == true) {
-    axios.post(`${api.WOLFBOT_API_URL}/bot/acionarRobo?chave=teste&status=off`)
-  }
+  // if (statusRobo == false) {
+  //   axios.post(`${api.WOLFBOT_API_URL}/bot/acionarRobo?chave=teste&status=on`)
+  // }
+  // if (statusRobo == true) {
+  //   axios.post(`${api.WOLFBOT_API_URL}/bot/acionarRobo?chave=teste&status=off`)
+  // }
   return {
     type: 'LIGAR_ROBO',
     payload: !statusRobo
