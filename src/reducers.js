@@ -9,6 +9,7 @@ import ConfiguracaoReducer from './_reducers/ConfiguracaoReducer'
 import CarteiraReducer from './_reducers/CarteiraReducer'
 import HistoricoReducer from './_reducers/HistoricoReducer'
 import PerfilReducer from './_reducers/PerfilReducer'
+import BacktestReducer from './_reducers/backtestReducer'
 
 const rootReducer = combineReducers({
   dashboard: DashboardReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   auth: AuthReducer,
   toastr: toastrReducer,
   historico: HistoricoReducer,
-  profile: PerfilReducer
+  profile: PerfilReducer,
+  backtest: BacktestReducer
 })
 export default rootReducer
