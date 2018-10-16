@@ -1,5 +1,5 @@
 import axios from 'axios'
-import api from '../config/config-production'
+import api from '../config/config-development'
 
 export function getSaldo () {
   const USER_BOT = loadLocalStorage('user_bot')

@@ -9936,7 +9936,7 @@ body {
   box-shadow: 0 0 0 0.2rem rgba(32, 168, 216, 0.25); }
 
 .form-control::placeholder {
-  color: #e4e7ea; }
+  color: #3a4149; }
 
 .dropdown-menu {
   color: #e4e7ea;
@@ -9984,6 +9984,9 @@ hr {
 .tab-content {
   background-color: #1a242c;
   border: 1px solid #e4e7ea; }
+
+.a:hover {
+  text-decoration: none; }
 
 .ComponentAuth {
   background-image: url("/dist/img/account/bg-login.jpg");

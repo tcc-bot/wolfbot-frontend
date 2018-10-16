@@ -6,6 +6,7 @@ import { AppHeaderDropdown, AppNavbarBrand, AppSidebarToggler } from '@coreui/re
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { logout } from '../../_actions/authActions'
+import Alerts from '../ui/Alerts'
 
 const propTypes = {
   children: PropTypes.node
@@ -22,6 +23,7 @@ class FullHeader extends Component {
     const { nome } = this.props.user
     return (
       <React.Fragment>
+        <Alerts />
         <AppSidebarToggler className='d-lg-none' display='md' mobile />
         <AppNavbarBrand
           full={{ src: process.env.PUBLIC_URL + 'dist/img/template/wolf-bot-logo.png', width: 150, height: 45, alt: 'WolfBot Logo' }}

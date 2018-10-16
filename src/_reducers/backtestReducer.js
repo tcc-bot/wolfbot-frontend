@@ -1,8 +1,13 @@
 const INITIAL_STATE = {
+
+  exchanges:[
+      {'value': 'Bittrex', 'label': 'Bittrex'},
+      {'value': 'Bitifinex', 'label': 'Bitifinex'}
+  ],
   currencies: [
-    { 'value': 'BTC/USDT', 'label': 'BTC/USDT' },
-    { 'value': 'ETH/USDT', 'label': 'ETH/USDT' },
-    { 'value': 'BCH/USDT', 'label': 'BCH/USDT' }
+    { 'value': 'BTC', 'label': 'BTC' },
+    { 'value': 'ETH', 'label': 'ETH' },
+    { 'value': 'BCH', 'label': 'BCH' }
   ],
   candle: [
     { 'value': '5m', 'label': '5m' },
@@ -19,12 +24,12 @@ const INITIAL_STATE = {
 }
 
 export default function (state = INITIAL_STATE, action) {
-  return state
-  // switch (action.type) {
-  //     case 'MOEDA_SELECTED': {
-  //         return { ...state, currenciesSelected: action.payload }
-  //     }
-  //     default:
-  //         return state
-  // }
+  switch (action.type) {
+      case 'RESULT_FETCHED': {
+        console.log(action.payload)
+          return state
+      }
+      default:
+          return state
+  }
 }
