@@ -1,8 +1,8 @@
 const INITIAL_STATE = {
 
   exchanges:[
-      {'value': 'Bittrex', 'label': 'Bittrex'},
-      {'value': 'Bitifinex', 'label': 'Bitifinex'}
+      {'value': 'bittrex', 'label': 'bittrex'},
+      {'value': 'bitifinex', 'label': 'bitifinex'}
   ],
   currencies: [
     { 'value': 'BTC', 'label': 'BTC' },
@@ -20,15 +20,14 @@ const INITIAL_STATE = {
     { 'value': 'EMA', 'label': 'EMA' },
     { 'value': 'STOCH', 'label': 'STOCH' },
     { 'value': 'CCI', 'label': 'CCI' }
-  ]
+  ],
+  result:''
 }
 
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
-      case 'RESULT_FETCHED': {
-        console.log(action.payload)
-          return state
-      }
+      case 'RESULT_FETCHED':
+          return {...state, result: action.payload }
       default:
           return state
   }

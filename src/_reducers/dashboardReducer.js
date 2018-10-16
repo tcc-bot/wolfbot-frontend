@@ -7,7 +7,6 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'EXCHANGE_FETCHED':
-      console.log(action.payload.data.configuracao.exchange)
       localStorage.setItem(exchangeKey, JSON.stringify(action.payload.data.configuracao.exchange))
       return { ...state, exchange: action.payload.data.configuracao.exchange }
     case 'LIGAR_ROBO':

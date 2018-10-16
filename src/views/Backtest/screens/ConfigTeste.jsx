@@ -25,6 +25,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { toastr } from 'react-redux-toastr'
 import { testarStrategy } from '../../../_actions/BacktestAction'
+import ResultadoTeste from './ResultadoTeste'
 
 class ConfigTeste extends Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class ConfigTeste extends Component {
       popoverOpen: false,
       colapseMACD: false,
       colapseEMA: false,
+      collapseResult: false,
       exchange: '',
       candle_size: '',
       name: '',
@@ -178,9 +180,10 @@ class ConfigTeste extends Component {
         target_currency: this.state.target_currency,
         date: this.state.date
       }
-      testarStrategy(values)
+      this.props.testarStrategy(values)
+      event.preventDefault();
+      this.setState({ collapseResult: !this.state.collapse })
     }    
-    event.preventDefault();
   }
 
   render() {
@@ -438,9 +441,15 @@ class ConfigTeste extends Component {
                     </InputGroup>
                   </Row>
                 </form>
+                <Col className="offset-md-2" lg="8">
+                  <Collapse isOpen={this.state.collapseResult}>
+                    <ResultadoTeste />
+                  </Collapse>
+                </Col>
               </TabPane>
               <TabPane tabId='2'>
-                <Row />
+                <Row>
+                </Row>
               </TabPane>
             </TabContent>
           </CardBody>

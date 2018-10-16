@@ -8,7 +8,7 @@ export function testarStrategy(values) {
         axios.post(url, values)
             .then(resp =>
                 dispatch(
-                    { type: 'RESULT_FETCHED', payload: resp.data }
+                    { type: 'RESULT_FETCHED', payload: resp.data.data }
                 )
             )
             .catch(e => {
