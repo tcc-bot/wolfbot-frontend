@@ -2,7 +2,7 @@ const INITIAL_STATE = {
 
   exchanges:[
       {'value': 'bittrex', 'label': 'bittrex'},
-      {'value': 'bitifinex', 'label': 'bitifinex'}
+      {'value': 'bitfinex2', 'label': 'bitfinex2'}
   ],
   currencies: [
     { 'value': 'BTC', 'label': 'BTC' },
@@ -21,7 +21,7 @@ const INITIAL_STATE = {
     { 'value': 'STOCH', 'label': 'STOCH' },
     { 'value': 'CCI', 'label': 'CCI' }
   ],
-  result:''
+  result:'teste'
 }
 
 export default function (state = INITIAL_STATE, action) {

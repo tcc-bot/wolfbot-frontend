@@ -97,7 +97,7 @@ class ConfigTeste extends Component {
 
   handleChangeIndicator = (selectedOptions) => {
     this.setState({ selectedOptions })
-    this.setState({name: selectedOptions.value })
+    this.setState({ name: selectedOptions.value })
     if (selectedOptions.value === 'MACD') {
       this.setState({ collapseMACD: !this.state.collapse })
     } else if (selectedOptions.value !== 'MACD') {
@@ -145,25 +145,25 @@ class ConfigTeste extends Component {
 
   //Método que submete formulário a action
   handleSubmit(event) {
-    if(this.state.exchange === ''){
+    if (this.state.exchange === '') {
       toastr.error('Erro', 'O campo Exchange é obrigatório!')
-    }else if(this.state.target_currency === ''){
+    } else if (this.state.target_currency === '') {
       toastr.error('Erro', 'O campo Moeda é obrigatório!')
-    }else if(this.state.candle_size === ''){
+    } else if (this.state.candle_size === '') {
       toastr.error('Erro', 'O campo Candle é obrigatório!')
-    }else if(this.state.name === ''){
+    } else if (this.state.name === '') {
       toastr.error('Erro', 'O campo Indicador é obrigatório!')
-    }else if(this.state.profit === ''){
+    } else if (this.state.profit === '') {
       toastr.error('Erro', 'O campo Lucro é obrigatório!')
-    }else if(this.state.stop === ''){
+    } else if (this.state.stop === '') {
       toastr.error('Erro', 'O campo Stop-Loss é obrigatório!')
-    }else if(this.state.date === ''){
+    } else if (this.state.date === '') {
       toastr.error('Erro', 'O campo Data Início é obrigatório!')
-    }else if(this.state.name === 'MACD' && (this.state.long_period === '' || this.state.short_period === '' || this.state.signal_period === '')){
+    } else if (this.state.name === 'MACD' && (this.state.long_period === '' || this.state.short_period === '' || this.state.signal_period === '')) {
       toastr.error('Erro', 'Os parâmetros do indicador MACD são Obrigatórios!')
-    }else if(this.state.name === 'EMA' && this.state.period === ''){
+    } else if (this.state.name === 'EMA' && this.state.period === '') {
       toastr.error('Erro', 'Os parâmetros do indicador EMA são Obrigatórios!')
-    }else{
+    } else {
       let values = {
         exchange: this.state.exchange,
         candle_size: this.state.candle_size,
@@ -171,7 +171,8 @@ class ConfigTeste extends Component {
           name: this.state.name,
           long_period: this.state.long_period,
           short_period: this.state.short_period,
-          signal_period: this.state.signal_period
+          signal_period: this.state.signal_period,
+          period: this.state.period
         },
         sellForIndicator: this.state.sellForIndicator,
         profit: this.state.profit,
@@ -183,7 +184,7 @@ class ConfigTeste extends Component {
       this.props.testarStrategy(values)
       event.preventDefault();
       this.setState({ collapseResult: !this.state.collapse })
-    }    
+    }
   }
 
   render() {
@@ -244,7 +245,7 @@ class ConfigTeste extends Component {
               <TabPane tabId='1'>
                 <form onSubmit={this.handleSubmit}>
                   <Row>
-                  <InputGroup className='mb-3'>
+                    <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
                           <a href="javascript:;" className="a"><i className='icon-question' id="popover" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Exchange:
@@ -441,11 +442,6 @@ class ConfigTeste extends Component {
                     </InputGroup>
                   </Row>
                 </form>
-                <Col className="offset-md-2" lg="8">
-                  <Collapse isOpen={this.state.collapseResult}>
-                    <ResultadoTeste />
-                  </Collapse>
-                </Col>
               </TabPane>
               <TabPane tabId='2'>
                 <Row>
@@ -453,13 +449,18 @@ class ConfigTeste extends Component {
               </TabPane>
             </TabContent>
           </CardBody>
+          <Col lg="12">
+            <Collapse isOpen={this.state.collapseResult}>
+              <ResultadoTeste />
+            </Collapse>
+          </Col>
         </Card >
       </Col>
     )
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({testarStrategy}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ testarStrategy }, dispatch)
 const mapStateToProps = state => ({
   backtest: state.backtest
 })
