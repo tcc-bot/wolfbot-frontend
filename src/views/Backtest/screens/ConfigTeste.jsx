@@ -1,62 +1,55 @@
 import React, { Component } from 'react'
-import {
-  TabContent,
-  TabPane,
-  Nav,
-  NavItem,
-  NavLink,
-  Label,
-  Card,
-  CardHeader,
-  CardBody,
-  InputGroup,
-  Row,
-  Col,
-  Collapse,
-  Popover,
-  PopoverBody,
-  Button,
-  Input
-} from 'reactstrap'
+import { TabContent, TabPane, Nav, NavItem, NavLink, Label, Card, CardHeader, CardBody, InputGroup, Row, Col, Collapse, Popover, PopoverBody, Button, Input } from 'reactstrap'
 import Switch from 'react-switch'
 import Select from 'react-select'
 import classnames from 'classnames'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { toastr } from 'react-redux-toastr'
 import { testarStrategy } from '../../../_actions/BacktestAction'
 import ResultadoTeste from './ResultadoTeste'
+import { toastr } from 'react-redux-toastr'
 
 class ConfigTeste extends Component {
   constructor(props) {
     super(props)
 
-    this.handlePeriodChange = this.handlePeriodChange.bind(this)
-    this.handleLongPeriodChange = this.handleLongPeriodChange.bind(this)
-    this.handleShortPeriodChange = this.handleShortPeriodChange.bind(this)
-    this.handleSignalPeriodChange = this.handleSignalPeriodChange.bind(this)
-    this.handleProfitChange = this.handleProfitChange.bind(this)
-    this.handleStopChange = this.handleStopChange.bind(this)
-    this.handleDateChange = this.handleDateChange.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeSwitchSellIndicator = this.handleChangeSwitchSellIndicator.bind(this);
     this.toggle = this.toggle.bind(this)
     this.togglePopover = this.togglePopover.bind(this)
     this.state = {
       activeTab: '1',
+      popoverExchange: false,
+      popoverCurrency: false,
+      popoverCandle: false,
+      popoverIndicator: false,
+      popoverSellIndicator: false,
+      popoverProfit: false,
+      popoverStop: false,
+      popoverData: false,
       checkedSellIndicator: false,
-      checkedStopLoss: false,
-      popoverOpen: false,
-      colapseMACD: false,
       colapseEMA: false,
+      colapseMACD: false,
+      colapseSTOCH: false,
+      colapseCCI: false,
+      colapseADX: false,
+      colapseBBANDS: false,
       collapseResult: false,
       exchange: '',
       candle_size: '',
       name: '',
-      period: '',
-      long_period: '',
-      short_period: '',
-      signal_period: '',
+      ema_period: '',
+      macd_long_period: '',
+      macd_short_period: '',
+      macd_signal_period: '',
+      stoch_k_period: '',
+      stoch_k_slow_period: '',
+      stoch_d_period: '',
+      cci_period: '',
+      adx_period: '',
+      bbands_period: '',
+      bbands_stddev_period: '',
       sellForIndicator: false,
       profit: '',
       stop: '',
@@ -68,19 +61,38 @@ class ConfigTeste extends Component {
 
   toggle(tab) {
     if (this.state.activeTab !== tab) {
-      this.setState({
-        activeTab: tab
-      })
+      this.setState({ activeTab: tab })
     }
   }
 
-  togglePopover() {
-    this.setState({
-      popoverOpen: !this.state.popoverOpen
-    });
+  togglePopover(event) {
+    if (event.target.id === 'popoverExchange') {
+      this.setState({ popoverExchange: !this.state.popoverExchange })
+    }
+    if (event.target.id === 'popoverCurrency') {
+      this.setState({ popoverCurrency: !this.state.popoverCurrency })
+    }
+    if (event.target.id === 'popoverCandle') {
+      this.setState({ popoverCandle: !this.state.popoverCandle })
+    }
+    if (event.target.id === 'popoverIndicator') {
+      this.setState({ popoverIndicator: !this.state.popoverIndicator })
+    }
+    if (event.target.id === 'popoverSellIndicator') {
+      this.setState({ popoverSellIndicator: !this.state.popoverSellIndicator })
+    }
+    if (event.target.id === 'popoverProfit') {
+      this.setState({ popoverProfit: !this.state.popoverProfit })
+    }
+    if (event.target.id === 'popoverStop') {
+      this.setState({ popoverStop: !this.state.popoverStop })
+    }
+    if (event.target.id === 'popoverDate') {
+      this.setState({ popoverDate: !this.state.popoverDate })
+    }
   }
 
-  handleChangeExchange = (selectedOptions) => {
+  handleChangeExchange = (selectedOptions, event) => {
     this.setState({ selectedOptions })
     this.setState({ exchange: selectedOptions.value })
   }
@@ -98,32 +110,70 @@ class ConfigTeste extends Component {
   handleChangeIndicator = (selectedOptions) => {
     this.setState({ selectedOptions })
     this.setState({ name: selectedOptions.value })
-    if (selectedOptions.value === 'MACD') {
-      this.setState({ collapseMACD: !this.state.collapse })
-    } else if (selectedOptions.value !== 'MACD') {
-      this.setState({ collapseMACD: false })
-    }
     if (selectedOptions.value === 'EMA') {
       this.setState({ collapseEMA: !this.state.collapse })
     } else if (selectedOptions.value !== 'EMA') {
       this.setState({ collapseEMA: false })
     }
+    if (selectedOptions.value === 'MACD') {
+      this.setState({ collapseMACD: !this.state.collapse })
+    } else if (selectedOptions.value !== 'MACD') {
+      this.setState({ collapseMACD: false })
+    }
+    if (selectedOptions.value === 'STOCH') {
+      this.setState({ collapseSTOCH: !this.state.collapse })
+    } else if (selectedOptions.value !== 'STOCH') {
+      this.setState({ collapseSTOCH: false })
+    }
+    if (selectedOptions.value === 'CCI') {
+      this.setState({ collapseCCI: !this.state.collapse })
+    } else if (selectedOptions.value !== 'CCI') {
+      this.setState({ collapseCCI: false })
+    }
+    if (selectedOptions.value === 'ADX') {
+      this.setState({ collapseADX: !this.state.collapse })
+    } else if (selectedOptions.value !== 'ADX') {
+      this.setState({ collapseADX: false })
+    }
+    if (selectedOptions.value === 'BOLLINGER BANDS') {
+      this.setState({ collapseBBANDS: !this.state.collapse })
+    } else if (selectedOptions.value !== 'BOLLINGER BANDS') {
+      this.setState({ collapseBBANDS: false })
+    }
+
   }
 
-  handlePeriodChange(event) {
-    this.setState({ period: event.target.value });
-  }
-
-  handleLongPeriodChange(event) {
-    this.setState({ long_period: event.target.value });
-  }
-
-  handleShortPeriodChange(event) {
-    this.setState({ short_period: event.target.value });
-  }
-
-  handleSignalPeriodChange(event) {
-    this.setState({ signal_period: event.target.value });
+  handleInputChange(event) {
+    if (event.target.id === 'ema_period') {
+      this.setState({ ema_period: event.target.value })
+    }
+    if (event.target.id === 'macd_long_period') {
+      this.setState({ macd_long_period: event.target.value })
+    }
+    if (event.target.id === 'macd_short_period') {
+      this.setState({ macd_short_period: event.target.value })
+    }
+    if (event.target.id === 'macd_signal_period') {
+      this.setState({ macd_signal_period: event.target.value })
+    }
+    if (event.target.id === 'stoch_k_period') {
+      this.setState({ stoch_k_period: event.target.value })
+    }
+    if (event.target.id === 'stoch_k_slow_period') {
+      this.setState({ stoch_k_slow_period: event.target.value })
+    }
+    if (event.target.id === 'stoch_d_period') {
+      this.setState({ stoch_d_period: event.target.value })
+    }
+    if (event.target.id === 'date') {
+      this.setState({ date: event.target.value })
+    }
+    if (event.target.id === 'profit') {
+      this.setState({ profit: event.target.value })
+    }
+    if (event.target.id === 'stopLoss') {
+      this.setState({ stop: event.target.value })
+    }
   }
 
   handleChangeSwitchSellIndicator(checkedSellIndicator) {
@@ -131,48 +181,71 @@ class ConfigTeste extends Component {
     this.setState({ sellForIndicator: checkedSellIndicator })
   }
 
-  handleProfitChange(event) {
-    this.setState({ profit: event.target.value });
-  }
-
-  handleStopChange(event) {
-    this.setState({ stop: event.target.value });
-  }
-
-  handleDateChange(event) {
-    this.setState({ date: event.target.value });
+  validaCampos() {
+    if (this.state.exchange === '') {
+      toastr.error('Erro', 'O campo Exchange é obrigatório!')
+      return false
+    } else if (this.state.target_currency === '') {
+      toastr.error('Erro', 'O campo Moeda é obrigatório!')
+      return false
+    } else if (this.state.candle_size === '') {
+      toastr.error('Erro', 'O campo Candle é obrigatório!')
+      return false
+    } else if (this.state.name === '') {
+      toastr.error('Erro', 'O campo Indicador é obrigatório!')
+      return false
+    } else if (this.state.profit === '') {
+      toastr.error('Erro', 'O campo Lucro é obrigatório!')
+      return false
+    } else if (this.state.stop === '') {
+      toastr.error('Erro', 'O campo Stop-Loss é obrigatório!')
+      return false
+    } else if (this.state.date === '') {
+      toastr.error('Erro', 'O campo Data Início é obrigatório!')
+      return false
+    } else if (this.state.name === 'EMA' && this.state.ema_period === '') {
+      toastr.error('Erro', 'Os parâmetros do indicador EMA são Obrigatórios!')
+      return false
+    } else if (this.state.name === 'MACD' && (this.state.macd_long_period === '' || this.state.macd_short_period === '' || this.state.macd_signal_period === '')) {
+      toastr.error('Erro', 'Os parâmetros do indicador MACD são Obrigatórios!')
+      return false
+    } else if (this.state.name === 'STOCH' && (this.state.stoch_k_period === '' || this.state.stoch_k_slow_period === '' || this.state.stoch_d_period === '')) {
+      toastr.error('Erro', 'Os parâmetros do indicador STOCH são Obrigatórios!')
+      return false
+    } else if (this.state.name === 'CCI' && this.state.cci_period === '') {
+      toastr.error('Erro', 'Os parâmetros do indicador CCI são Obrigatórios!')
+      return false
+    } else if (this.state.name === 'ADX' && this.state.adx_period === '') {
+      toastr.error('Erro', 'Os parâmetros do indicador ADX são Obrigatórios!')
+      return false
+    } else if (this.state.name === 'BBANDS' && (this.state.bbands_period === '' || this.state.bbands_stddev_period === '')) {
+      toastr.error('Erro', 'Os parâmetros do indicador BBANDS são Obrigatórios!')
+      return false
+    } else {
+      console.log('cheguei aqui!')
+      return true
+    }
   }
 
   //Método que submete formulário a action
   handleSubmit(event) {
-    if (this.state.exchange === '') {
-      toastr.error('Erro', 'O campo Exchange é obrigatório!')
-    } else if (this.state.target_currency === '') {
-      toastr.error('Erro', 'O campo Moeda é obrigatório!')
-    } else if (this.state.candle_size === '') {
-      toastr.error('Erro', 'O campo Candle é obrigatório!')
-    } else if (this.state.name === '') {
-      toastr.error('Erro', 'O campo Indicador é obrigatório!')
-    } else if (this.state.profit === '') {
-      toastr.error('Erro', 'O campo Lucro é obrigatório!')
-    } else if (this.state.stop === '') {
-      toastr.error('Erro', 'O campo Stop-Loss é obrigatório!')
-    } else if (this.state.date === '') {
-      toastr.error('Erro', 'O campo Data Início é obrigatório!')
-    } else if (this.state.name === 'MACD' && (this.state.long_period === '' || this.state.short_period === '' || this.state.signal_period === '')) {
-      toastr.error('Erro', 'Os parâmetros do indicador MACD são Obrigatórios!')
-    } else if (this.state.name === 'EMA' && this.state.period === '') {
-      toastr.error('Erro', 'Os parâmetros do indicador EMA são Obrigatórios!')
-    } else {
+    if (this.validaCampos() === true) {
       let values = {
         exchange: this.state.exchange,
         candle_size: this.state.candle_size,
         indicator: {
           name: this.state.name,
-          long_period: this.state.long_period,
-          short_period: this.state.short_period,
-          signal_period: this.state.signal_period,
-          period: this.state.period
+          macd_long_period: this.state.macd_long_period,
+          macd_short_period: this.state.macd_short_period,
+          macd_signal_period: this.state.macd_signal_period,
+          ema_period: this.state.ema_period,
+          stoch_k_period: this.state.stoch_k_period,
+          stoch_k_slow_period: this.state.stoch_k_slow_period,
+          stoch_d_period: this.state.stoch_d_period,
+          cci_period: this.state.cci_period,
+          adx_period: this.state.adx_period,
+          bbands_period: this.state.bbands_period,
+          bbands_stddev_period: this.state.bbands_stddev_period,
         },
         sellForIndicator: this.state.sellForIndicator,
         profit: this.state.profit,
@@ -182,9 +255,10 @@ class ConfigTeste extends Component {
         date: this.state.date
       }
       this.props.testarStrategy(values)
-      event.preventDefault();
+      console.log(values)
       this.setState({ collapseResult: !this.state.collapse })
     }
+    event.preventDefault();
   }
 
   render() {
@@ -243,14 +317,16 @@ class ConfigTeste extends Component {
             </Nav>
             <TabContent activeTab={this.state.activeTab}>
               <TabPane tabId='1'>
-                <form onSubmit={this.handleSubmit}>
+                <form method="post" onSubmit={this.handleSubmit}>
                   <Row>
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popover" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Exchange:
-                        <Popover placement="right" isOpen={this.state.popoverOpen} target="popover" togglePopover={this.togglePopover}>
-                            <PopoverBody>Selecionar a moeda que será utilizada no backtest, a moeda base sempre será USDT.</PopoverBody>
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverExchange" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Exchange:
+                        <Popover placement="left" isOpen={this.state.popoverExchange} target="popoverExchange">
+                            <PopoverBody>
+                              Selecionar a Exchange que será aplicado o teste.
+                            </PopoverBody>
                           </Popover>
                         </Label>
                       </Col>
@@ -266,9 +342,11 @@ class ConfigTeste extends Component {
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popover" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Moeda:
-                        <Popover placement="right" isOpen={this.state.popoverOpen} target="popover" togglePopover={this.togglePopover}>
-                            <PopoverBody>Selecionar a moeda que será utilizada no backtest, a moeda base sempre será USDT.</PopoverBody>
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverCurrency" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Moeda:
+                        <Popover placement="left" isOpen={this.state.popoverCurrency} target="popoverCurrency">
+                            <PopoverBody>
+                              Selecionar a moeda que será utilizada no backtest, a moeda base sempre será USDT.
+                            </PopoverBody>
                           </Popover>
                         </Label>
                       </Col>
@@ -284,9 +362,12 @@ class ConfigTeste extends Component {
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popover" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Candle:
-                        <Popover placement="right" isOpen={this.state.popoverOpen} target="popover" togglePopover={this.togglePopover}>
-                            <PopoverBody>Selecionar a moeda que será utilizada no backtest, a moeda base sempre será USDT.</PopoverBody>
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverCandle" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Candle:
+                        <Popover placement="left" isOpen={this.state.popoverCandle} target="popoverCandle">
+                            <PopoverBody>
+                              Candle é o intervalo de tempo em que são agrupados os dados de um ativo, esses dados são:
+                              preço de abertura, preço de fechamento, preço máximo e preço mínimo.
+                            </PopoverBody>
                           </Popover>
                         </Label>
                       </Col>
@@ -302,9 +383,11 @@ class ConfigTeste extends Component {
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popover" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Indicador:
-                        <Popover placement="right" isOpen={this.state.popoverOpen} target="popover" togglePopover={this.togglePopover}>
-                            <PopoverBody>Selecionar a moeda que será utilizada no backtest, a moeda base sempre será USDT.</PopoverBody>
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverIndicator" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Indicador:
+                        <Popover placement="left" isOpen={this.state.popoverIndicator} target="popoverIndicator">
+                            <PopoverBody>
+                              Selecionar a o indicador financeiro que será aplicado no teste.
+                            </PopoverBody>
                           </Popover>
                         </Label>
                       </Col>
@@ -317,53 +400,147 @@ class ConfigTeste extends Component {
                         />
                       </Col>
                       <Col className="offset-md-2" lg="8">
-                        <Collapse isOpen={this.state.collapseMACD}>
-                          <Card>
-                            <CardBody>
-                              <InputGroup>
-                                <Col className='col-form-label text-right' lg='2'>
-                                  <Label>
-                                    <h6>MACD LongPeriod:</h6>
-                                  </Label>
-                                </Col>
-                                <Col lg='6'>
-                                  <Input type='text' className='form-control' placeholder="26" value={this.state.long_period} onChange={this.handleLongPeriodChange} />
-                                </Col>
-                              </InputGroup>
-                              <InputGroup>
-                                <Col className='col-form-label text-right' lg='2'>
-                                  <Label>
-                                    <h6>MACD FastPeriod:</h6>
-                                  </Label>
-                                </Col>
-                                <Col lg='6'>
-                                  <Input type='text' name='macdShortPeriod' className='form-control' placeholder="12" value={this.state.short_period} onChange={this.handleShortPeriodChange} />
-                                </Col>
-                              </InputGroup>
-                              <InputGroup>
-                                <Col className='col-form-label text-right' lg='2'>
-                                  <Label>
-                                    <h6>MACD SignalPeriod:</h6>
-                                  </Label>
-                                </Col>
-                                <Col lg='6'>
-                                  <Input type='text' name='macdSignalPeriod' className='form-control' placeholder="9" value={this.state.signal_period} onChange={this.handleSignalPeriodChange} />
-                                </Col>
-                              </InputGroup>
-                            </CardBody>
-                          </Card>
-                        </Collapse>
                         <Collapse isOpen={this.state.collapseEMA}>
                           <Card>
                             <CardBody>
                               <InputGroup>
                                 <Col className='col-form-label text-right' lg='2'>
                                   <Label>
-                                    <h6>EMA Period:</h6>
+                                    <h6>EMA period:</h6>
                                   </Label>
                                 </Col>
                                 <Col lg='6'>
-                                  <Input type='text' name='macdLongPeriod' className='form-control' placeholder="5" value={this.state.period} onChange={this.handlePeriodChange} />
+                                  <Input type='text' id="ema_period" className='form-control' placeholder="5" value={this.state.ema_period} onChange={this.handleInputChange} />
+                                </Col>
+                              </InputGroup>
+                            </CardBody>
+                          </Card>
+                        </Collapse>
+                        <Collapse isOpen={this.state.collapseMACD}>
+                          <Card>
+                            <CardBody>
+                              <InputGroup>
+                                <Col className='col-form-label text-right' lg='2'>
+                                  <Label>
+                                    <h6>long period:</h6>
+                                  </Label>
+                                </Col>
+                                <Col lg='6'>
+                                  <Input type='text' id="macd_long_period" className='form-control' placeholder="26" value={this.state.macd_long_period} onChange={this.handleInputChange} />
+                                </Col>
+                              </InputGroup>
+                              <InputGroup>
+                                <Col className='col-form-label text-right' lg='2'>
+                                  <Label>
+                                    <h6>short period:</h6>
+                                  </Label>
+                                </Col>
+                                <Col lg='6'>
+                                  <Input type='text' id="macd_short_period" className='form-control' placeholder="12" value={this.state.macd_short_period} onChange={this.handleInputChange} />
+                                </Col>
+                              </InputGroup>
+                              <InputGroup>
+                                <Col className='col-form-label text-right' lg='2'>
+                                  <Label>
+                                    <h6>signal period:</h6>
+                                  </Label>
+                                </Col>
+                                <Col lg='6'>
+                                  <Input type='text' id="macd_signal_period" className='form-control' placeholder="9" value={this.state.macd_signal_period} onChange={this.handleInputChange} />
+                                </Col>
+                              </InputGroup>
+                            </CardBody>
+                          </Card>
+                        </Collapse>
+                        <Collapse isOpen={this.state.collapseSTOCH}>
+                          <Card>
+                            <CardBody>
+                              <InputGroup>
+                                <Col className='col-form-label text-right' lg='2'>
+                                  <Label>
+                                    <h6>K period:</h6>
+                                  </Label>
+                                </Col>
+                                <Col lg='6'>
+                                  <Input type='text' id="stoch_k_period" className='form-control' placeholder="14" value={this.state.stoch_k_period} onChange={this.handleInputChange} />
+                                </Col>
+                              </InputGroup>
+                              <InputGroup>
+                                <Col className='col-form-label text-right' lg='2'>
+                                  <Label>
+                                    <h6>K slow period:</h6>
+                                  </Label>
+                                </Col>
+                                <Col lg='6'>
+                                  <Input type='text' id="stoch_k_solw_period" className='form-control' placeholder="3" value={this.state.stoch_k_slow_period} onChange={this.handleInputChange} />
+                                </Col>
+                              </InputGroup>
+                              <InputGroup>
+                                <Col className='col-form-label text-right' lg='2'>
+                                  <Label>
+                                    <h6>D period:</h6>
+                                  </Label>
+                                </Col>
+                                <Col lg='6'>
+                                  <Input type='text' id="stoch_d_period" className='form-control' placeholder="3" value={this.state.stoch_d_period} onChange={this.handleInputChange} />
+                                </Col>
+                              </InputGroup>
+                            </CardBody>
+                          </Card>
+                        </Collapse>
+                        <Collapse isOpen={this.state.collapseCCI}>
+                          <Card>
+                            <CardBody>
+                              <InputGroup>
+                                <Col className='col-form-label text-right' lg='2'>
+                                  <Label>
+                                    <h6>CCI period:</h6>
+                                  </Label>
+                                </Col>
+                                <Col lg='6'>
+                                  <Input type='text' id="cci_period" className='form-control' placeholder="20" value={this.state.cci_period} onChange={this.handleInputChange} />
+                                </Col>
+                              </InputGroup>
+                            </CardBody>
+                          </Card>
+                        </Collapse>
+                        <Collapse isOpen={this.state.collapseADX}>
+                          <Card>
+                            <CardBody>
+                              <InputGroup>
+                                <Col className='col-form-label text-right' lg='2'>
+                                  <Label>
+                                    <h6>ADX period:</h6>
+                                  </Label>
+                                </Col>
+                                <Col lg='6'>
+                                  <Input type='text' id="adx_period" className='form-control' placeholder="5" value={this.state.adx_period} onChange={this.handleInputChange} />
+                                </Col>
+                              </InputGroup>
+                            </CardBody>
+                          </Card>
+                        </Collapse>
+                        <Collapse isOpen={this.state.collapseBBANDS}>
+                          <Card>
+                            <CardBody>
+                              <InputGroup>
+                                <Col className='col-form-label text-right' lg='2'>
+                                  <Label>
+                                    <h6>bbands period:</h6>
+                                  </Label>
+                                </Col>
+                                <Col lg='6'>
+                                  <Input type='text' id="bbands_period" className='form-control' placeholder="20" value={this.state.bbands_period} onChange={this.handleInputChange} />
+                                </Col>
+                              </InputGroup>
+                              <InputGroup>
+                                <Col className='col-form-label text-right' lg='2'>
+                                  <Label>
+                                    <h6>stddev period:</h6>
+                                  </Label>
+                                </Col>
+                                <Col lg='6'>
+                                  <Input type='text' id="bbands_stddev_period" className='form-control' placeholder="2" value={this.state.bbands_stddev_period} onChange={this.handleInputChange} />
                                 </Col>
                               </InputGroup>
                             </CardBody>
@@ -374,9 +551,12 @@ class ConfigTeste extends Component {
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popover" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Venda pelo Indicador:
-                        <Popover placement="right" isOpen={this.state.popoverOpen} target="popover" togglePopover={this.togglePopover}>
-                            <PopoverBody>Selecionar a moeda que será utilizada no backtest, a moeda base sempre será USDT.</PopoverBody>
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverSellIndicator" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Venda pelo Indicador:
+                        <Popover placement="left" isOpen={this.state.popoverSellIndicator} target="popoverSellIndicator">
+                            <PopoverBody>
+                              Quando acionado, o teste usará o indicador financeiro para vender a moeda e não levará em conta
+                              o lucro especificado no campo Lucro.
+                            </PopoverBody>
                           </Popover>
                         </Label>
                       </Col>
@@ -399,40 +579,46 @@ class ConfigTeste extends Component {
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popover" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Lucro:
-                        <Popover placement="right" isOpen={this.state.popoverOpen} target="popover" togglePopover={this.togglePopover}>
-                            <PopoverBody>Selecionar a moeda que será utilizada no backtest, a moeda base sempre será USDT.</PopoverBody>
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverProfit" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Lucro:
+                        <Popover placement="left" isOpen={this.state.popoverProfit} target="popoverProfit">
+                            <PopoverBody>
+                              Especificar o lucro desejado em cada negociação.
+                            </PopoverBody>
                           </Popover>
                         </Label>
                       </Col>
                       <Col lg='8'>
-                        <Input type='text' name='profit' className='form-control' placeholder="0.01" value={this.state.profit} onChange={this.handleProfitChange} />
+                        <Input type='text' id='profit' className='form-control' placeholder="0.01" value={this.state.profit} onChange={this.handleInputChange} />
                       </Col>
                     </InputGroup>
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popover" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Stop-Loss:
-                        <Popover placement="right" isOpen={this.state.popoverOpen} target="popover" togglePopover={this.togglePopover}>
-                            <PopoverBody>Selecionar a moeda que será utilizada no backtest, a moeda base sempre será USDT.</PopoverBody>
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverStop" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Stop-Loss:
+                        <Popover placement="left" isOpen={this.state.popoverStop} target="popoverStop">
+                            <PopoverBody>
+                              Stop-loss é a perda aceitável em uma queda repentina do mercado.
+                            </PopoverBody>
                           </Popover>
                         </Label>
                       </Col>
                       <Col lg='8' >
-                        <Input type='text' name='stopLoss' className='form-control' placeholder="0.1" value={this.state.stop} onChange={this.handleStopChange} />
+                        <Input type='text' id='stopLoss' className='form-control' placeholder="0.1" value={this.state.stop} onChange={this.handleInputChange} />
                       </Col>
                     </InputGroup>
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popover" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Data Inicio:
-                        <Popover placement="right" isOpen={this.state.popoverOpen} target="popover" togglePopover={this.togglePopover}>
-                            <PopoverBody>Selecionar a moeda que será utilizada no backtest, a moeda base sempre será USDT.</PopoverBody>
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverDate" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Data Inicio:
+                        <Popover placement="left" isOpen={this.state.popoverDate} target="popoverDate">
+                            <PopoverBody>
+                              Data Inicio é a data inicial que voce usará para aplicar o teste, é uma data retroativa.
+                            </PopoverBody>
                           </Popover>
                         </Label>
                       </Col>
                       <Col lg='8'>
-                        <Input type='date' name='date-teste' className='form-control' value={this.state.date} onChange={this.handleDateChange} />
+                        <Input type='date' id="date" className='form-control' value={this.state.date} onChange={this.handleInputChange} />
                       </Col>
                     </InputGroup>
                     <InputGroup>

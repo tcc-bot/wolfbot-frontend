@@ -19,7 +19,9 @@ const INITIAL_STATE = {
     { 'value': 'MACD', 'label': 'MACD' },
     { 'value': 'EMA', 'label': 'EMA' },
     { 'value': 'STOCH', 'label': 'STOCH' },
-    { 'value': 'CCI', 'label': 'CCI' }
+    { 'value': 'CCI', 'label': 'CCI' },
+    { 'value': 'ADX', 'label': 'ADX' },
+    { 'value': 'BOLLINGER BANDS', 'label': 'BOLLINGER BANDS' }
   ],
   result:'teste'
 }

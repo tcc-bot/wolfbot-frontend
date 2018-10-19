@@ -4,10 +4,6 @@ import { connect } from 'react-redux'
 import ReactTable from 'react-table'
 import Widget from '../../../components/ui/Widget02'
 
-import moment from 'moment'
-
-
-
 class ResultadoTeste extends Component {
   constructor(props) {
     super(props)
