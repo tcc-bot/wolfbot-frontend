@@ -33,6 +33,7 @@ class Ativos extends Component {
           dados={this.props.saldo}
           colunas={columns}
           pageSizeDefault={5}
+          noDataText='Não houve Oportunidade de Negociação no periodo'
         />
       </Card >
     )

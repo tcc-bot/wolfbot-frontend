@@ -33,7 +33,6 @@ class ConfigTeste extends Component {
       colapseMACD: false,
       colapseSTOCH: false,
       colapseCCI: false,
-      colapseADX: false,
       colapseBBANDS: false,
       collapseResult: false,
       exchange: '',
@@ -47,7 +46,6 @@ class ConfigTeste extends Component {
       stoch_k_slow_period: '',
       stoch_d_period: '',
       cci_period: '',
-      adx_period: '',
       bbands_period: '',
       bbands_stddev_period: '',
       sellForIndicator: false,
@@ -130,11 +128,6 @@ class ConfigTeste extends Component {
     } else if (selectedOptions.value !== 'CCI') {
       this.setState({ collapseCCI: false })
     }
-    if (selectedOptions.value === 'ADX') {
-      this.setState({ collapseADX: !this.state.collapse })
-    } else if (selectedOptions.value !== 'ADX') {
-      this.setState({ collapseADX: false })
-    }
     if (selectedOptions.value === 'BOLLINGER BANDS') {
       this.setState({ collapseBBANDS: !this.state.collapse })
     } else if (selectedOptions.value !== 'BOLLINGER BANDS') {
@@ -165,6 +158,15 @@ class ConfigTeste extends Component {
     if (event.target.id === 'stoch_d_period') {
       this.setState({ stoch_d_period: event.target.value })
     }
+    if (event.target.id === 'cci_period') {
+      this.setState({ cci_period: event.target.value })
+    }
+    if (event.target.id === 'bbands_period') {
+      this.setState({ bbands_period: event.target.value })
+    }
+    if (event.target.id === 'bbands_stddev_period') {
+      this.setState({ bbands_stddev_period: event.target.value })
+    }
     if (event.target.id === 'date') {
       this.setState({ date: event.target.value })
     }
@@ -181,55 +183,33 @@ class ConfigTeste extends Component {
     this.setState({ sellForIndicator: checkedSellIndicator })
   }
 
-  validaCampos() {
-    if (this.state.exchange === '') {
-      toastr.error('Erro', 'O campo Exchange é obrigatório!')
-      return false
-    } else if (this.state.target_currency === '') {
-      toastr.error('Erro', 'O campo Moeda é obrigatório!')
-      return false
-    } else if (this.state.candle_size === '') {
-      toastr.error('Erro', 'O campo Candle é obrigatório!')
-      return false
-    } else if (this.state.name === '') {
-      toastr.error('Erro', 'O campo Indicador é obrigatório!')
-      return false
-    } else if (this.state.profit === '') {
-      toastr.error('Erro', 'O campo Lucro é obrigatório!')
-      return false
-    } else if (this.state.stop === '') {
-      toastr.error('Erro', 'O campo Stop-Loss é obrigatório!')
-      return false
-    } else if (this.state.date === '') {
-      toastr.error('Erro', 'O campo Data Início é obrigatório!')
-      return false
-    } else if (this.state.name === 'EMA' && this.state.ema_period === '') {
-      toastr.error('Erro', 'Os parâmetros do indicador EMA são Obrigatórios!')
-      return false
-    } else if (this.state.name === 'MACD' && (this.state.macd_long_period === '' || this.state.macd_short_period === '' || this.state.macd_signal_period === '')) {
-      toastr.error('Erro', 'Os parâmetros do indicador MACD são Obrigatórios!')
-      return false
-    } else if (this.state.name === 'STOCH' && (this.state.stoch_k_period === '' || this.state.stoch_k_slow_period === '' || this.state.stoch_d_period === '')) {
-      toastr.error('Erro', 'Os parâmetros do indicador STOCH são Obrigatórios!')
-      return false
-    } else if (this.state.name === 'CCI' && this.state.cci_period === '') {
-      toastr.error('Erro', 'Os parâmetros do indicador CCI são Obrigatórios!')
-      return false
-    } else if (this.state.name === 'ADX' && this.state.adx_period === '') {
-      toastr.error('Erro', 'Os parâmetros do indicador ADX são Obrigatórios!')
-      return false
-    } else if (this.state.name === 'BBANDS' && (this.state.bbands_period === '' || this.state.bbands_stddev_period === '')) {
-      toastr.error('Erro', 'Os parâmetros do indicador BBANDS são Obrigatórios!')
-      return false
-    } else {
-      console.log('cheguei aqui!')
-      return true
-    }
-  }
-
   //Método que submete formulário a action
   handleSubmit(event) {
-    if (this.validaCampos() === true) {
+    if (this.state.exchange === '') {
+      toastr.error('Erro', 'O campo Exchange é obrigatório!')
+    } else if (this.state.target_currency === '') {
+      toastr.error('Erro', 'O campo Moeda é obrigatório!')
+    } else if (this.state.candle_size === '') {
+      toastr.error('Erro', 'O campo Candle é obrigatório!')
+    } else if (this.state.name === '') {
+      toastr.error('Erro', 'O campo Indicador é obrigatório!')
+    } else if (this.state.profit === '') {
+      toastr.error('Erro', 'O campo Lucro é obrigatório!')
+    } else if (this.state.stop === '') {
+      toastr.error('Erro', 'O campo Stop-Loss é obrigatório!')
+    } else if (this.state.date === '') {
+      toastr.error('Erro', 'O campo Data Início é obrigatório!')
+    } else if (this.state.name === 'EMA' && this.state.ema_period === '') {
+      toastr.error('Erro', 'Os parâmetros do indicador EMA são Obrigatórios!')
+    } else if (this.state.name === 'MACD' && (this.state.macd_long_period === '' || this.state.macd_short_period === '' || this.state.macd_signal_period === '')) {
+      toastr.error('Erro', 'Os parâmetros do indicador MACD são Obrigatórios!')
+    } else if (this.state.name === 'STOCH' && (this.state.stoch_k_period === '' || this.state.stoch_k_slow_period === '' || this.state.stoch_d_period === '')) {
+      toastr.error('Erro', 'Os parâmetros do indicador STOCH são Obrigatórios!')
+    } else if (this.state.name === 'CCI' && this.state.cci_period === '') {
+      toastr.error('Erro', 'Os parâmetros do indicador CCI são Obrigatórios!')
+    } else if (this.state.name === 'BBANDS' && (this.state.bbands_period === '' || this.state.bbands_stddev_period === '')) {
+      toastr.error('Erro', 'Os parâmetros do indicador BBANDS são Obrigatórios!')
+    } else {
       let values = {
         exchange: this.state.exchange,
         candle_size: this.state.candle_size,
@@ -243,7 +223,6 @@ class ConfigTeste extends Component {
           stoch_k_slow_period: this.state.stoch_k_slow_period,
           stoch_d_period: this.state.stoch_d_period,
           cci_period: this.state.cci_period,
-          adx_period: this.state.adx_period,
           bbands_period: this.state.bbands_period,
           bbands_stddev_period: this.state.bbands_stddev_period,
         },
@@ -258,7 +237,7 @@ class ConfigTeste extends Component {
       console.log(values)
       this.setState({ collapseResult: !this.state.collapse })
     }
-    event.preventDefault();
+    event.preventDefault()
   }
 
   render() {
@@ -322,7 +301,7 @@ class ConfigTeste extends Component {
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverExchange" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Exchange:
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverExchange" onClick={this.togglePopover} /></a> Exchange:
                         <Popover placement="left" isOpen={this.state.popoverExchange} target="popoverExchange">
                             <PopoverBody>
                               Selecionar a Exchange que será aplicado o teste.
@@ -342,7 +321,7 @@ class ConfigTeste extends Component {
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverCurrency" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Moeda:
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverCurrency" onClick={this.togglePopover} /></a> Moeda:
                         <Popover placement="left" isOpen={this.state.popoverCurrency} target="popoverCurrency">
                             <PopoverBody>
                               Selecionar a moeda que será utilizada no backtest, a moeda base sempre será USDT.
@@ -362,7 +341,7 @@ class ConfigTeste extends Component {
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverCandle" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Candle:
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverCandle" onClick={this.togglePopover} /></a> Candle:
                         <Popover placement="left" isOpen={this.state.popoverCandle} target="popoverCandle">
                             <PopoverBody>
                               Candle é o intervalo de tempo em que são agrupados os dados de um ativo, esses dados são:
@@ -383,7 +362,7 @@ class ConfigTeste extends Component {
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverIndicator" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Indicador:
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverIndicator" onClick={this.togglePopover} /></a> Indicador:
                         <Popover placement="left" isOpen={this.state.popoverIndicator} target="popoverIndicator">
                             <PopoverBody>
                               Selecionar a o indicador financeiro que será aplicado no teste.
@@ -472,7 +451,7 @@ class ConfigTeste extends Component {
                                   </Label>
                                 </Col>
                                 <Col lg='6'>
-                                  <Input type='text' id="stoch_k_solw_period" className='form-control' placeholder="3" value={this.state.stoch_k_slow_period} onChange={this.handleInputChange} />
+                                  <Input type='text' id="stoch_k_slow_period" className='form-control' placeholder="3" value={this.state.stoch_k_slow_period} onChange={this.handleInputChange} />
                                 </Col>
                               </InputGroup>
                               <InputGroup>
@@ -499,22 +478,6 @@ class ConfigTeste extends Component {
                                 </Col>
                                 <Col lg='6'>
                                   <Input type='text' id="cci_period" className='form-control' placeholder="20" value={this.state.cci_period} onChange={this.handleInputChange} />
-                                </Col>
-                              </InputGroup>
-                            </CardBody>
-                          </Card>
-                        </Collapse>
-                        <Collapse isOpen={this.state.collapseADX}>
-                          <Card>
-                            <CardBody>
-                              <InputGroup>
-                                <Col className='col-form-label text-right' lg='2'>
-                                  <Label>
-                                    <h6>ADX period:</h6>
-                                  </Label>
-                                </Col>
-                                <Col lg='6'>
-                                  <Input type='text' id="adx_period" className='form-control' placeholder="5" value={this.state.adx_period} onChange={this.handleInputChange} />
                                 </Col>
                               </InputGroup>
                             </CardBody>
@@ -551,7 +514,7 @@ class ConfigTeste extends Component {
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverSellIndicator" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Venda pelo Indicador:
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverSellIndicator" onClick={this.togglePopover} /></a> Venda pelo Indicador:
                         <Popover placement="left" isOpen={this.state.popoverSellIndicator} target="popoverSellIndicator">
                             <PopoverBody>
                               Quando acionado, o teste usará o indicador financeiro para vender a moeda e não levará em conta
@@ -579,10 +542,11 @@ class ConfigTeste extends Component {
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverProfit" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Lucro:
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverProfit" onClick={this.togglePopover} /></a> Lucro:
                         <Popover placement="left" isOpen={this.state.popoverProfit} target="popoverProfit">
                             <PopoverBody>
-                              Especificar o lucro desejado em cada negociação.
+                              Especificar o lucro desejado em cada negociação, esse valor deve ser sinalizado em percentual
+                              por exemplo 0.03 = 3% de lucro, 0.10 = 10% de lucro.
                             </PopoverBody>
                           </Popover>
                         </Label>
@@ -594,10 +558,11 @@ class ConfigTeste extends Component {
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverStop" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Stop-Loss:
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverStop" onClick={this.togglePopover} /></a> Stop-Loss:
                         <Popover placement="left" isOpen={this.state.popoverStop} target="popoverStop">
                             <PopoverBody>
-                              Stop-loss é a perda aceitável em uma queda repentina do mercado.
+                              Stop-loss é a perda aceitável em uma queda repentina do mercado, esse valor deve ser
+                              sinalizado em percentual por exemplo 0.1 = 10%, 0.01 = 1% o valor recomendável é 10%.
                             </PopoverBody>
                           </Popover>
                         </Label>
@@ -609,10 +574,11 @@ class ConfigTeste extends Component {
                     <InputGroup className='mb-3'>
                       <Col className='col-form-label text-right' lg='2'>
                         <Label>
-                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverDate" onClick={this.togglePopover} color style={{ color: '#20a8d8' }} /></a> Data Inicio:
+                          <a href="javascript:;" className="a"><i className='icon-question' id="popoverDate" onClick={this.togglePopover} /></a> Data Inicio:
                         <Popover placement="left" isOpen={this.state.popoverDate} target="popoverDate">
                             <PopoverBody>
-                              Data Inicio é a data inicial que voce usará para aplicar o teste, é uma data retroativa.
+                              Data Inicio é a data inicial que voce usará para aplicar o teste, é uma data retroativa
+                              OBS: As exchanges limitam essa busca para no máximo 40 dias reatroativos.
                             </PopoverBody>
                           </Popover>
                         </Label>

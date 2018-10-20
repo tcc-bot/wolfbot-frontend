@@ -31,6 +31,7 @@ class ResultadoTeste extends Component {
         })
         taxas = taxas + resultado[i].taxaNegociacao
       }
+      taxas = taxas.toFixed(2)
       this.setState({ data, negociacoes, lucro_total, percentual_total, taxas })
     }
   }
@@ -75,7 +76,7 @@ class ResultadoTeste extends Component {
           <Widget header={this.state.negociacoes} mainText="Nº Negociações" icon="fa fa-exchange" color="info" />
         </Col>
         <Col lg="3">
-          <Widget header={"$ " + parseFloat(this.state.taxas).toFixed(2)} mainText="Taxas Exchange" icon="fa fa-frown-o" color="danger" />
+          <Widget header={"$ " + this.state.taxas} mainText="Taxas Exchange" icon="fa fa-frown-o" color="danger" />
         </Col>
         <Col lg="12">
           <Card className='card-style card' >

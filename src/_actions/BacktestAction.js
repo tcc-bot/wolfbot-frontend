@@ -3,7 +3,7 @@ import { toastr } from 'react-redux-toastr'
 import api from '../config/config-development'
 
 export function testarStrategy(values) {
-    const url = `http://localhost:8080/backtest/testarConfiguracao`
+    const url = `${api.WOLFBOT_API_URL}/backtest/testarConfiguracao`
     return dispatch => {
         axios.post(url, values)
             .then(resp =>

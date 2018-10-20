@@ -2,7 +2,8 @@ const INITIAL_STATE = {
 
   exchanges:[
       {'value': 'bittrex', 'label': 'bittrex'},
-      {'value': 'bitfinex2', 'label': 'bitfinex2'}
+      {'value': 'bitfinex', 'label': 'bitfinex'},
+      {'value': 'poloniex', 'label': 'poloniex'}
   ],
   currencies: [
     { 'value': 'BTC', 'label': 'BTC' },
@@ -20,7 +21,6 @@ const INITIAL_STATE = {
     { 'value': 'EMA', 'label': 'EMA' },
     { 'value': 'STOCH', 'label': 'STOCH' },
     { 'value': 'CCI', 'label': 'CCI' },
-    { 'value': 'ADX', 'label': 'ADX' },
     { 'value': 'BOLLINGER BANDS', 'label': 'BOLLINGER BANDS' }
   ],
   result:'teste'

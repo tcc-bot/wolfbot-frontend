@@ -12,6 +12,9 @@ class BotaoRobo extends Component {
     super(props)
   }
 
+  handleChange(){
+
+  }
   render () {
     return (
       <Col xs='12' lg='4' sm='12' >
@@ -28,7 +31,8 @@ class BotaoRobo extends Component {
                 <label htmlFor='small-radius-switch'>
                   <Switch
                     checked={this.props.roboLigado}
-                    onChange={() => this.props.ligarRobo(this.props.roboLigado)}
+                    // onChange={() => this.props.ligarRobo(this.props.roboLigado)}
+                    onChange={this.handleChange}
                     handleDiameter={28}
                     offColor='#f86c6b'
                     onColor='#4dbd74'
