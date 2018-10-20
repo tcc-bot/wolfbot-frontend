@@ -11,13 +11,8 @@ import { Full } from '../../../components';
 class AuthLogin extends Component {
   componentWillMount () {
     this.props.loadSession()
-    const activeAccountHash = qs.parse(this.props.location.search).parameter
-    if (activeAccountHash) {
-
-    } else {
-      if (this.props.auth.user) {
-        this.props.validateToken(this.props.auth.user.token)
-      }
+    if (this.props.auth.user) {
+      this.props.validateToken(this.props.auth.user.Token)
     }
   }
 

@@ -19,6 +19,7 @@ export function login(values) {
       })
   }
 }
+
 export function signup(values) {
   const url = `${api.ACCOUNT_WOLFBOT_URL}/signup`
 
@@ -44,9 +45,9 @@ export function logout() {
 export function validateToken(token) {
   return dispatch => {
     if (token) {
-      axios.get(`${api.ACCOUNT_WOLFBOT_URL}/validateToken`, { headers: { Authorization: token } })
+      axios.get(`${consts.ACCOUNT_WOLFBOT_URL}/me`, { headers: { token: token } })
         .then(resp => {
-          dispatch({ type: 'TOKEN_VALIDATED', payload: resp.data.valid })
+          dispatch({ type: 'TOKEN_VALIDATED', payload: true })
         })
         .catch(e => dispatch({ type: 'TOKEN_VALIDATED', payload: false }))
     } else {
