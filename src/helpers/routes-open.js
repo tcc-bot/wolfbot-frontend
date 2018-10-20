@@ -4,6 +4,7 @@ import {
   EmailSendPasswordRecovery,
   ChangePassword,
   EmailSendActiveAccount,
+  AccountActive,
   PasswordChanged
 } from '../views'
 
@@ -14,6 +15,7 @@ const routes = [
   { path: '/emailsendpasswordrecovery', name: 'Email Send Password Recovery', component: EmailSendPasswordRecovery },
   { path: '/changepassword', name: 'Change Password', component: ChangePassword },
   { path: '/emailsendactiveaccount', name: 'Active Account', component: EmailSendActiveAccount },
+  { path: '/accountactive', name: 'Active Account', component: AccountActive },
   { path: '/passwordChanged', name: 'Password Changed', component: PasswordChanged }
 ]
 

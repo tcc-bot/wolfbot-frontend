@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, Col, Container, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap'
 
 class Page404 extends Component {
-  render () {
+  render() {
     return (
       <div className='app flex-row align-items-center'>
         <Container>

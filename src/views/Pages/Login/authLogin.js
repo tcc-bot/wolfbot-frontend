@@ -5,15 +5,15 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import Login from './Login'
-import { validateToken, loadSession, ativarConta } from '../../../_actions/authActions'
-import { Full } from '../../../components'
+import { validateToken, loadSession } from '../../../_actions/authActions'
+import { Full } from '../../../components';
 
 class AuthLogin extends Component {
   componentWillMount () {
     this.props.loadSession()
     const activeAccountHash = qs.parse(this.props.location.search).parameter
     if (activeAccountHash) {
-      this.props.ativarConta(activeAccountHash)
+
     } else {
       if (this.props.auth.user) {
         this.props.validateToken(this.props.auth.user.token)
@@ -36,7 +36,6 @@ class AuthLogin extends Component {
 const mapStateToProps = state => ({ auth: state.auth })
 const mapDispatchToProps = dispatch => bindActionCreators({
   validateToken,
-  loadSession,
-  ativarConta
+  loadSession
 }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(AuthLogin)

@@ -1,6 +1,7 @@
 const userKey = 'user_bot'
 const INITIAL_STATE = {
   user: JSON.parse(localStorage.getItem(userKey)),
+  accountActive: false,
   validToken: false,
   passwordRecovery: false,
   registerSuccess: false,
@@ -10,6 +11,9 @@ const INITIAL_STATE = {
 }
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case 'ACCOUNT_ACTIVE':
+      return { ...state, accountActive: action.payload }
+
     case 'TOKEN_VALIDATED':
       if (action.payload) {
         return { ...state, validToken: true }

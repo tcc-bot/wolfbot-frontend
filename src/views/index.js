@@ -16,6 +16,7 @@ import {
   EmailSendPasswordRecovery,
   ChangePassword,
   EmailSendActiveAccount,
+  AccountActive,
   PasswordChanged
 } from './Pages'
 
@@ -35,6 +36,7 @@ export {
   PasswordRecovery,
   EmailSendPasswordRecovery,
   ChangePassword,
+  AccountActive,
   EmailSendActiveAccount,
   PasswordChanged
 }

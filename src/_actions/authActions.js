@@ -3,7 +3,7 @@ import axios from 'axios'
 import api from '../config/config-localhost'
 import { history } from '../helpers/history'
 
-export function login (values) {
+export function login(values) {
   const url = `${api.ACCOUNT_WOLFBOT_URL}/login`
   return dispatch => {
     axios.post(url, values)
@@ -19,7 +19,7 @@ export function login (values) {
       })
   }
 }
-export function signup (values) {
+export function signup(values) {
   const url = `${api.ACCOUNT_WOLFBOT_URL}/signup`
 
   return dispatch => {
@@ -37,11 +37,11 @@ export function signup (values) {
   }
 }
 
-export function logout () {
+export function logout() {
   return { type: 'TOKEN_VALIDATED', payload: false }
 }
 
-export function validateToken (token) {
+export function validateToken(token) {
   return dispatch => {
     if (token) {
       axios.get(`${api.ACCOUNT_WOLFBOT_URL}/validateToken`, { headers: { Authorization: token } })
@@ -55,7 +55,7 @@ export function validateToken (token) {
   }
 }
 
-export function passwordRecovery (email) {
+export function passwordRecovery(email) {
   return dispatch => {
     axios.post(`${api.ACCOUNT_WOLFBOT_URL}/passwordrecovery`, email)
       .then(resp => {
@@ -67,16 +67,16 @@ export function passwordRecovery (email) {
   }
 }
 
-export function loadLoginPage () {
+export function loadLoginPage() {
   return { type: 'PAGE_LOGIN_UPDATED', payload: false }
 }
 
-export function loadSession () {
+export function loadSession() {
   const USER_BOT = loadLocalStorage('user_bot')
   return { type: 'LOAD_SESSSION_USER', payload: USER_BOT }
 }
 
-export function loadChangePasswordPage (parameter) {
+export function loadChangePasswordPage(parameter) {
   const objChangePassword = {
     changepasswordhash: parameter
   }
@@ -96,7 +96,7 @@ export function loadChangePasswordPage (parameter) {
   }
 }
 
-export function changePassword (values, changePasswordHash) {
+export function changePassword(values, changePasswordHash) {
   const objChangePassword = {
     password: values.password,
     passwordConfirm: values.passwordConfirm,
@@ -116,20 +116,20 @@ export function changePassword (values, changePasswordHash) {
   }
 }
 
-export function ativarConta (activeAccountHash) {
+// Action que é chamada quando o usuário clica no link para ativar a conta
+export function verifiyActiveAccount(code) {
   return dispatch => {
-    axios.post(`${api.ACCOUNT_WOLFBOT_URL}/active`, { activeAccountHash: activeAccountHash })
+    axios.get(`${consts.ACCOUNT_WOLFBOT_URL}/active`, { headers: { code: code } })
       .then(resp => {
-        dispatch({ type: 'ACCOUNT_ACTIVE', payload: true }
-          , toastr.success('Sucesso', 'Sua Conta foi Ativada'))
+        dispatch({ type: 'ACCOUNT_ACTIVE', payload: true })
       })
       .catch(e => {
-        toastr.error('Erro', e.response.data.errors[0].message)
+        dispatch({ type: 'ACCOUNT_ACTIVE', payload: false })
       })
   }
 }
 
-function loadLocalStorage (key) {
+function loadLocalStorage(key) {
   try {
     const serializedState = localStorage.getItem(key)
     if (serializedState === null) {

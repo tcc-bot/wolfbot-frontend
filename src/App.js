@@ -18,7 +18,8 @@ import AuthLogin from './views/Pages/Login/authLogin'
 
 import {
   Page404,
-  Page500
+  Page500,
+  AccountActive
 } from './views/Pages'
 class App extends Component {
   render () {
@@ -33,6 +34,7 @@ class App extends Component {
           <Route exact path='/emailsendpasswordrecovery' name='Email Send Password Recovery Page' component={RouteControl} />
           <Route exact path='/changepassword' name='Change Password Page' component={RouteControl} />
           <Route exact path='/emailsendactiveaccount' name='Active Account Page' component={RouteControl} />
+          <Route exact path='/accountactive' name='Account Active Page' component={AccountActive} />
           <Route exact path='/passwordChanged' name='Password Changed Page' component={RouteControl} />
           <Route path='/' name='AuthLogin' component={AuthLogin} />
         </Switch>
