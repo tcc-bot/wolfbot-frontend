@@ -14,7 +14,7 @@ class AccountActive extends Component {
   constructor(props) {
     super(props)
     this.state = {}
-    this.code = qs.parse(this.props.location.search).code
+    this.code = qs.parse(this.props.location.search).oobCode
   }
 
   componentWillMount() {
