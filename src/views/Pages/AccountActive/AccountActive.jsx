@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import * as qs from 'query-string'
 
 import Alerts from '../../../components/ui/Alerts'
+import Page404 from '../Page404/Page404'
 
 import { verifiyActiveAccount } from '../../../_actions/authActions'
 
@@ -60,7 +61,7 @@ class AccountActive extends Component {
     }
     else {
       return (
-        <h1>Página não encontrada</h1>
+        <Page404 />
       )
     }
   }
