@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { toastr } from 'react-redux-toastr'
-import api from '../config/config-development'
+import api from '../config/config-localhost'
 
 export function listarHistorico () {
   const USER_BOT = loadLocalStorage('user_bot')

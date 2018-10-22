@@ -1,5 +1,5 @@
 import axios from 'axios'
-import api from '../config/config-development'
+import api from '../config/config-localhost'
 
 export function getExchange () {
   const USER_BOT = loadLocalStorage('user_bot')

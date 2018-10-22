@@ -1,6 +1,6 @@
 import { toastr } from 'react-redux-toastr'
 import axios from 'axios'
-import api from '../config/config-development'
+import api from '../config/config-localhost'
 import { history } from '../helpers/history'
 
 export function login (values) {
