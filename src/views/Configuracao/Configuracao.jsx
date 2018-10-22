@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap'
-
-import Alerts from '../../components/ui/Alerts'
-import Input from '../../components/ui/Input'
-import SelectExchanges from './screens/SelectExchanges'
-import { reduxForm, Field } from 'redux-form'
+import { Row } from 'reactstrap'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { salvarConfiguracao } from '../../_actions/ConfiguracaoActions'
@@ -16,6 +11,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
+
 class Configuracao extends Component {
   constructor (props) {
     super(props)
@@ -23,6 +19,7 @@ class Configuracao extends Component {
 
     }
   }
+
   onSubmit (values) {
     const { salvarConfiguracao } = this.props
     const post = {
@@ -131,10 +128,7 @@ class Configuracao extends Component {
   }
 }
 
-Configuracao = reduxForm({ form: 'formConfig' })(Configuracao)
-const mapDispatchToProps = dispatch => bindActionCreators({ salvarConfiguracao }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch)
 const mapStateToProps = state => ({
-  exchangeSelected: state.selectConfig.exchangeSelected,
-  user: state.auth.user
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Configuracao)

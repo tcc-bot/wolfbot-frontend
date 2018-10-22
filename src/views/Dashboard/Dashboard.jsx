@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import { Row } from 'reactstrap'
-import TablePosicoes from './screens/TablePosicoes'
-import Alerts from '../../components/ui/Alerts'
-import ResumoOperacoes from './screens/ResumoOperacoes'
-import ResumoInvestimento from './screens/ResumoInvestimento'
-import BotaoRobo from './screens/BotaoRobo'
-import { getExchange } from '../../_actions/DashboardActions'
-
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+
+
+import TablePosicoes from './screens/TablePosicoes'
+import BotaoRobo from './screens/BotaoRobo'
+import ResumoOperacoes from './screens/ResumoOperacoes'
+import ResumoInvestimento from './screens/ResumoInvestimento'
+
+import Alerts from '../../components/ui/Alerts'
+
+import { getExchange } from '../../_actions/DashboardActions'
+
 
 class Dashboard extends Component {
   constructor (props) {

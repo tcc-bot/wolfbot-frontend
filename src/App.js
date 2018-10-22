@@ -9,6 +9,7 @@ import './assets/styles/template/react-tables.css'
 import './assets/styles/template/style.css'
 
 import './assets/styles/ui/card.css'
+import './assets/styles/ui/expansion-panel.css'
 import './assets/styles/ui/style-dashboard.css'
 import './assets/styles/ui/style-historico.css'
 

@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import { Row, Col, Card, CardHeader, CardBody } from 'reactstrap'
-import { ligarRobo } from '../../../_actions/DashboardActions'
+import { Row, Col } from 'reactstrap'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import Switch from 'react-switch'
+import Switch from '../../../components/ui/Switch'
+import Card from '../../../components/ui/Card'
+
+import { ligarRobo } from '../../../_actions/DashboardActions'
 
 class BotaoRobo extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
   }
 

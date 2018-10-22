@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
-import { Button, Card, CardHeader, CardBody, Col } from 'reactstrap'
+import { Button } from 'reactstrap'
 
-import ReactTable from 'react-table'
+import Card from '../../../components/ui/Card'
+import Tabela from '../../../components/ui/Tabela'
 
 class TablePosicoes extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
     }
   }
 
-  render () {
+  render() {
     const data = [
       { moeda: 'BTC', quantidade: 0.34256400, custo: 26.78, resultado: '7.00%', tempo: '5 dias' },
       { moeda: 'XMR', quantidade: 0.56473400, custo: 67.98, resultado: '10.00%', tempo: '6 dias' },
@@ -25,7 +26,7 @@ class TablePosicoes extends Component {
 
     const columns = [{
       Header: 'Moeda',
-      accessor: 'moeda' // String-based value accessors!
+      accessor: 'moeda'
     }, {
       Header: 'Quantidade',
       accessor: 'quantidade'
@@ -46,29 +47,18 @@ class TablePosicoes extends Component {
     }]
 
     return (
-      <Col xs='9' lg='8' sm='12'>
-        <Card className='card-style card'>
-          <CardHeader className='card-header-style'>
-            <i className='fa fa-exchange' /> Ordens Abertas
-          </CardHeader>
-          <CardBody>
-            <ReactTable
-              data={data}
-              previousText='Anterior'
-              nextText='Próximo'
-              loadingText='Carregando...'
-              noDataText='Não há ordens abertas'
-              pageText='Página'
-              rowsText='linhas'
-              ofText='de'
-              columns={columns}
-              pageSizeOptions={[5, 10]}
-              defaultPageSize={5}
-              className='-striped -highlight'
-            />
-          </CardBody>
-        </Card>
-      </Col>
+      <Card
+        xs='9'
+        lg='8'
+        sm='12'
+        icon='fa-exchange'
+        titleHeader='Ordens Abertas'>
+        <Tabela
+          dados={data}
+          colunas={columns}
+          pageSizeDefault={5}
+        />
+      </Card>
     )
   }
 }

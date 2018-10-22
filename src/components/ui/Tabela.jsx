@@ -13,7 +13,7 @@ class Tabela extends Component {
         previousText='Anterior'
         nextText='Próximo'
         loadingText='Carregando...'
-        noDataText='Não há ordens abertas'
+        noDataText='Não há dados!'
         pageText='Página'
         rowsText='linhas'
         ofText='de'

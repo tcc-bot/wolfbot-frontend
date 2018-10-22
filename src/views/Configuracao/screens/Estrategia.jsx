@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
-import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap'
-import Input from '../../../components/ui/Input'
-import Select from 'react-select'
+import { Row, Col, InputGroup, Label, Button } from 'reactstrap'
 import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+
+import Input from '../../../components/ui/Input'
+import Select from '../../../components/ui/Select'
 
 import { salvarEstrategia } from '../../../_actions/ConfiguracaoActions'
 
 class FormEstrategia extends Component {
   constructor (props) {
+
     super(props)
   }
 
@@ -19,39 +21,13 @@ class FormEstrategia extends Component {
 
   render () {
     const { handleSubmit } = this.props
-    const custonStyle = {
-      control: styles => ({
-        ...styles,
-        backgroundColor: '#515b65',
-        border: '1px solid #23282c'
-      }),
-      option: (styles, { isDisabled, isFocused, isSelected }) => {
-        return {
-          ...styles,
-          backgroundColor: isDisabled ? '#515b65' : isSelected ? '#343b41' : isFocused ? 'rgb(26, 36, 44)' : '#515b65',
-          color: isDisabled ? '#000' : isSelected ? '#e4e7ea' : null,
-          cursor: isDisabled ? 'not-allowed' : 'default'
-        }
-      },
-      input: styles => ({
-        ...styles,
-        color: '#e4e7ea'
-      }),
-      placeholder: styles => ({
-        ...styles,
-        color: '#e4e7ea'
-      }),
-      singleValue: styles => ({
-        ...styles,
-        color: '#e4e7ea'
-      })
-    }
+
     return (
       <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
         <InputGroup className='mb-2'>
           <Col lg='1'>
             <Label >
-              <h6>Periodos:</h6>
+              Periodos:
             </Label>
           </Col>
           <Col md='2'>
@@ -61,6 +37,7 @@ class FormEstrategia extends Component {
               value={this.props.select.periodos[0]}
               styles={custonStyle}
               name='periodo'
+
             />
           </Col>
           <Col lg='1'>
@@ -75,6 +52,7 @@ class FormEstrategia extends Component {
               value={this.props.select.candles[0]}
               styles={custonStyle}
               name='candle'
+
             />
           </Col>
           <Col lg='1'>
@@ -89,6 +67,7 @@ class FormEstrategia extends Component {
               value={this.props.select.moedas[0]}
               styles={custonStyle}
               name='moeda'
+
             />
           </Col>
         </InputGroup>
@@ -106,6 +85,7 @@ class FormEstrategia extends Component {
               value={this.props.select.indicadores[0]}
               styles={custonStyle}
               name='indicador'
+
             />
           </Col>
           <Col lg='1'>
@@ -158,10 +138,10 @@ class FormEstrategia extends Component {
   }
 }
 
-FormEstrategia = reduxForm({ form: 'formEstrategia' })(FormEstrategia)
+Estrategia = reduxForm({ form: 'formEstrategia' })(Estrategia)
 const mapDispatchToProps = dispatch => bindActionCreators({ salvarEstrategia }, dispatch)
 const mapStateToProps = state => ({
   user: state.auth.user,
-  select: state.selectConfig
+  select: state.configuracao
 })
-export default connect(mapStateToProps, mapDispatchToProps)(FormEstrategia)
+export default connect(mapStateToProps, mapDispatchToProps)(Estrategia)

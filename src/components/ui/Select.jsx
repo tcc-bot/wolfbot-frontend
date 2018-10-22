@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-
-import Select from 'react-select'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getExchanges, ExchangeSelectOption } from '../../../_actions/ConfiguracaoActions'
+import Select from 'react-select'
 
+import { SelectedOption } from '../../_actions/ConfiguracaoActions'
 
-class SelectExchanges extends Component {
+class WfSelect extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       selectedOptions: ''
     }
@@ -16,11 +15,7 @@ class SelectExchanges extends Component {
 
   handleChange = (selectedOptions) => {
     this.setState({ selectedOptions });
-    this.props.ExchangeSelectOption(selectedOptions);
-  }
-
-  componentWillMount() {
-    this.props.getExchanges()
+    this.props.SelectedOption(selectedOptions, this.props.actionSelected);
   }
 
   render() {
@@ -52,11 +47,12 @@ class SelectExchanges extends Component {
         color: '#e4e7ea'
       })
     };
+
     return (
       <div>
         <Select
           onChange={this.handleChange}
-          options={this.props.exchanges}
+          options={this.props.dados}
           value={this.props.selectedOptions}
           styles={custonStyle}
         />
@@ -64,15 +60,12 @@ class SelectExchanges extends Component {
     );
   }
 }
-
 const mapStateToProps = state => (
   {
-    exchanges: state.selectConfig.exchanges,
-    exchangeSelected: state.selectConfig.exchangeSelected
   })
+
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
-    getExchanges,
-    ExchangeSelectOption
+    SelectedOption
   }, dispatch)
-export default connect(mapStateToProps, mapDispatchToProps)(SelectExchanges)
+export default connect(mapStateToProps, mapDispatchToProps)(WfSelect)

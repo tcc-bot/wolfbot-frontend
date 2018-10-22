@@ -18,6 +18,7 @@ export function ligarRobo (statusRobo) {
   if (statusRobo == true) {
     axios.post(`${api.WOLFBOT_API_URL}/bot/acionarRobo?chave=teste&status=off`)
   }
+
   return {
     type: 'LIGAR_ROBO',
     payload: !statusRobo
