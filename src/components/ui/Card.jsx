@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Card, CardHeader, CardBody, Col, Row } from 'reactstrap';
+import { Card, CardHeader, CardBody, Col, Row } from 'reactstrap'
 
 class WCard extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
-  render() {
+  render () {
     return (
       <Col xs={this.props.xs} lg={this.props.lg} sm={this.props.sm}>
         <Card className='wf-card card'>

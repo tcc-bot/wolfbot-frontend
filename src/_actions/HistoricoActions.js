@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { toastr } from 'react-redux-toastr'
-import api from '../config/config-production'
+import api from '../config/config-localhost'
 
-export function listarHistorico() {
+export function listarHistorico () {
   const USER_BOT = loadLocalStorage('user_bot')
   return dispatch => {
     axios.get(`${api.WOLFBOT_API_URL}/historicos`)
@@ -14,7 +14,7 @@ export function listarHistorico() {
   }
 };
 
-export function buscarHistorico(values) {
+export function buscarHistorico (values) {
   const USER_BOT = loadLocalStorage('user_bot')
   return dispatch => {
     axios.get(`${api.WOLFBOT_API_URL}/historicos`)
@@ -26,7 +26,7 @@ export function buscarHistorico(values) {
   }
 }
 
-function loadLocalStorage(key) {
+function loadLocalStorage (key) {
   try {
     const serializedState = localStorage.getItem(key)
     if (serializedState === null) {

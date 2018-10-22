@@ -2,25 +2,31 @@ import React, { Component } from 'react'
 import { Row } from 'reactstrap'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { listarHistorico } from '../../_actions/HistoricoActions'
 
-import TableHistorico from './screens/TableHistorico'
-import FormHistorico from './screens/FormHistorico'
-
-import Card from '../../components/ui/Card'
-
-import { listarHistorico } from '../../_actions/HistoricoActions';
 
 class Historico extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.props.listarHistorico()
   }
 
+  toggle () {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    })
+  }
 
-  render() {
+  onRadioBtnClick (radioSelected) {
+    this.setState({
+      radioSelected: radioSelected
+    })
+  }
+
+  render () {
     return (
       <div className='animated fadeIn'>
         <Row>

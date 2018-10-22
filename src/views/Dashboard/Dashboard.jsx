@@ -15,17 +15,17 @@ import { getExchange } from '../../_actions/DashboardActions'
 
 
 class Dashboard extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
     }
   }
 
-  componentWillMount() {
+  componentWillMount () {
     this.props.getExchange()
   }
 
-  render() {
+  render () {
     return (
       <div className='animated fadeIn'>
         <Alerts />

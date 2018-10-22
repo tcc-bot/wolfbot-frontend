@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { toastr } from 'react-redux-toastr'
-import api from '../config/config-production'
+import api from '../config/config-localhost'
 
-export function getExchanges() {
+export function getExchanges () {
   const request = axios.get(`${api.WOLFBOT_API_URL}/exchanges/loadExchanges`)
 
   return {
@@ -22,7 +22,7 @@ export function SelectedOption(selectOption, acao) {
   }
 }
 
-export function salvarConfiguracao(values) {
+export function salvarConfiguracao (values) {
   const url = `${api.WOLFBOT_API_URL}/configuracao`
 
   return dispatch => {
@@ -41,7 +41,7 @@ export function salvarConfiguracao(values) {
   }
 }
 
-export function salvarEstrategia(values) {
+export function salvarEstrategia (values) {
   const url = `${api.WOLFBOT_API_URL}/configuracao`
 
   return dispatch => {

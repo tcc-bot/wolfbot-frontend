@@ -14,92 +14,98 @@ class BotaoRobo extends Component {
     super(props)
   }
 
-  render() {
+  handleChange(){
+
+  }
+  render () {
     return (
-      <Card
-        xs='12'
-        lg='4'
-        sm='12'
-        icon='fa-rocket'
-        titleHeader='Acionar Robô'>
-        <Row>
-          <Col lg='2' >
-            <i className='fa fa-power-off fa-3x' />
-          </Col>
-          <Col lg='3' >
-            <label htmlFor='small-radius-switch'>
-              <Switch
-                ligado={this.props.roboLigado}
-                acao={this.props.ligarRobo}
-                diametro={28}
-                corDesligado='#f86c6b'
-                corLigado='#4dbd74'
-                textoDesligadoCor='#fff'
-                textoLigadoCor='#fff'
-                altura={40}
-                largura={70}
-                id='small-radius-switch'
-                estadoAtual={this.props.roboLigado}
-              />
-            </label>
-          </Col>
-          <Col>
-            <h5>Robo Ligado</h5>
-          </Col>
-        </Row>
-        <hr />
-        <Row>
-          <Col lg='2' >
-            <i className='fa fa-arrow-down fa-3x' />
-          </Col>
-          <Col lg='3' >
-            <label htmlFor='small-radius-switch'>
-              <Switch
-                ligado={this.props.roboLigado}
-                acao={this.props.ligarRobo}
-                diametro={28}
-                corDesligado='#f86c6b'
-                corLigado='#4dbd74'
-                textoDesligadoCor='#fff'
-                textoLigadoCor='#fff'
-                altura={40}
-                largura={70}
-                id='small-radius-switch'
-                estadoAtual={this.props.roboLigado}
-              />
-            </label>
-          </Col>
-          <Col>
-            <h5>Compra Ligado</h5>
-          </Col>
-        </Row>
-        <hr />
-        <Row>
-          <Col lg='2' >
-            <i className='fa fa-arrow-up fa-3x' />
-          </Col>
-          <Col lg='3' >
-            <label htmlFor='small-radius-switch'>
-              <Switch
-                ligado={this.props.roboLigado}
-                acao={this.props.ligarRobo}
-                diametro={28}
-                corDesligado='#f86c6b'
-                corLigado='#4dbd74'
-                textoDesligadoCor='#fff'
-                textoLigadoCor='#fff'
-                altura={40}
-                largura={70}
-                id='small-radius-switch'
-                estadoAtual={this.props.roboLigado}
-              />
-            </label>
-          </Col>
-          <Col>
-            <h5>Venda Ligado</h5>
-          </Col>
-        </Row>
-      </Card>
+      <Col xs='12' lg='4' sm='12' >
+        <Card className='card-style card'>
+          <CardHeader className='card-header-style'>
+            <i className='fa fa-rocket' /> Acionar Robo
+          </CardHeader>
+          <CardBody>
+            <Row>
+              <Col lg='2' >
+                <i className='fa fa-power-off fa-3x' />
+              </Col>
+              <Col lg='3' >
+                <label htmlFor='small-radius-switch'>
+                  <Switch
+                    checked={this.props.roboLigado}
+                    // onChange={() => this.props.ligarRobo(this.props.roboLigado)}
+                    onChange={this.handleChange}
+                    handleDiameter={28}
+                    offColor='#f86c6b'
+                    onColor='#4dbd74'
+                    offHandleColor='#fff'
+                    onHandleColor='#fff'
+                    height={40}
+                    width={70}
+                    className='react-switch'
+                    id='small-radius-switch'
+                  />
+                </label>
+              </Col>
+              <Col>
+                <h5>Robo Ligado</h5>
+              </Col>
+            </Row>
+            <hr />
+            <Row>
+              <Col lg='2' >
+                <i className='fa fa-arrow-down fa-3x' />
+              </Col>
+              <Col lg='3' >
+                <label htmlFor='small-radius-switch'>
+                  <Switch
+                    checked={false}
+                    onChange={this.handleChange}
+                    handleDiameter={28}
+                    offColor='#f86c6b'
+                    onColor='#4dbd74'
+                    offHandleColor='#fff'
+                    onHandleColor='#fff'
+                    height={40}
+                    width={70}
+                    className='react-switch'
+                    id='small-radius-switch'
+                  />
+                </label>
+              </Col>
+              <Col>
+                <h5>Compra Ligado</h5>
+              </Col>
+            </Row>
+            <hr />
+            <Row>
+              <Col lg='2' >
+                <i className='fa fa-arrow-up fa-3x' />
+              </Col>
+              <Col lg='3' >
+                <label htmlFor='small-radius-switch'>
+                  <Switch
+                    checked={false}
+                    onChange={this.handleChange}
+                    handleDiameter={28}
+                    offColor='#f86c6b'
+                    onColor='#4dbd74'
+                    offHandleColor='#fff'
+                    onHandleColor='#fff'
+                    height={40}
+                    width={70}
+                    className='react-switch'
+                    id='small-radius-switch'
+                  />
+                </label>
+              </Col>
+              <Col>
+                <h5>Venda Ligado</h5>
+              </Col>
+            </Row>
+          </CardBody>
+        </Card>
+      </Col>
     )
   }
 }

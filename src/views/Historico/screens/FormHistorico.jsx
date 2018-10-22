@@ -3,21 +3,19 @@ import { Row, Col, InputGroup, Label, Button } from 'reactstrap'
 import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { buscarHistorico } from '../../../_actions/HistoricoActions'
 
-import Input from '../../../components/ui/Input'
-
-import { buscarHistorico } from '../../../_actions/HistoricoActions';
 
 class FormHistorico extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
 
-  onSubmit(values) {
+  onSubmit (values) {
     this.props.buscarHistorico(values)
   }
 
-  render() {
+  render () {
     const { reset, handleSubmit } = this.props
     return (
       <Col xs='12' lg='12' sm='12'>

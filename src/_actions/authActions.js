@@ -1,11 +1,10 @@
 import { toastr } from 'react-redux-toastr'
 import axios from 'axios'
-import consts from '../config/config-production'
+import api from '../config/config-localhost'
 import { history } from '../helpers/history'
 
-
-export function login(values) {
-  const url = `${consts.ACCOUNT_WOLFBOT_URL}/login`
+export function login (values) {
+  const url = `${api.ACCOUNT_WOLFBOT_URL}/login`
   return dispatch => {
     axios.post(url, values)
       .then(resp =>
@@ -20,8 +19,8 @@ export function login(values) {
       })
   }
 }
-export function signup(values) {
-  const url = `${consts.ACCOUNT_WOLFBOT_URL}/signup`
+export function signup (values) {
+  const url = `${api.ACCOUNT_WOLFBOT_URL}/signup`
 
   return dispatch => {
     axios.post(url, values)
@@ -38,14 +37,14 @@ export function signup(values) {
   }
 }
 
-export function logout() {
+export function logout () {
   return { type: 'TOKEN_VALIDATED', payload: false }
 }
 
-export function validateToken(token) {
+export function validateToken (token) {
   return dispatch => {
     if (token) {
-      axios.get(`${consts.ACCOUNT_WOLFBOT_URL}/validateToken`, { headers: { Authorization: token } })
+      axios.get(`${api.ACCOUNT_WOLFBOT_URL}/validateToken`, { headers: { Authorization: token } })
         .then(resp => {
           dispatch({ type: 'TOKEN_VALIDATED', payload: resp.data.valid })
         })
@@ -56,9 +55,9 @@ export function validateToken(token) {
   }
 }
 
-export function passwordRecovery(email) {
+export function passwordRecovery (email) {
   return dispatch => {
-    axios.post(`${consts.ACCOUNT_WOLFBOT_URL}/passwordrecovery`, email)
+    axios.post(`${api.ACCOUNT_WOLFBOT_URL}/passwordrecovery`, email)
       .then(resp => {
         dispatch({ type: 'PASSWORD_RECOVERY', payload: resp.data.valid }
           , toastr.success('Sucesso', 'O Email para redefinição de senha foi enviado!')
@@ -68,21 +67,21 @@ export function passwordRecovery(email) {
   }
 }
 
-export function loadLoginPage() {
+export function loadLoginPage () {
   return { type: 'PAGE_LOGIN_UPDATED', payload: false }
 }
 
-export function loadSession() {
+export function loadSession () {
   const USER_BOT = loadLocalStorage('user_bot')
   return { type: 'LOAD_SESSSION_USER', payload: USER_BOT }
 }
 
-export function loadChangePasswordPage(parameter) {
+export function loadChangePasswordPage (parameter) {
   const objChangePassword = {
     changepasswordhash: parameter
   }
   return dispatch => {
-    axios.post(`${consts.ACCOUNT_WOLFBOT_URL}/changepasswordpermition`, objChangePassword)
+    axios.post(`${api.ACCOUNT_WOLFBOT_URL}/changepasswordpermition`, objChangePassword)
       .then(resp => {
         const obj = {
           success: resp.data.success,
@@ -97,14 +96,14 @@ export function loadChangePasswordPage(parameter) {
   }
 }
 
-export function changePassword(values, changePasswordHash) {
+export function changePassword (values, changePasswordHash) {
   const objChangePassword = {
     password: values.password,
     passwordConfirm: values.passwordConfirm,
     changePasswordHash: changePasswordHash
   }
   return dispatch => {
-    axios.post(`${consts.ACCOUNT_WOLFBOT_URL}/changepassword`, objChangePassword)
+    axios.post(`${api.ACCOUNT_WOLFBOT_URL}/changepassword`, objChangePassword)
       .then(resp => {
         dispatch({ type: 'PASSWORD_CHANGED', payload: resp.data.success }
           , toastr.success('Sucesso', resp.data.message))
@@ -117,9 +116,9 @@ export function changePassword(values, changePasswordHash) {
   }
 }
 
-export function ativarConta(activeAccountHash) {
+export function ativarConta (activeAccountHash) {
   return dispatch => {
-    axios.post(`${consts.ACCOUNT_WOLFBOT_URL}/active`, { activeAccountHash: activeAccountHash })
+    axios.post(`${api.ACCOUNT_WOLFBOT_URL}/active`, { activeAccountHash: activeAccountHash })
       .then(resp => {
         dispatch({ type: 'ACCOUNT_ACTIVE', payload: true }
           , toastr.success('Sucesso', 'Sua Conta foi Ativada'))
@@ -130,7 +129,7 @@ export function ativarConta(activeAccountHash) {
   }
 }
 
-function loadLocalStorage(key) {
+function loadLocalStorage (key) {
   try {
     const serializedState = localStorage.getItem(key)
     if (serializedState === null) {

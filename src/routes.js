@@ -7,8 +7,8 @@ import {
   Backtesting,
   Historico,
   Perfil
-} from './views';
-import Full from './components/full/Full';
+} from './views'
+import Full from './components/full/Full'
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -20,7 +20,7 @@ const routes = [
   { path: '/estatisticas', name: 'Estatisticas', component: Estatisticas },
   { path: '/backtesting', name: 'Backtesting', component: Backtesting },
   { path: '/configuracao', name: 'Configuracao', component: Configuracao },
-  { path: '/perfil', name: 'Perfil', component: Perfil },
+  { path: '/perfil', name: 'Perfil', component: Perfil }
 
 ]
 

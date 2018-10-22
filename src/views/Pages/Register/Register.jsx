@@ -11,17 +11,17 @@ import Input from '../../../components/ui/Input'
 import Alerts from '../../../components/ui/Alerts'
 
 class Register extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {}
   }
 
-  onSubmit(values) {
+  onSubmit (values) {
     const { signup } = this.props
     signup(values)
   }
 
-  render() {
+  render () {
     const { handleSubmit, reset } = this.props
     return (
       <div className='app flex-row align-items-center ComponentAuth'>

@@ -1,7 +1,7 @@
 import axios from 'axios'
-import api from '../config/config-production'
+import api from '../config/config-localhost'
 
-export function getSaldo() {
+export function getSaldo () {
   const USER_BOT = loadLocalStorage('user_bot')
   const id_usuario = USER_BOT.id
 
@@ -19,15 +19,14 @@ export function getSaldo() {
   }
 }
 
-function loadLocalStorage(key) {
+function loadLocalStorage (key) {
   try {
     const serializedState = localStorage.getItem(key)
     if (serializedState === null) {
       return ''
     }
     return JSON.parse(serializedState)
-  }
-  catch (err) {
+  } catch (err) {
     return ''
   }
 }

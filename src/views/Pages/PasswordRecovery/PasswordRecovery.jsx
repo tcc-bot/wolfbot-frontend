@@ -12,19 +12,19 @@ import Input from '../../../components/ui/Input'
 import Alerts from '../../../components/ui/Alerts'
 
 class PasswordRecovery extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {}
   }
 
-  onSubmit(values) {
+  onSubmit (values) {
     const { passwordRecovery } = this.props
     passwordRecovery(values)
   }
-  componentWillMount() {
+  componentWillMount () {
   }
 
-  render() {
+  render () {
     const { handleSubmit } = this.props
     return (
       <div className='app flex-row align-items-center ComponentAuth'>

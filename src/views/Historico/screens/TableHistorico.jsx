@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Col } from 'reactstrap'
+import { buscarHistorico } from '../../../_actions/HistoricoActions'
 
-import Tabela from '../../../components/ui/Tabela'
 
 class TableHistorico extends Component {
   constructor(props) {

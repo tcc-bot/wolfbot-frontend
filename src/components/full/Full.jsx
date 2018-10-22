@@ -23,7 +23,7 @@ import FullFooter from './FullFooter'
 import FullHeader from './FullHeader'
 
 class Full extends Component {
-  render() {
+  render () {
     return (
       <div className='app'>
         <AppHeader fixed >
