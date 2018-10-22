@@ -1,10 +1,10 @@
 import { toastr } from 'react-redux-toastr'
 import axios from 'axios'
-import consts from '../config/config-development'
+import api from '../config/config-development'
 import { history } from '../helpers/history'
 
 export function login (values) {
-  const url = `${consts.ACCOUNT_WOLFBOT_URL}/login`
+  const url = `${api.ACCOUNT_WOLFBOT_URL}/login`
   return dispatch => {
     axios.post(url, values)
       .then(resp =>
@@ -20,7 +20,7 @@ export function login (values) {
   }
 }
 export function signup (values) {
-  const url = `${consts.ACCOUNT_WOLFBOT_URL}/signup`
+  const url = `${api.ACCOUNT_WOLFBOT_URL}/signup`
 
   return dispatch => {
     axios.post(url, values)
@@ -44,7 +44,7 @@ export function logout () {
 export function validateToken (token) {
   return dispatch => {
     if (token) {
-      axios.get(`${consts.ACCOUNT_WOLFBOT_URL}/validateToken`, { headers: { Authorization: token } })
+      axios.get(`${api.ACCOUNT_WOLFBOT_URL}/validateToken`, { headers: { Authorization: token } })
         .then(resp => {
           dispatch({ type: 'TOKEN_VALIDATED', payload: resp.data.valid })
         })
@@ -57,7 +57,7 @@ export function validateToken (token) {
 
 export function passwordRecovery (email) {
   return dispatch => {
-    axios.post(`${consts.ACCOUNT_WOLFBOT_URL}/passwordrecovery`, email)
+    axios.post(`${api.ACCOUNT_WOLFBOT_URL}/passwordrecovery`, email)
       .then(resp => {
         dispatch({ type: 'PASSWORD_RECOVERY', payload: resp.data.valid }
           , toastr.success('Sucesso', 'O Email para redefinição de senha foi enviado!')
@@ -81,7 +81,7 @@ export function loadChangePasswordPage (parameter) {
     changepasswordhash: parameter
   }
   return dispatch => {
-    axios.post(`${consts.ACCOUNT_WOLFBOT_URL}/changepasswordpermition`, objChangePassword)
+    axios.post(`${api.ACCOUNT_WOLFBOT_URL}/changepasswordpermition`, objChangePassword)
       .then(resp => {
         const obj = {
           success: resp.data.success,
@@ -103,7 +103,7 @@ export function changePassword (values, changePasswordHash) {
     changePasswordHash: changePasswordHash
   }
   return dispatch => {
-    axios.post(`${consts.ACCOUNT_WOLFBOT_URL}/changepassword`, objChangePassword)
+    axios.post(`${api.ACCOUNT_WOLFBOT_URL}/changepassword`, objChangePassword)
       .then(resp => {
         dispatch({ type: 'PASSWORD_CHANGED', payload: resp.data.success }
           , toastr.success('Sucesso', resp.data.message))
@@ -118,7 +118,7 @@ export function changePassword (values, changePasswordHash) {
 
 export function ativarConta (activeAccountHash) {
   return dispatch => {
-    axios.post(`${consts.ACCOUNT_WOLFBOT_URL}/active`, { activeAccountHash: activeAccountHash })
+    axios.post(`${api.ACCOUNT_WOLFBOT_URL}/active`, { activeAccountHash: activeAccountHash })
       .then(resp => {
         dispatch({ type: 'ACCOUNT_ACTIVE', payload: true }
           , toastr.success('Sucesso', 'Sua Conta foi Ativada'))

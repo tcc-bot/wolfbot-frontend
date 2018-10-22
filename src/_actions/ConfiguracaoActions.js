@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { toastr } from 'react-redux-toastr'
-import api from '../config/config-production'
+import api from '../config/config-development'
 
 export function getExchanges () {
   const request = axios.get(`${api.WOLFBOT_API_URL}/exchanges/loadExchanges`)
