@@ -3,6 +3,9 @@ import { Row } from 'reactstrap'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { listarHistorico } from '../../_actions/HistoricoActions'
+import Card from '../../components/ui/Card'
+import FormHistorico from './screens/FormHistorico'
+import TableHistorico from './screens/TableHistorico'
 
 
 class Historico extends Component {

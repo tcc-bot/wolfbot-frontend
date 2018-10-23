@@ -4,6 +4,7 @@ import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { buscarHistorico } from '../../../_actions/HistoricoActions'
+import Input from '../../../components/ui/Input'
 
 
 class FormHistorico extends Component {
