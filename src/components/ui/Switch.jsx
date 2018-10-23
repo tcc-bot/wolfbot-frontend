@@ -15,7 +15,8 @@ class WSwitch extends Component {
 
     return (
       <Switch
-        checked={this.props.ligado}
+        //checked={this.props.ligado}
+        checked={false}
         onChange={() => this.props.acao(this.props.estadoAtual)}
         handleDiameter={this.props.diametro}
         offColor={this.props.corLigado}

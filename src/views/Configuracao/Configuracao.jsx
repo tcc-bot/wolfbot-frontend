@@ -37,7 +37,7 @@ class Configuracao extends Component {
               <ExpansionPanel
                 ColorSummary={"#192024"}
                 SummaryContent={
-                  <a class="text-white"><i className='fa fa-check-circle fa-2x text-success' style={{ textAlign: 'center;' }}>
+                  <a className="text-white"><i className='fa fa-check-circle fa-2x text-success'>
                   </i>&nbsp;&nbsp;&nbsp;Integre com sua exchange</a>}>
                 <br />
                 <ExchangeIntegracao />
@@ -46,7 +46,7 @@ class Configuracao extends Component {
             <ExpansionPanel
               ColorSummary={"#192024"}
               SummaryContent={
-                <a class="text-white"><i className='fa fa-exclamation-circle fa-2x text-danger' style={{ textAlign: 'center;' }}>
+                <a className="text-white"><i className='fa fa-exclamation-circle fa-2x text-danger'>
                 </i>&nbsp;&nbsp;&nbsp;Defina sua estratégia</a>}>
               <br />
               <Estrategia />

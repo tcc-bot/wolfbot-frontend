@@ -23,7 +23,7 @@ export function SelectedOption(selectOption, acao) {
 }
 
 export function salvarConfiguracao (values) {
-  const url = `${api.WOLFBOT_API_URL}/configuracao`
+  const url = `${api.WOLFBOT_API_URL}/configuracao/salvar`
 
   return dispatch => {
     axios.post(url, values)

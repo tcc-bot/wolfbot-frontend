@@ -18,12 +18,14 @@ class ExchangeIntegracao extends Component {
     const { salvarConfiguracao } = this.props
 
     const post = {
-      key: values.key,
+      api_key: values.key,
       secret: values.secret,
       id_exchange: this.props.exchangeSelected.id_exchange,
-      nome_exchange: this.props.exchangeSelected.label,
-      id_usuario: this.props.user.id,
-      nome_usuario: this.props.user.nome
+      exchange: this.props.exchangeSelected.label,
+      user: {
+        user_id: this.props.user.id,
+        user_name: 'Allyson Andrade'//this.props.user.nome
+      }
     }
 
     salvarConfiguracao(post)
