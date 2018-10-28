@@ -45,7 +45,7 @@ export function logout() {
 export function validateToken(token) {
   return dispatch => {
     if (token) {
-      axios.get(`${consts.ACCOUNT_WOLFBOT_URL}/me`, { headers: { token: token } })
+      axios.get(`${api.ACCOUNT_WOLFBOT_URL}/me`, { headers: { token: token } })
         .then(resp => {
           dispatch({ type: 'TOKEN_VALIDATED', payload: true })
         })
@@ -120,7 +120,7 @@ export function changePassword(values, changePasswordHash) {
 // Action que é chamada quando o usuário clica no link para ativar a conta
 export function verifiyActiveAccount(code) {
   return dispatch => {
-    axios.get(`${consts.ACCOUNT_WOLFBOT_URL}/active`, { headers: { code: code } })
+    axios.get(`${api.ACCOUNT_WOLFBOT_URL}/active`, { headers: { code: code } })
       .then(resp => {
         dispatch({ type: 'ACCOUNT_ACTIVE', payload: true })
       })
