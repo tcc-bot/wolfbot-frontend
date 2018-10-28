@@ -4,6 +4,7 @@ import api from '../config/config-localhost'
 import { history } from '../helpers/history'
 
 export function login(values) {
+  console.log(values);
   const url = `${api.ACCOUNT_WOLFBOT_URL}/login`
   return dispatch => {
     axios.post(url, values)
@@ -20,6 +21,7 @@ export function login(values) {
   }
 }
 
+// Realizará o cadastro do usuário na API
 export function signup(values) {
   const url = `${api.ACCOUNT_WOLFBOT_URL}/signup`
 
@@ -122,10 +124,14 @@ export function verifiyActiveAccount(code) {
   return dispatch => {
     axios.get(`${api.ACCOUNT_WOLFBOT_URL}/active`, { headers: { code: code } })
       .then(resp => {
-        dispatch({ type: 'ACCOUNT_ACTIVE', payload: true })
+        dispatch({ type: 'ACCOUNT_ACTIVE', payload: 1 })
       })
       .catch(e => {
-        dispatch({ type: 'ACCOUNT_ACTIVE', payload: false })
+        console.log(e.response.data.errors[0].code);
+        if (e.response.data.errors[0].code == 'emailIsActive')
+          dispatch({ type: 'ACCOUNT_ACTIVE', payload: 2 })
+        else
+          dispatch({ type: 'ACCOUNT_ACTIVE', payload: 3 })
       })
   }
 }

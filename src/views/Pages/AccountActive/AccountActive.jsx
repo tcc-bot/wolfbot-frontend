@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import * as qs from 'query-string'
 
 import Alerts from '../../../components/ui/Alerts'
+import LoadingPage from '../LoadingPage/LoadingPage'
 import Page404 from '../Page404/Page404'
 
 import { verifiyActiveAccount } from '../../../_actions/authActions'
@@ -15,6 +16,7 @@ class AccountActive extends Component {
     super(props)
     this.state = {}
     this.code = qs.parse(this.props.location.search).oobCode
+
   }
 
   componentWillMount() {
@@ -22,7 +24,7 @@ class AccountActive extends Component {
   }
 
   render() {
-    if (this.props.accountActive) {
+    if (this.props.accountActive && (!this.props.codeActiveAccountInvalid || !this.props.accountActive)) {
       return (
         <div className='app flex-row align-items-center ComponentAuth'>
           <Alerts />
@@ -35,7 +37,7 @@ class AccountActive extends Component {
                       <img src='dist/img/account/done.png' width='125px' height='125px'
                         style={{ display: 'block', margin: '10px auto' }} />
                       <h1 style={{ textAlign: 'center' }}>Sua conta foi ativada!</h1>
-                      <p className='text-white' style={{ textAlign: "center" }}>Acesse sua conta com seu email e senha</p>
+                      <p className='text-white' style={{ textAlign: "center" }}>Acesse sua conta com seu email e senha.</p>
                     </CardBody>
                     <CardFooter className='pageCardFooter p-4'>
                       <Row className='justify-content-center'>
@@ -56,19 +58,25 @@ class AccountActive extends Component {
             </Row>
           </Container >
         </div >
-
+      )
+    }
+    else if (this.props.codeActiveAccountInvalid || this.props.emailIsActive) {
+      return (
+        <Page404 />
       )
     }
     else {
       return (
-        <Page404 />
+        <LoadingPage></LoadingPage>
       )
     }
   }
 }
 
 const mapStateToProps = (state) => ({
-  accountActive: state.auth.accountActive
+  accountActive: state.auth.accountActive,
+  emailIsActive: state.auth.emailIsActive,
+  codeActiveAccountInvalid: state.auth.codeActiveAccountInvalid
 })
 const mapDispatchToProps = dispatch => bindActionCreators({ verifiyActiveAccount }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(AccountActive)

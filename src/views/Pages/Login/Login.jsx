@@ -38,7 +38,7 @@ class Login extends Component {
                   <CardBody>
                     <h1>Entrar</h1>
                     <p className='text-muted'>Entre em sua conta</p>
-                    <form classnMAonSubmit={handleSubmit((v) => this.onSubmit(v))}>
+                    <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
                       <InputGroup className='mb-3'>
                         <InputGroupAddon addonType='prepend'>
                           <InputGroupText>
