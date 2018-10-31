@@ -7,6 +7,7 @@ import EmailSendPasswordRecovery from './EmailSendPasswordRecovery'
 import ChangePassword from './ChangePassword'
 import EmailSendActiveAccount from './EmailSendActiveAccount'
 import PasswordChanged from './PasswordChanged'
+import AccountActive from './AccountActive'
 
 export {
   Login,
@@ -17,5 +18,6 @@ export {
   EmailSendPasswordRecovery,
   ChangePassword,
   EmailSendActiveAccount,
-  PasswordChanged
+  PasswordChanged,
+  AccountActive
 }

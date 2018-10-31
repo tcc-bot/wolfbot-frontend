@@ -6,10 +6,22 @@ const INITIAL_STATE = {
   registerSuccess: false,
   changePasswordPermition: true,
   changePasswordHash: '',
-  passwordChanged: false
+  passwordChanged: false,
+  accountActive: false,
+  emailIsActive: false,
+  codeActiveAccountInvalid: false,
 }
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case 'ACCOUNT_ACTIVE':
+      switch (action.payload) {
+        case 1:
+          return { ...state, accountActive: true, codeActiveAccountInvalid: false, emailIsActive: false }
+        case 2:
+          return { ...state, accountActive: false, codeActiveAccountInvalid: false, emailIsActive: true }
+        case 3:
+          return { ...state, accountActive: false, codeActiveAccountInvalid: true, emailIsActive: false }
+      }
     case 'TOKEN_VALIDATED':
       if (action.payload) {
         return { ...state, validToken: true }

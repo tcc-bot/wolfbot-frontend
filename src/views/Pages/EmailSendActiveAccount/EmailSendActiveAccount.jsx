@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom'
 import Alerts from '../../../components/ui/Alerts'
 
 class EmailSendActiveAccount extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {}
   }
 
-  render () {
+  render() {
     return (
       <div className='app flex-row align-items-center ComponentAuth'>
         <Alerts />
@@ -23,7 +23,7 @@ class EmailSendActiveAccount extends Component {
                     <img src='dist/img/account/email.png' width='125px' height='125px'
                       style={{ display: 'block', margin: '10px auto' }} />
                     <h1 style={{ textAlign: 'center' }}>Confirme seu email!</h1>
-                    <p className='text-white'>Verifique sua caixa de entrada, pois enviamos um email para que você possa ativar sua conta</p>
+                    <p className='text-white'>Verifique sua caixa de entrada, pois enviamos um email para que você possa ativar sua conta.</p>
                   </CardBody>
                   <CardFooter className='pageCardFooter p-4'>
                     <Row className='justify-content-center'>

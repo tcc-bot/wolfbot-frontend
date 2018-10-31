@@ -3,7 +3,8 @@ import api from '../config/config-localhost'
 
 export function getExchange () {
   const USER_BOT = loadLocalStorage('user_bot')
-  const request = axios.get(`${api.WOLFBOT_API_URL}/configuracao/carregar?user_id=${USER_BOT.id}`)
+  const request = axios.get(`${api.WOLFBOT_API_URL}/configuracao/carregar?user_id=${USER_BOT.id}`,
+    { headers: { authorization: USER_BOT.Token } })
 
   return {
     type: 'EXCHANGE_FETCHED',
