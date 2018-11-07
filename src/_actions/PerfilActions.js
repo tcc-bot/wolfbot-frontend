@@ -1,4 +1,4 @@
-export function ChangeTabPerfil (tab) {
+export function ChangeTabPerfil(tab) {
   return {
     type: 'CHANGED_TAB_PERFIL',
     payload: tab

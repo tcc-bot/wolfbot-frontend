@@ -1,6 +1,7 @@
 import { toastr } from 'react-redux-toastr'
 import axios from 'axios'
 import api from '../config/config-localhost'
+import functions from '../helpers/functions'
 
 // Firebase Auth - Realizará o login do usuário
 export function login(values) {
@@ -83,7 +84,7 @@ export function loadLoginPage() {
 
 // Firebase Auth - Recupera os dados da sessão do usuário no localStorage
 export function loadSession() {
-  const USER_BOT = loadLocalStorage('user_bot')
+  const USER_BOT = functions.loadLocalStorage('user_bot');
   return { type: 'LOAD_SESSSION_USER', payload: USER_BOT }
 }
 
@@ -139,17 +140,4 @@ export function changePassword(values, changePasswordHash) {
   //       }
   //     })
   // }
-}
-
-
-function loadLocalStorage(key) {
-  try {
-    const serializedState = localStorage.getItem(key)
-    if (serializedState === null) {
-      return ''
-    }
-    return JSON.parse(serializedState)
-  } catch (err) {
-    return ''
-  }
 }
