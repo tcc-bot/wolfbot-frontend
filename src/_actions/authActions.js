@@ -66,7 +66,7 @@ export function logout() {
 export function validateToken(token) {
   return dispatch => {
     if (token) {
-      axios.get(`${api.ACCOUNT_WOLFBOT_URL}/me`, { headers: { token: token } })
+      axios.get(`${api.ACCOUNT_WOLFBOT_URL}/me`, { headers: { authorization: token } })
         .then(resp => {
           dispatch({ type: 'TOKEN_VALIDATED', payload: true })
         })
