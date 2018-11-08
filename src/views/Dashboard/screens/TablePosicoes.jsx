@@ -39,9 +39,6 @@ class TablePosicoes extends Component {
       Header: 'Preço',
       accessor: 'price'
     }, {
-      Header: 'Custo',
-      accessor: 'cost'
-    }, {
       Header: 'Moeda',
       accessor: 'currency'
     }, {
