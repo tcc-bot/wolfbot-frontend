@@ -234,7 +234,6 @@ class ConfigTeste extends Component {
         date: this.state.date
       }
       this.props.testarStrategy(values)
-      console.log(values)
       this.setState({ collapseResult: !this.state.collapse })
     }
     event.preventDefault()

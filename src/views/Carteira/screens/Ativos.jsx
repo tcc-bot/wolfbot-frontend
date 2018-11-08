@@ -9,7 +9,8 @@ import { getSaldo } from '../../../_actions/CarteiraActions'
 
 class Ativos extends Component {
   componentWillMount () {
-    this.props.getSaldo()
+    const USER_BOT = JSON.parse(localStorage.getItem('user_bot'))
+    this.props.getSaldo(USER_BOT)
   }
 
   render () {

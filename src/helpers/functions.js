@@ -2,11 +2,11 @@ const loadLocalStorage = (key) => {
   try {
     const serializedState = localStorage.getItem(key)
     if (serializedState === null) {
-      return ''
+      return undefined
     }
     return JSON.parse(serializedState)
   } catch (err) {
-    return ''
+    return undefined
   }
 }
 

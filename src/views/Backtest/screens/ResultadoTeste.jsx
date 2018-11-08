@@ -73,7 +73,7 @@ class ResultadoTeste extends Component {
           <Widget header={this.state.percentual_total + " %"} mainText="% Lucro Total " icon="fa fa-percent" color="warning" />
         </Col>
         <Col lg="3">
-          <Widget header={this.state.negociacoes} mainText="Nº Negociações" icon="fa fa-exchange" color="info" />
+          <Widget header={this.state.negociacoes + ''} mainText="Nº Negociações" icon="fa fa-exchange" color="info" />
         </Col>
         <Col lg="3">
           <Widget header={"$ " + this.state.taxas} mainText="Taxas Exchange" icon="fa fa-frown-o" color="danger" />
