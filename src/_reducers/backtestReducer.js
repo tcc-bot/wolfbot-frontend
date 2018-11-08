@@ -23,7 +23,7 @@ const INITIAL_STATE = {
     { 'value': 'CCI', 'label': 'CCI' },
     { 'value': 'BOLLINGER BANDS', 'label': 'BOLLINGER BANDS' }
   ],
-  result:'teste'
+  result:''
 }
 
 export default function (state = INITIAL_STATE, action) {

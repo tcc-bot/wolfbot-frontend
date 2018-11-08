@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { Button } from 'reactstrap'
-
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import ReactTable from 'react-table'
 import Card from '../../../components/ui/Card'
-import Tabela from '../../../components/ui/Tabela'
+
+import { getOpenOrdersByUser } from '../../../_actions/DashboardActions'
 
 class TablePosicoes extends Component {
   constructor(props) {
@@ -11,31 +14,39 @@ class TablePosicoes extends Component {
     }
   }
 
+  componentWillMount () {
+    const USER_BOT = JSON.parse(localStorage.getItem('user_bot'))
+    this.props.getOpenOrdersByUser(USER_BOT)
+  }
+
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.result !== prevProps.result) {
+  //     const resultado = this.props.result.openOrders.data
+  //     console.log(this.props.result.openOrders)
+  //     const data = []
+  //     this.setState({ data })
+  //   }
+  // }
+
   render() {
-    const data = [
-      { moeda: 'BTC', quantidade: 0.34256400, custo: 26.78, resultado: '7.00%', tempo: '5 dias' },
-      { moeda: 'XMR', quantidade: 0.56473400, custo: 67.98, resultado: '10.00%', tempo: '6 dias' },
-      { moeda: 'DASH', quantidade: 0.67853409, custo: 54.89, resultado: '-5.00%', tempo: '1 dias' },
-      { moeda: 'ETC', quantidade: 0.56789054, custo: 23.89, resultado: '4.00%', tempo: '2 dias' },
-      { moeda: 'ETH', quantidade: 0.79043217, custo: 45.67, resultado: '1.00%', tempo: '2 dias' },
-      { moeda: 'XMR', quantidade: 0.87654908, custo: 76.45, resultado: '12.00%', tempo: '4 dias' },
-      { moeda: 'BTC', quantidade: 0.14563278, custo: 23.34, resultado: '-5.00%', tempo: '7 dias' },
-      { moeda: 'BTC', quantidade: 0.90876890, custo: 13.65, resultado: '5.00%', tempo: '9 dias' }
-
-    ]
-
     const columns = [{
-      Header: 'Moeda',
-      accessor: 'moeda'
+      Header: 'Data Compra',
+      accessor: 'date'
     }, {
       Header: 'Quantidade',
-      accessor: 'quantidade'
+      accessor: 'amount'
+    }, {
+      Header: 'Preço',
+      accessor: 'price'
     }, {
       Header: 'Custo',
-      accessor: 'custo'
+      accessor: 'cost'
     }, {
-      Header: 'Tempo',
-      accessor: 'tempo'
+      Header: 'Moeda',
+      accessor: 'currency'
+    }, {
+      Header: 'Custo',
+      accessor: 'cost'
     }, {
       Header: 'Ação',
       Cell: row => (
@@ -47,20 +58,28 @@ class TablePosicoes extends Component {
     }]
 
     return (
-      <Card
-        xs='9'
-        lg='8'
-        sm='12'
-        icon='fa-exchange'
-        titleHeader='Ordens Abertas'>
-        <Tabela
-          dados={data}
-          colunas={columns}
-          pageSizeDefault={5}
+      <Card className='card-style card' xs='9' lg='8' sm='12' icon='fa-exchange' titleHeader='Ordens Abertas' >
+        <ReactTable
+          data={this.props.result.openOrders.data}
+          previousText='Anterior'
+          nextText='Próximo'
+          loadingText='Carregando...'
+          noDataText='Não há ordens abertas até o momento.'
+          pageText='Página'
+          rowsText='linhas'
+          ofText='de'
+          columns={columns}
+          pageSizeOptions={[5, 10]}
+          defaultPageSize={5}
+          className='-striped -highlight'
         />
       </Card>
     )
   }
 }
 
-export default TablePosicoes
+const mapStateToProps = state => ({
+  result: state.dashboard
+})
+const mapDispatchToProps = dispatch => bindActionCreators({ getOpenOrdersByUser }, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(TablePosicoes)
