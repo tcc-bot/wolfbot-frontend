@@ -12,6 +12,7 @@ class AuthLogin extends Component {
   componentWillMount () {
     this.props.loadSession()
     if (this.props.auth.user) {
+      console.log(this.props.auth);
       this.props.validateToken(this.props.auth.user.Token)
     }
   }

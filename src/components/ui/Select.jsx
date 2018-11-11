@@ -55,6 +55,7 @@ class WfSelect extends Component {
           options={this.props.dados}
           value={this.props.selectedOptions}
           styles={custonStyle}
+          name={this.props.name}
         />
       </div>
     );

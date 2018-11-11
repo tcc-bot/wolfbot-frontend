@@ -8,11 +8,10 @@ export function login(values) {
   const url = `${api.ACCOUNT_WOLFBOT_URL}/login`
   return dispatch => {
     axios.post(url, values)
-      .then(resp =>
-        dispatch(
-          { type: 'USER_FETCHED', payload: resp.data }
-        )
-      )
+      .then(resp => {
+        dispatch({ type: 'USER_FETCHED', payload: resp.data }),
+          dispatch({ type: 'GET_DADOS_HEADER', payload: resp.data })
+      })
       .catch(e => {
         for (var i = 0; i < e.response.data.errors.length; i++) {
           toastr.error('Erro', e.response.data.errors[i].message)
@@ -48,7 +47,6 @@ export function verifiyActiveAccount(code) {
         dispatch({ type: 'ACCOUNT_ACTIVE', payload: 1 })
       })
       .catch(e => {
-        console.log(e.response.data.errors[0].code);
         if (e.response.data.errors[0].code == 'emailIsActive')
           dispatch({ type: 'ACCOUNT_ACTIVE', payload: 2 })
         else
@@ -66,7 +64,7 @@ export function logout() {
 export function validateToken(token) {
   return dispatch => {
     if (token) {
-      axios.get(`${api.ACCOUNT_WOLFBOT_URL}/me`, { headers: { authorization: token } })
+      axios.get(`${api.WOLFBOT_API_URL}/me`, { headers: { authorization: token } })
         .then(resp => {
           dispatch({ type: 'TOKEN_VALIDATED', payload: true })
         })
