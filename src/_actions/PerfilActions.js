@@ -55,8 +55,13 @@ export function salvar(perfil, token) {
 
 export function alterarSenha(data, token) {
   const url = `${api.WOLFBOT_API_URL}/changePassword`;
+  const obj = {
+    password: !data.password ? '' : data.password,
+    newPassword: !data.newPassword ? '' : data.newPassword,
+    confirmNewPassword: !data.confirmNewPassword ? '' : data.confirmNewPassword
+  }
   return dispatch => {
-    axios.put(url, { password: data.newPassword }, { headers: { authorization: token } })
+    axios.put(url, obj, { headers: { authorization: token } })
       .then(resp => {
         dispatch({ type: 'CHANGE_PASSWORD', payload: true }),
           toastr.success("Sucesso", "Senha Alterada")
@@ -67,31 +72,4 @@ export function alterarSenha(data, token) {
         }
       })
   }
-}
-
-export function validaAlteraçãoSenha(data) {
-  if (!data.password || !data.newPassword || !data.confirmNewPassword) {
-    return {
-      type: 'CHANGE_PASSWORD_EMPTY_VALUES',
-      payload: {
-        password: (!data.password) ? 'Informe a senha atual' : ''
-        , newPassword: (!data.newPassword) ? 'Informe a nova senha' : ''
-        , confirmNewPassword: (!data.confirmNewPassword) ? 'Informe a confirmação da nova senha' : ''
-        , changePasswordSuccess: false
-      }
-    }
-  }
-  else if (data.confirmNewPassword !== data.newPassword) {
-    return dispatch => {
-      toastr.error('Erro', 'A nova senha e a senha de confirmação não conferem'),
-        dispatch({ type: 'CHANGE_PASSWORD_SUCCESS_OK', payload: false })
-    }
-  }
-  else {
-    return { type: 'CHANGE_PASSWORD_SUCCESS', payload: true }
-  }
-}
-
-export function resetAlteracaoSenha() {
-  return { type: 'RESET_ALTERACAO_SENHA_PAGE', payload: false }
 }

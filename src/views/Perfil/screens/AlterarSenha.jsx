@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import functions from '../../../helpers/functions';
 
-import { alterarSenha, validaAlteraçãoSenha, resetAlteracaoSenha } from '../../../_actions/PerfilActions';
+import { alterarSenha } from '../../../_actions/PerfilActions';
 
 class AlterarSenha extends Component {
   constructor(props) {
@@ -17,15 +17,11 @@ class AlterarSenha extends Component {
   }
 
   onSubmit(data) {
-    this.props.validaAlteraçãoSenha(data);
-    if (this.props.changePasswordSuccess) {
-      this.props.reset();
-      this.props.alterarSenha(data, this.state.user.Token);
-    }
+    this.props.reset();
+    this.props.alterarSenha(data, this.state.user.Token);
   }
 
   componentWillMount() {
-    this.props.resetAlteracaoSenha();
   }
 
   render() {
@@ -45,7 +41,6 @@ class AlterarSenha extends Component {
               </Col>
               <Col md='10'>
                 <Field component={Input} type='password' name='password' className='form-control' />
-                <small style={{ color: 'red' }}>{!this.props.changePasswordSuccess ? this.props.passwordIsEmpty : ''}</small>
               </Col>
             </InputGroup>
             <InputGroup className='mb-3'>
@@ -56,7 +51,6 @@ class AlterarSenha extends Component {
               </Col>
               <Col md='10'>
                 <Field component={Input} type='password' name='newPassword' className='form-control' />
-                <small style={{ color: 'red' }}>{!this.props.changePasswordSuccess ? this.props.newPasswordIsEmpty : ''}</small>
               </Col>
             </InputGroup>
             <InputGroup className='mb-3'>
@@ -67,7 +61,6 @@ class AlterarSenha extends Component {
               </Col>
               <Col md='10'>
                 <Field component={Input} type='password' name='confirmNewPassword' className='form-control' />
-                <small style={{ color: 'red' }}>{!this.props.changePasswordSuccess ? this.props.confirmNewPasswordIsEmpty : ''}</small>
               </Col>
             </InputGroup>
             <Row>
@@ -86,14 +79,9 @@ AlterarSenha = reduxForm(
   },
 )(AlterarSenha)
 const mapDispatchToProps = dispatch => bindActionCreators({
-  alterarSenha,
-  validaAlteraçãoSenha,
-  resetAlteracaoSenha
+  alterarSenha
 }, dispatch)
 const mapStateToProps = state => ({
-  passwordIsEmpty: state.profile.passwordIsEmpty,
-  newPasswordIsEmpty: state.profile.newPasswordIsEmpty,
-  confirmNewPasswordIsEmpty: state.profile.confirmNewPasswordIsEmpty,
-  changePasswordSuccess: state.profile.changePasswordSuccess
+
 })
 export default connect(mapStateToProps, mapDispatchToProps)(AlterarSenha)
