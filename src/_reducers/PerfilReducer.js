@@ -51,7 +51,7 @@ export default (state = INITIAL_STATE, action) => {
         changePasswordSuccess: action.payload.changePasswordSuccess,
         confirmNewPasswordIsEmpty: action.payload.confirmNewPassword
       }
-    case 'CHANGE_PASSWORD_SUCESS':
+    case 'CHANGE_PASSWORD_SUCCESS':
       return { ...state, changePasswordSuccess: action.payload }
     case 'CHANGE_PASSWORD_SUCCESS_OK':
       return { ...state, passwordIsEmpty: '', newPasswordIsEmpty: '', confirmNewPasswordIsEmpty: '', changePasswordSuccess: action.payload }

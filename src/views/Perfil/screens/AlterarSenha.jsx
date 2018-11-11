@@ -18,8 +18,10 @@ class AlterarSenha extends Component {
 
   onSubmit(data) {
     this.props.validaAlteraçãoSenha(data);
-    if (this.props.changePasswordSuccess) this.props.alterarSenha(data, this.state.user.Token);
-    this.render()
+    if (this.props.changePasswordSuccess) {
+      this.props.reset();
+      this.props.alterarSenha(data, this.state.user.Token);
+    }
   }
 
   componentWillMount() {

@@ -54,12 +54,12 @@ export function salvar(perfil, token) {
 }
 
 export function alterarSenha(data, token) {
-  const url = `${api.WOLFBOT_API_URL}/changepassword`;
+  const url = `${api.WOLFBOT_API_URL}/changePassword`;
   return dispatch => {
-    axios.put(url, data, { headers: { authorization: token } })
+    axios.put(url, { password: data.newPassword }, { headers: { authorization: token } })
       .then(resp => {
         dispatch({ type: 'CHANGE_PASSWORD', payload: true }),
-          toastr.success("Senha Alterada")
+          toastr.success("Sucesso", "Senha Alterada")
       })
       .catch(e => {
         for (var i = 0; i < e.response.data.errors.length; i++) {
