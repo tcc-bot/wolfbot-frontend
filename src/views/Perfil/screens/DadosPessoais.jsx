@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import functions from '../../../helpers/functions';
 import Select from '../../../components/ui/Select';
 
-import { getDadosPessoais, salvar } from '../../../_actions/PerfilActions';
+import { getDadosPessoais, salvar, getCountries } from '../../../_actions/PerfilActions';
 
 class DadosPessoais extends Component {
   constructor(props) {
@@ -19,11 +19,16 @@ class DadosPessoais extends Component {
   }
 
   onSubmit(profileData) {
-    this.props.salvar({ ...profileData, genre: this.props.genreSeleted.value }, this.state.user.Token);
+    this.props.salvar({
+      ...profileData,
+      genre: this.props.genreSelected.value,
+      country: this.props.countrySelected.value
+    }, this.state.user.Token);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.props.getDadosPessoais(this.state.user.Token);
+    this.props.getCountries(this.state.user.Token);
   }
 
   render() {
@@ -68,7 +73,11 @@ class DadosPessoais extends Component {
                 </Label>
               </Col>
               <Col md='10'>
-                <Select actionSelected='GENRE_SELECTED' dados={this.props.genres} name='genre'></Select>
+                <Select
+                  actionSelected='GENRE_SELECTED'
+                  dados={this.props.genres}
+                  name='genre'
+                  initialValue={!dadosPessoais.genre || this.props.genreSelected}></Select>
               </Col>
             </InputGroup>
             <InputGroup className='mb-3'>
@@ -78,7 +87,12 @@ class DadosPessoais extends Component {
                 </Label>
               </Col>
               <Col md='10'>
-                <Field component={Input} type='text' name='country' className='form-control' />
+                <Select
+                  actionSelected='COUNTRY_SELECTED'
+                  dados={this.props.countries}
+                  name='country'
+                  initialValue={!dadosPessoais.country || this.props.countrySelected}>
+                </Select>
               </Col>
             </InputGroup>
             <InputGroup className='mb-3'>
@@ -109,11 +123,14 @@ DadosPessoais = reduxForm(
 )(DadosPessoais)
 const mapDispatchToProps = dispatch => bindActionCreators({
   getDadosPessoais,
-  salvar
+  salvar,
+  getCountries
 }, dispatch)
 const mapStateToProps = state => ({
   initialValues: state.profile.dadosPessoais,
   genres: state.profile.genreSelect,
-  genreSeleted: state.profile.genreSelected
+  genreSelected: state.profile.genreSelected,
+  countries: state.profile.countriesSelect,
+  countrySelected: state.profile.countrySelected
 })
 export default connect(mapStateToProps, mapDispatchToProps)(DadosPessoais)

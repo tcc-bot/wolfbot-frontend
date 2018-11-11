@@ -53,7 +53,7 @@ class WfSelect extends Component {
         <Select
           onChange={this.handleChange}
           options={this.props.dados}
-          value={this.props.selectedOptions}
+          value={this.props.initialValue || this.props.selectedOptions}
           styles={custonStyle}
           name={this.props.name}
         />

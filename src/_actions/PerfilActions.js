@@ -24,6 +24,19 @@ export function getDadosPessoais(token) {
   }
 }
 
+export function getCountries(token) {
+  const url = `${api.WOLFBOT_API_URL}/countries`;
+  return dispatch => {
+    axios.get(url, { headers: { authorization: token } })
+      .then(resp => {
+        dispatch({
+          type: 'GET_COUNTRIES',
+          payload: resp.data.map(country => (new Object({ label: country.countryName, value: country.countryName })))
+        })
+      })
+  }
+}
+
 export function salvar(perfil, token) {
   console.log(perfil)
   const url = `${api.WOLFBOT_API_URL}/profile`;
@@ -31,7 +44,7 @@ export function salvar(perfil, token) {
     axios.put(url, perfil, { headers: { authorization: token } })
       .then(resp => {
         dispatch({ type: 'GET_DADOS_PESSOAIS', payload: resp.data }),
-          toastr.success("OK", "Suas informações foram salvas")
+          toastr.success("Suas informações foram salvas")
       })
       .catch(e => {
         for (var i = 0; i < e.response.data.errors.length; i++) {
