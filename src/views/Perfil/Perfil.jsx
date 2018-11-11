@@ -12,6 +12,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import DadosPessoais from './screens/DadosPessoais';
 import { ChangeTabPerfil } from '../../_actions/PerfilActions'
+import AlterarSenha from './screens/AlterarSenha';
 
 function TabContainer(props) {
   return (
@@ -72,7 +73,7 @@ class Perfil extends Component {
                     }
                     {this.props.tab == 'alterar_senha' &&
                       <TabContainer>
-                        Alterar a Senha
+                        <AlterarSenha></AlterarSenha>
                       </TabContainer>}
                     {this.props.tab === 'atividades' &&
                       <TabContainer>

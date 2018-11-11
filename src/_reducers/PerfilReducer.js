@@ -17,6 +17,10 @@ const INITIAL_STATE = {
   genreSelected: '',
   countriesSelect: [],
   countrySelected: '',
+  passwordIsEmpty: '',
+  newPasswordIsEmpty: '',
+  confirmNewPasswordIsEmpty: '',
+  changePasswordSuccess: false
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -39,6 +43,20 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, countriesSelect: action.payload }
     case 'COUNTRY_SELECTED':
       return { ...state, countrySelected: action.payload, }
+    case 'CHANGE_PASSWORD_EMPTY_VALUES':
+      return {
+        ...state,
+        passwordIsEmpty: action.payload.password,
+        newPasswordIsEmpty: action.payload.newPassword,
+        changePasswordSuccess: action.payload.changePasswordSuccess,
+        confirmNewPasswordIsEmpty: action.payload.confirmNewPassword
+      }
+    case 'CHANGE_PASSWORD_SUCESS':
+      return { ...state, changePasswordSuccess: action.payload }
+    case 'CHANGE_PASSWORD_SUCCESS_OK':
+      return { ...state, passwordIsEmpty: '', newPasswordIsEmpty: '', confirmNewPasswordIsEmpty: '', changePasswordSuccess: action.payload }
+    case 'RESET_ALTERACAO_SENHA_PAGE':
+      return { ...state, passwordIsEmpty: '', newPasswordIsEmpty: '', confirmNewPasswordIsEmpty: '', changePasswordSuccess: action.payload }
     default:
       return state
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Card, CardHeader, CardBody, InputGroup, Label, Button } from 'reactstrap';
+import { Row, Col, InputGroup, Label, Button } from 'reactstrap';
 import Input from '../../../components/ui/Input';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
