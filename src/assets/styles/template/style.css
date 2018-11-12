@@ -1290,7 +1290,7 @@ pre {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(32, 168, 216, 0.25); }
   .form-control::placeholder {
-    color: #ffffff;
+    color: #73818f;
     opacity: 1; }
   .form-control:disabled, .form-control[readonly] {
     background-color: #e4e7ea;
@@ -3985,7 +3985,7 @@ button.close {
   .bs-popover-top .arrow::before, .bs-popover-auto[x-placement^="top"] .arrow::before {
     bottom: 0;
     border-top-color: rgba(0, 0, 0, 0.25); }
-
+  
   .bs-popover-top .arrow::after,
   .bs-popover-auto[x-placement^="top"] .arrow::after {
     bottom: 1px;
@@ -4005,7 +4005,7 @@ button.close {
   .bs-popover-right .arrow::before, .bs-popover-auto[x-placement^="right"] .arrow::before {
     left: 0;
     border-right-color: rgba(0, 0, 0, 0.25); }
-
+  
   .bs-popover-right .arrow::after,
   .bs-popover-auto[x-placement^="right"] .arrow::after {
     left: 1px;
@@ -4022,7 +4022,7 @@ button.close {
   .bs-popover-bottom .arrow::before, .bs-popover-auto[x-placement^="bottom"] .arrow::before {
     top: 0;
     border-bottom-color: rgba(0, 0, 0, 0.25); }
-
+  
   .bs-popover-bottom .arrow::after,
   .bs-popover-auto[x-placement^="bottom"] .arrow::after {
     top: 1px;
@@ -4051,7 +4051,7 @@ button.close {
   .bs-popover-left .arrow::before, .bs-popover-auto[x-placement^="left"] .arrow::before {
     right: 0;
     border-left-color: rgba(0, 0, 0, 0.25); }
-
+  
   .bs-popover-left .arrow::after,
   .bs-popover-auto[x-placement^="left"] .arrow::after {
     right: 1px;
@@ -10066,12 +10066,22 @@ hr {
   align-content: center; }
 
 #cardLogin {
-  background-color: rgba(35, 40, 44, 0.8);
+  background-color: #191f25;
+  font-family: 'Exo', sans-serif;
+  color: #20a8d8; }
+
+#cardLogin:hover {
+  background-color: rgba(25, 31, 37, 0.774);
   font-family: 'Exo', sans-serif;
   color: #20a8d8; }
 
 #cardRegister {
-  background-color: rgba(27, 30, 32, 0.8);
+  background-color: #192024;
+  font-family: 'Exo', sans-serif;
+  color: #ffc107; }
+
+#cardRegister:hover {
+  background-color: #192024be;
   font-family: 'Exo', sans-serif;
   color: #ffc107; }
 

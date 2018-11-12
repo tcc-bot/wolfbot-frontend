@@ -40,13 +40,13 @@ class Register extends Component {
                           <i className='icon-user' />
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Field component={Input} type='nome' name='nome' placeholder='Nome' />
+                      <Field component={Input} type='nome' name='nome' placeholder='*Nome' />
                     </InputGroup>
                     <InputGroup className='mb-3'>
                       <InputGroupAddon addonType='prepend'>
                         <InputGroupText>@</InputGroupText>
                       </InputGroupAddon>
-                      <Field component={Input} type='email' name='email' placeholder='Email' />
+                      <Field component={Input} type='email' name='email' placeholder='*Email' />
                     </InputGroup>
                     <InputGroup className='mb-3'>
                       <InputGroupAddon addonType='prepend'>
@@ -54,7 +54,7 @@ class Register extends Component {
                           <i className='icon-lock' />
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Field component={Input} type='password' name='password' placeholder='Senha' />
+                      <Field component={Input} type='password' name='password' placeholder='*Senha' />
                     </InputGroup>
                     <InputGroup className='mb-4'>
                       <InputGroupAddon addonType='prepend'>
@@ -62,10 +62,10 @@ class Register extends Component {
                           <i className='icon-lock' />
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Field component={Input} type='password' name='confirm_password' placeholder='Confirmação da senha' />
+                      <Field component={Input} type='password' name='confirm_password' placeholder='*Confirmação da senha' />
                     </InputGroup>
-                    <Button type='submit' className='btn btn-outline-success' block>Cadastrar</Button>
-                    <Button type='reset' onClick={reset} className='btn btn-outline-primary' block>Limpar</Button>
+                    <Button type='submit' className='btn btn-ghost-success' block>Cadastrar</Button>
+                    <Button type='reset' onClick={reset} className='btn btn-ghost-primary' block>Limpar</Button>
                   </form>
                 </CardBody>
                 <CardFooter id='cardFooterRegister' className='p-4'>

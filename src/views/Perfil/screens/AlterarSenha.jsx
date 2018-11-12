@@ -36,7 +36,7 @@ class AlterarSenha extends Component {
             <InputGroup className='mb-3'>
               <Col lg='3'>
                 <Label >
-                  <h6 style={{ color: '#C0C6CD' }}>Senha Atual:</h6>
+                  <h6 style={{ color: '#C0C6CD' }}>*Senha Atual:</h6>
                 </Label>
               </Col>
               <Col md='10'>
@@ -46,7 +46,7 @@ class AlterarSenha extends Component {
             <InputGroup className='mb-3'>
               <Col lg='3'>
                 <Label>
-                  <h6 style={{ color: '#C0C6CD' }}>Nova Senha:</h6>
+                  <h6 style={{ color: '#C0C6CD' }}>*Nova Senha:</h6>
                 </Label>
               </Col>
               <Col md='10'>
@@ -56,7 +56,7 @@ class AlterarSenha extends Component {
             <InputGroup className='mb-3'>
               <Col lg='3'>
                 <Label>
-                  <h6 style={{ color: '#C0C6CD' }}>Confirmação da Nova Senha:</h6>
+                  <h6 style={{ color: '#C0C6CD' }}>*Confirmação da Nova Senha:</h6>
                 </Label>
               </Col>
               <Col md='10'>

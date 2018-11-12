@@ -12,19 +12,19 @@ import Input from '../../../components/ui/Input'
 import Alerts from '../../../components/ui/Alerts'
 
 class PasswordRecovery extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {}
   }
 
-  onSubmit (values) {
+  onSubmit(values) {
     const { passwordRecovery } = this.props
     passwordRecovery(values)
   }
-  componentWillMount () {
+  componentWillMount() {
   }
 
-  render () {
+  render() {
     const { handleSubmit } = this.props
     return (
       <div className='app flex-row align-items-center ComponentAuth'>
@@ -36,7 +36,7 @@ class PasswordRecovery extends Component {
                 <Card id='cardLogin' className='card p-4'>
                   <CardBody>
                     <h1>Esqueceu sua senha?</h1>
-                    <p className='text-muted'>Digite seu nome de usuário ou e-mail e nós lhe enviaremos as instruções para redefinir sua senha.</p>
+                    <p className='text-muted'>Digite seu e-mail e nós lhe enviaremos as instruções para redefinir sua senha.</p>
                     <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
                       <InputGroup className='mb-3'>
                         <InputGroupAddon addonType='prepend'>

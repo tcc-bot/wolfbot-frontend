@@ -64,6 +64,7 @@ class Perfil extends Component {
                         <Tab value="dados_pessoais" label="Dados Pessoais" />
                         <Tab value="alterar_senha" label="Alterar a Senha" />
                         <Tab value="atividades" label="Atividades" />
+                        <Tab value="conta" label="Excluir minha conta" />
                       </Tabs>
                     </AppBar>
                     {this.props.tab == 'dados_pessoais' &&
@@ -78,6 +79,10 @@ class Perfil extends Component {
                     {this.props.tab === 'atividades' &&
                       <TabContainer>
                         Atividades
+                      </TabContainer>}
+                    {this.props.tab === 'conta' &&
+                      <TabContainer>
+                        Exlusão da conta
                       </TabContainer>}
                   </div>
                 </div>

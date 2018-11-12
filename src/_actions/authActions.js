@@ -87,7 +87,7 @@ export function loadSession() {
 }
 
 export function passwordRecovery(email) {
-  alert('Não implementado');
+  return alert('Não implementado');
   // return dispatch => {
   //   axios.post(`${api.ACCOUNT_WOLFBOT_URL}/passwordrecovery`, email)
   //     .then(resp => {
@@ -98,6 +98,7 @@ export function passwordRecovery(email) {
   //     .catch(e => toastr.error('Erro', e.response.data.errors.message))
   // }
 }
+
 export function loadChangePasswordPage(parameter) {
   alert('Não implementado')
   // const objChangePassword = {

@@ -43,7 +43,7 @@ export function salvar(perfil, token) {
     axios.put(url, perfil, { headers: { authorization: token } })
       .then(resp => {
         dispatch({ type: 'GET_DADOS_PESSOAIS', payload: resp.data }),
-          toastr.success("Suas informações foram salvas")
+          toastr.success("Ok", "Suas informações foram salvas")
       })
       .catch(e => {
         for (var i = 0; i < e.response.data.errors.length; i++) {

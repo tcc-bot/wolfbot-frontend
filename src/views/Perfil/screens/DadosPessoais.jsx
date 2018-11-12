@@ -59,7 +59,7 @@ class DadosPessoais extends Component {
             <InputGroup className='mb-3'>
               <Col lg='1'>
                 <Label>
-                  <h6 style={{ color: '#C0C6CD' }}>Nome:</h6>
+                  <h6 style={{ color: '#C0C6CD' }}>*Nome:</h6>
                 </Label>
               </Col>
               <Col md='10'>
@@ -77,7 +77,8 @@ class DadosPessoais extends Component {
                   actionSelected='GENRE_SELECTED'
                   dados={this.props.genres}
                   name='genre'
-                  initialValue={!dadosPessoais.genre || this.props.genreSelected}></Select>
+                  initialValue={!dadosPessoais.genre || this.props.genreSelected}>
+                </Select>
               </Col>
             </InputGroup>
             <InputGroup className='mb-3'>
