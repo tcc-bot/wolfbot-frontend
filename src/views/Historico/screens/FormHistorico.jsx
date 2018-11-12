@@ -8,15 +8,15 @@ import Input from '../../../components/ui/Input'
 
 
 class FormHistorico extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
   }
 
-  onSubmit (values) {
+  onSubmit(values) {
     this.props.buscarHistorico(values)
   }
 
-  render () {
+  render() {
     const { reset, handleSubmit } = this.props
     return (
       <Col xs='12' lg='12' sm='12'>
@@ -53,10 +53,10 @@ class FormHistorico extends Component {
           </Col>
           <Row style={{ margin: 'auto', marginBottom: '15px', marginTop: '10px' }}>
             <Col xs='12' sm='5'>
-              <Button type='submit' className='btn-success'>Buscar</Button>
+              <Button type='submit' className='btn-ghost-success'>Buscar</Button>
             </Col>
             <Col xs='12' sm='5'>
-              <Button type='reset' className='btn-warning' onClick={reset}>Limpar</Button>
+              <Button type='reset' className='btn-ghost-warning' onClick={reset}>Limpar</Button>
             </Col>
           </Row>
         </form>

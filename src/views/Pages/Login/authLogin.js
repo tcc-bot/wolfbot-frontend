@@ -9,14 +9,14 @@ import { validateToken, loadSession } from '../../../_actions/authActions'
 import { Full } from '../../../components';
 
 class AuthLogin extends Component {
-  componentWillMount () {
+  componentWillMount() {
     this.props.loadSession()
     if (this.props.auth.user) {
       this.props.validateToken(this.props.auth.user.Token)
     }
   }
 
-  render () {
+  render() {
     const { user, validToken } = this.props.auth
     if (user && validToken) {
       axios.defaults.headers.common['authorization'] = user.token

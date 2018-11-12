@@ -33,6 +33,13 @@ class Login extends Component {
         <Container className='ContainerAuth'>
           <Row className='justify-content-center'>
             <Col md='8'>
+              <div>
+                <CardBody>
+                  <h2 style={{ textAlign: 'center', color: '#FFFFFF' }}>Wolfbot</h2>
+                </CardBody>
+              </div>
+            </Col>
+            <Col md='8'>
               <CardGroup>
                 <Card id='cardLogin' className='card p-4'>
                   <CardBody>

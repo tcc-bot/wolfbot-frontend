@@ -8,14 +8,14 @@ const propTypes = {
 const defaultProps = {}
 
 class FullFooter extends Component {
-  render () {
+  render() {
     // eslint-disable-next-line
     const { children, ...attributes } = this.props;
 
     return (
       <React.Fragment>
-        <span><a href='https://wolbot.com.br'>WolfBot</a> &copy; 2018 creativeLabs.</span>
-        <span className='ml-auto'>Powered by <a href='https://wolfbot.com.br'>WolfBot tecnologies</a></span>
+        <span><a href='https://wolbot.com.br'>WolfBot</a> &copy; 2018</span>
+        <span className='ml-auto'><a href='https://wolfbot.com.br'>WolfBot</a></span>
       </React.Fragment>
     )
   }

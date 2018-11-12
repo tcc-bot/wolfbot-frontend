@@ -61,7 +61,7 @@ class ExchangeIntegracao extends Component {
             </Label>
           </Col>
           <Col>
-            <Field component={Input} type="text" name="key" placeholder="Api Key" className="form-control" />
+            <Field component={Input} type="text" name="key" placeholder="" className="form-control" />
           </Col>
         </InputGroup>
         <InputGroup className="mb-3">
@@ -71,15 +71,15 @@ class ExchangeIntegracao extends Component {
             </Label>
           </Col>
           <Col>
-            <Field component={Input} type="text" name="secret" placeholder="Api Secret" className="form-control" />
+            <Field component={Input} type="text" name="secret" placeholder="" className="form-control" />
           </Col>
         </InputGroup>
         <br />
         <Row>
           <Col xs="8">
-            <Button type="submit" className="btn-outline-success" style={{ marginRight: '5px' }}>Salvar</Button>
-            <Button type="submit" className="btn btn-outline-primary" style={{ marginRight: '5px' }}>Editar</Button>
-            <Button type="submit" className="btn-outline-danger">Cancelar</Button>
+            <Button type="submit" className="btn btn-ghost-success" style={{ marginRight: '5px' }}>Salvar</Button>
+            <Button type="submit" className="btn btn-ghost-primary" style={{ marginRight: '5px' }}>Editar</Button>
+            <Button type="submit" className="btn btn-ghost-danger">Cancelar</Button>
           </Col>
         </Row>
         <hr />

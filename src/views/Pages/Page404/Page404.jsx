@@ -12,14 +12,14 @@ class Page404 extends Component {
               <CardGroup>
                 <Card className='cardAccount card p-4'>
                   <CardBody>
-                    <img src='dist/img/account/404.png' width='160px' height='70px'
+                    <img src='dist/img/account/404.png' width='160px' height='140px'
                       style={{ display: 'block', margin: '10px auto' }} />
                     <h1 style={{ textAlign: 'center' }}>Oops!</h1>
                     <p className='text-white' style={{ textAlign: "center" }}>A página que você está procurando não foi encontrada.</p>
                   </CardBody>
                   <CardFooter className='pageCardFooter p-4'>
                     <Row className='justify-content-center'>
-                      <InputGroup className='input-prepend'>
+                      {/* <InputGroup className='input-prepend'>
                         <InputGroupAddon addonType='prepend'>
                           <InputGroupText>
                             <i className='fa fa-search' />
@@ -29,7 +29,7 @@ class Page404 extends Component {
                         <InputGroupAddon addonType='append'>
                           <Button color='info'>Buscar</Button>
                         </InputGroupAddon>
-                      </InputGroup>
+                      </InputGroup> */}
                     </Row>
                   </CardFooter>
                   <CardFooter className='pageCardFooter p-4'>
