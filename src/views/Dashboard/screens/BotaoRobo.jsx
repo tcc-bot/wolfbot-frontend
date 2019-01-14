@@ -10,11 +10,11 @@ import Card from '../../../components/ui/Card'
 import { ligarRobo } from '../../../_actions/DashboardActions'
 
 class BotaoRobo extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
 
-  handleChange(){
+  handleChange () {
 
   }
   render () {
@@ -32,9 +32,9 @@ class BotaoRobo extends Component {
               <Col lg='3' >
                 <label htmlFor='small-radius-switch'>
                   <Switch
-                    //checked={this.props.roboLigado}
+                    // checked={this.props.roboLigado}
                     // onChange={() => this.props.ligarRobo(this.props.roboLigado)}
-                    checked={true}
+                    checked
                     onChange={this.handleChange}
                     handleDiameter={28}
                     offColor='#f86c6b'

@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 
 import Login from './Login'
 import { validateToken, loadSession } from '../../../_actions/authActions'
-import { Full } from '../../../components';
+import { Full } from '../../../components'
 
 class AuthLogin extends Component {
   componentWillMount () {

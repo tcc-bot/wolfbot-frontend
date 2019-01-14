@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux'
 import { buscarHistorico } from '../../../_actions/HistoricoActions'
 import Input from '../../../components/ui/Input'
 
-
 class FormHistorico extends Component {
   constructor (props) {
     super(props)

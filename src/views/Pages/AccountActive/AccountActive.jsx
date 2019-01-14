@@ -12,18 +12,17 @@ import Page404 from '../Page404/Page404'
 import { verifiyActiveAccount } from '../../../_actions/authActions'
 
 class AccountActive extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {}
     this.code = qs.parse(this.props.location.search).oobCode
-
   }
 
-  componentWillMount() {
+  componentWillMount () {
     this.props.verifiyActiveAccount(this.code)
   }
 
-  render() {
+  render () {
     if (this.props.accountActive && (!this.props.codeActiveAccountInvalid || !this.props.accountActive)) {
       return (
         <div className='app flex-row align-items-center ComponentAuth'>
@@ -37,7 +36,7 @@ class AccountActive extends Component {
                       <img src='dist/img/account/done.png' width='125px' height='125px'
                         style={{ display: 'block', margin: '10px auto' }} />
                       <h1 style={{ textAlign: 'center' }}>Sua conta foi ativada!</h1>
-                      <p className='text-white' style={{ textAlign: "center" }}>Acesse sua conta com seu email e senha.</p>
+                      <p className='text-white' style={{ textAlign: 'center' }}>Acesse sua conta com seu email e senha.</p>
                     </CardBody>
                     <CardFooter className='pageCardFooter p-4'>
                       <Row className='justify-content-center'>
@@ -59,15 +58,13 @@ class AccountActive extends Component {
           </Container >
         </div >
       )
-    }
-    else if (this.props.codeActiveAccountInvalid || this.props.emailIsActive) {
+    } else if (this.props.codeActiveAccountInvalid || this.props.emailIsActive) {
       return (
         <Page404 />
       )
-    }
-    else {
+    } else {
       return (
-        <LoadingPage></LoadingPage>
+        <LoadingPage />
       )
     }
   }
@@ -80,4 +77,3 @@ const mapStateToProps = (state) => ({
 })
 const mapDispatchToProps = dispatch => bindActionCreators({ verifiyActiveAccount }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(AccountActive)
-

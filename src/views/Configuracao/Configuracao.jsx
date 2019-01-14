@@ -10,17 +10,15 @@ import ExpansionPanel from '../../components/ui/ExpansionPanel'
 import Estrategia from './screens/Estrategia'
 import ExchangeIntegracao from './screens/ExchangeIntegracao'
 
-
 class Configuracao extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
 
     }
   }
 
-  render() {
-
+  render () {
     return (
       <div className='animated fadeIn'>
         <Row>
@@ -35,26 +33,24 @@ class Configuracao extends Component {
             titleHeader='Configuração'>
             <div>
               <ExpansionPanel
-                ColorSummary={"#192024"}
+                ColorSummary={'#192024'}
                 SummaryContent={
-                  <a className="text-white"><i className='fa fa-check-circle fa-2x text-success'>
-                  </i>&nbsp;&nbsp;&nbsp;Integre com sua exchange</a>}>
+                  <a className='text-white'><i className='fa fa-check-circle fa-2x text-success' />&nbsp;&nbsp;&nbsp;Integre com sua exchange</a>}>
                 <br />
                 <ExchangeIntegracao />
               </ExpansionPanel>
             </div>
             <ExpansionPanel
-              ColorSummary={"#192024"}
+              ColorSummary={'#192024'}
               SummaryContent={
-                <a className="text-white"><i className='fa fa-exclamation-circle fa-2x text-danger'>
-                </i>&nbsp;&nbsp;&nbsp;Defina sua estratégia</a>}>
+                <a className='text-white'><i className='fa fa-exclamation-circle fa-2x text-danger' />&nbsp;&nbsp;&nbsp;Defina sua estratégia</a>}>
               <br />
               <Estrategia />
             </ExpansionPanel>
           </Card>
         </Row >
       </div >
-    );
+    )
   }
 }
 

@@ -7,7 +7,6 @@ import ResumoInvestimento from './screens/ResumoInvestimento'
 
 import Alerts from '../../components/ui/Alerts'
 
-
 class Dashboard extends Component {
   constructor (props) {
     super(props)

@@ -5,7 +5,7 @@ import functions from '../helpers/functions'
 
 const USER_BOT = functions.loadLocalStorage('user_bot')
 
-export function getExchanges() {
+export function getExchanges () {
   const request = axios.get(`${api.WOLFBOT_API_URL}/exchanges/loadExchanges`,
     { headers: { authorization: USER_BOT.Token } })
 
@@ -16,7 +16,7 @@ export function getExchanges() {
   }
 }
 
-export function SelectedOption(selectOption, acao) {
+export function SelectedOption (selectOption, acao) {
   return {
     type: acao,
     payload: {
@@ -26,7 +26,7 @@ export function SelectedOption(selectOption, acao) {
   }
 }
 
-export function salvarConfiguracao(values) {
+export function salvarConfiguracao (values) {
   const url = `${api.WOLFBOT_API_URL}/configuracao/salvar`
 
   return dispatch => {
@@ -45,7 +45,7 @@ export function salvarConfiguracao(values) {
   }
 }
 
-export function salvarEstrategia(values) {
+export function salvarEstrategia (values) {
   const url = `${api.WOLFBOT_API_URL}/configuracao`
 
   return dispatch => {

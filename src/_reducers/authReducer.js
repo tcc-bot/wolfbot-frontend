@@ -9,7 +9,7 @@ const INITIAL_STATE = {
   passwordChanged: false,
   accountActive: false,
   emailIsActive: false,
-  codeActiveAccountInvalid: false,
+  codeActiveAccountInvalid: false
 }
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {

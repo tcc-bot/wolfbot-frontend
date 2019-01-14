@@ -10,7 +10,6 @@ import HistoricoReducer from './_reducers/HistoricoReducer'
 import PerfilReducer from './_reducers/PerfilReducer'
 import BacktestReducer from './_reducers/backtestReducer'
 
-
 const rootReducer = combineReducers({
   dashboard: DashboardReducer,
   configuracao: ConfiguracaoReducer,

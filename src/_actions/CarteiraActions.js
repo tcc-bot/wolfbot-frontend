@@ -1,7 +1,7 @@
 import axios from 'axios'
 import api from '../config/config-localhost'
 
-export function getSaldo(USER_BOT) {
+export function getSaldo (USER_BOT) {
   if (USER_BOT.id === undefined) {
     return {
       type: 'SALDO_NOT_FETCHED'

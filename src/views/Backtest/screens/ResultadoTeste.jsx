@@ -5,13 +5,13 @@ import ReactTable from 'react-table'
 import Widget from '../../../components/ui/Widget02'
 
 class ResultadoTeste extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
     }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     if (this.props.result !== prevProps.result) {
       let resultado = this.props.result.result.result.ordersSell
       let negociacoes = resultado.length
@@ -36,7 +36,7 @@ class ResultadoTeste extends Component {
     }
   }
 
-  render() {
+  render () {
     const columns = [{
       Header: 'Data Compra',
       accessor: 'data_compra'
@@ -62,23 +62,23 @@ class ResultadoTeste extends Component {
 
     return (
       <Row>
-        <Col className="h1" lg="12">
+        <Col className='h1' lg='12'>
           Resultado Final
-          <hr/>
+          <hr />
         </Col>
-        <Col lg="3">
-          <Widget header={"$ " + this.state.lucro_total} mainText="Lucro Total" icon="fa fa-dollar" color="success" />
+        <Col lg='3'>
+          <Widget header={'$ ' + this.state.lucro_total} mainText='Lucro Total' icon='fa fa-dollar' color='success' />
         </Col>
-        <Col lg="3">
-          <Widget header={this.state.percentual_total + " %"} mainText="% Lucro Total " icon="fa fa-percent" color="warning" />
+        <Col lg='3'>
+          <Widget header={this.state.percentual_total + ' %'} mainText='% Lucro Total ' icon='fa fa-percent' color='warning' />
         </Col>
-        <Col lg="3">
-          <Widget header={this.state.negociacoes + ''} mainText="Nº Negociações" icon="fa fa-exchange" color="info" />
+        <Col lg='3'>
+          <Widget header={this.state.negociacoes + ''} mainText='Nº Negociações' icon='fa fa-exchange' color='info' />
         </Col>
-        <Col lg="3">
-          <Widget header={"$ " + this.state.taxas} mainText="Taxas Exchange" icon="fa fa-frown-o" color="danger" />
+        <Col lg='3'>
+          <Widget header={'$ ' + this.state.taxas} mainText='Taxas Exchange' icon='fa fa-frown-o' color='danger' />
         </Col>
-        <Col lg="12">
+        <Col lg='12'>
           <Card className='card-style card' >
             <CardBody>
               <ReactTable

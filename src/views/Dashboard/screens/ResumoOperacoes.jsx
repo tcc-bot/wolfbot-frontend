@@ -5,14 +5,14 @@ import { PieChart, Pie, Cell, Tooltip } from 'recharts'
 import Card from '../../../components/ui/Card'
 
 class ResumoOperacoes extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
 
     }
   }
 
-  render() {
+  render () {
     const data = [
       { name: 'BTC', value: 30 },
       { name: 'DASH', value: 10 },

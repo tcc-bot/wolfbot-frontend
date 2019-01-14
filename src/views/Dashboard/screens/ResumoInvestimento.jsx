@@ -4,14 +4,14 @@ import { Row, Col } from 'reactstrap'
 import Card from '../../../components/ui/Card'
 
 class ResumoInvestimento extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
 
     }
   }
 
-  render() {
+  render () {
     return (
       <Card
         xs='12'

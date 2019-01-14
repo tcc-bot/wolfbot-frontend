@@ -5,12 +5,11 @@ import { Col } from 'reactstrap'
 import { buscarHistorico } from '../../../_actions/HistoricoActions'
 import Tabela from '../../../components/ui/Tabela'
 
-
 class TableHistorico extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
-  render() {
+  render () {
     const { reset, handleSubmit } = this.props
     const columns = [{
       Header: 'Data da Operação',

@@ -4,7 +4,7 @@ import api from '../config/config-localhost'
 import functions from '../helpers/functions'
 
 // Firebase Auth - Realizará o login do usuário
-export function login(values) {
+export function login (values) {
   const url = `${api.ACCOUNT_WOLFBOT_URL}/login`
   return dispatch => {
     axios.post(url, values)
@@ -22,7 +22,7 @@ export function login(values) {
 }
 
 // Firebase Auth - Realizará o cadastro do usuário
-export function signup(values) {
+export function signup (values) {
   const url = `${api.ACCOUNT_WOLFBOT_URL}/signup`
 
   return dispatch => {
@@ -41,29 +41,26 @@ export function signup(values) {
 }
 
 // Firebase Auth - Action que é chamada quando o usuário clica no link para ativar a conta
-export function verifiyActiveAccount(code) {
+export function verifiyActiveAccount (code) {
   return dispatch => {
     axios.get(`${api.ACCOUNT_WOLFBOT_URL}/active`, { headers: { code: code } })
       .then(resp => {
         dispatch({ type: 'ACCOUNT_ACTIVE', payload: 1 })
       })
       .catch(e => {
-        console.log(e.response.data.errors[0].code);
-        if (e.response.data.errors[0].code == 'emailIsActive')
-          dispatch({ type: 'ACCOUNT_ACTIVE', payload: 2 })
-        else
-          dispatch({ type: 'ACCOUNT_ACTIVE', payload: 3 })
+        console.log(e.response.data.errors[0].code)
+        if (e.response.data.errors[0].code == 'emailIsActive') { dispatch({ type: 'ACCOUNT_ACTIVE', payload: 2 }) } else { dispatch({ type: 'ACCOUNT_ACTIVE', payload: 3 }) }
       })
   }
 }
 
 // Firebase Auth - Desloga o usuário
-export function logout() {
+export function logout () {
   return { type: 'TOKEN_VALIDATED', payload: false }
 }
 
 // Firebase Auth - Verifica se o token do usuário é valido, se não é então desloga o usuário
-export function validateToken(token) {
+export function validateToken (token) {
   return dispatch => {
     if (token) {
       axios.get(`${api.ACCOUNT_WOLFBOT_URL}/me`, { headers: { authorization: token } })
@@ -78,18 +75,18 @@ export function validateToken(token) {
 }
 
 // Firebase Auth - É chamado quando a página de login é carregada
-export function loadLoginPage() {
+export function loadLoginPage () {
   return { type: 'PAGE_LOGIN_UPDATED', payload: false }
 }
 
 // Firebase Auth - Recupera os dados da sessão do usuário no localStorage
-export function loadSession() {
-  const USER_BOT = functions.loadLocalStorage('user_bot');
+export function loadSession () {
+  const USER_BOT = functions.loadLocalStorage('user_bot')
   return { type: 'LOAD_SESSSION_USER', payload: USER_BOT }
 }
 
-export function passwordRecovery(email) {
-  alert('Não implementado');
+export function passwordRecovery (email) {
+  alert('Não implementado')
   // return dispatch => {
   //   axios.post(`${api.ACCOUNT_WOLFBOT_URL}/passwordrecovery`, email)
   //     .then(resp => {
@@ -100,7 +97,7 @@ export function passwordRecovery(email) {
   //     .catch(e => toastr.error('Erro', e.response.data.errors.message))
   // }
 }
-export function loadChangePasswordPage(parameter) {
+export function loadChangePasswordPage (parameter) {
   alert('Não implementado')
   // const objChangePassword = {
   //   changepasswordhash: parameter
@@ -121,8 +118,8 @@ export function loadChangePasswordPage(parameter) {
   // }
 }
 
-export function changePassword(values, changePasswordHash) {
-  alert('Não implementado');
+export function changePassword (values, changePasswordHash) {
+  alert('Não implementado')
   // const objChangePassword = {
   //   password: values.password,
   //   passwordConfirm: values.passwordConfirm,

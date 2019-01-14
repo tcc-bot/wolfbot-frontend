@@ -5,13 +5,13 @@ import Card from '../../../components/ui/Card'
 import Tabela from '../../../components/ui/Tabela'
 
 class TablePosicoes extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
     }
   }
 
-  render() {
+  render () {
     const data = [
       { moeda: 'BTC', quantidade: 0.34256400, custo: 26.78, resultado: '7.00%', tempo: '5 dias' },
       { moeda: 'XMR', quantidade: 0.56473400, custo: 67.98, resultado: '10.00%', tempo: '6 dias' },

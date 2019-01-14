@@ -10,11 +10,11 @@ import Select from '../../../components/ui/Select'
 import { getExchanges, salvarConfiguracao } from '../../../_actions/ConfiguracaoActions'
 
 class ExchangeIntegracao extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
 
-  onSubmit(values) {
+  onSubmit (values) {
     const { salvarConfiguracao } = this.props
 
     const post = {
@@ -24,25 +24,24 @@ class ExchangeIntegracao extends Component {
       exchange: this.props.exchangeSelected.label,
       user: {
         user_id: this.props.user.id,
-        user_name: 'Allyson Andrade'//this.props.user.nome
+        user_name: 'Allyson Andrade'// this.props.user.nome
       }
     }
 
     salvarConfiguracao(post)
   }
 
-  componentWillMount() {
-    this.props.getExchanges();
+  componentWillMount () {
+    this.props.getExchanges()
   }
 
-  render() {
-
+  render () {
     const { handleSubmit } = this.props
 
     return (
       <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
-        <InputGroup className="mb-3">
-          <Col lg="2">
+        <InputGroup className='mb-3'>
+          <Col lg='2'>
             <Label >
               <p>Exchange: </p>
             </Label>
@@ -54,37 +53,37 @@ class ExchangeIntegracao extends Component {
             />
           </Col>
         </InputGroup>
-        <InputGroup className="mb-3">
-          <Col lg="2">
+        <InputGroup className='mb-3'>
+          <Col lg='2'>
             <Label>
               <p>API Key:</p>
             </Label>
           </Col>
           <Col>
-            <Field component={Input} type="text" name="key" placeholder="Api Key" className="form-control" />
+            <Field component={Input} type='text' name='key' placeholder='Api Key' className='form-control' />
           </Col>
         </InputGroup>
-        <InputGroup className="mb-3">
-          <Col lg="2">
+        <InputGroup className='mb-3'>
+          <Col lg='2'>
             <Label>
               <p>API Secret:</p>
             </Label>
           </Col>
           <Col>
-            <Field component={Input} type="text" name="secret" placeholder="Api Secret" className="form-control" />
+            <Field component={Input} type='text' name='secret' placeholder='Api Secret' className='form-control' />
           </Col>
         </InputGroup>
         <br />
         <Row>
-          <Col xs="8">
-            <Button type="submit" className="btn-outline-success" style={{ marginRight: '5px' }}>Salvar</Button>
-            <Button type="submit" className="btn btn-outline-primary" style={{ marginRight: '5px' }}>Editar</Button>
-            <Button type="submit" className="btn-outline-danger">Cancelar</Button>
+          <Col xs='8'>
+            <Button type='submit' className='btn-outline-success' style={{ marginRight: '5px' }}>Salvar</Button>
+            <Button type='submit' className='btn btn-outline-primary' style={{ marginRight: '5px' }}>Editar</Button>
+            <Button type='submit' className='btn-outline-danger'>Cancelar</Button>
           </Col>
         </Row>
         <hr />
       </form>
-    );
+    )
   }
 }
 
@@ -93,7 +92,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   getExchanges,
   salvarConfiguracao
 },
-  dispatch)
+dispatch)
 const mapStateToProps = state => ({
   user: state.auth.user,
   exchanges: state.configuracao.exchanges,

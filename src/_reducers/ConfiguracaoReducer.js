@@ -1,63 +1,63 @@
 const INITIAL_STATE = {
 
-  exchanges: [{ value: "", label: "" }],
+  exchanges: [{ value: '', label: '' }],
   periodos: [
     {
-      "value": "50",
-      "label": "50"
+      'value': '50',
+      'label': '50'
     }
   ],
   candles: [
     {
-      "value": "5m",
-      "label": "5m"
-    }
-    , {
-      "value": "10m",
-      "label": "10m"
-    }
-    , {
-      "value": "15m",
-      "label": "15m"
-    }
-    , {
-      "value": "30m",
-      "label": "30m"
-    }
-    , {
-      "value": "1h",
-      "label": "1h"
-    }
-    , {
-      "value": "2h",
-      "label": "2h"
-    }
-    , {
-      "value": "5h",
-      "label": "5h"
-    }
-    , {
-      "value": "1d",
-      "label": "1d"
+      'value': '5m',
+      'label': '5m'
+    },
+    {
+      'value': '10m',
+      'label': '10m'
+    },
+    {
+      'value': '15m',
+      'label': '15m'
+    },
+    {
+      'value': '30m',
+      'label': '30m'
+    },
+    {
+      'value': '1h',
+      'label': '1h'
+    },
+    {
+      'value': '2h',
+      'label': '2h'
+    },
+    {
+      'value': '5h',
+      'label': '5h'
+    },
+    {
+      'value': '1d',
+      'label': '1d'
     }
   ],
   moedas: [
     {
-      "value": "BTC/USDT",
-      "label": "BTC/USDT"
+      'value': 'BTC/USDT',
+      'label': 'BTC/USDT'
     }
   ],
   indicadores: [
     {
-      "value": "MACD",
-      "label": "MACD"
+      'value': 'MACD',
+      'label': 'MACD'
     }],
 
-  exchangeSelected: { value: "", label: "" },
-  periodoSelected: { value: "", label: "" },
-  candlesSelected: { value: "", label: "" },
-  moedasSelected: { value: "", label: "" },
-  indicadoresSelected: { value: "", label: "" }
+  exchangeSelected: { value: '', label: '' },
+  periodoSelected: { value: '', label: '' },
+  candlesSelected: { value: '', label: '' },
+  moedasSelected: { value: '', label: '' },
+  indicadoresSelected: { value: '', label: '' }
 
 }
 

@@ -4,18 +4,17 @@ import { bindActionCreators } from 'redux'
 import Switch from 'react-switch'
 
 class WSwitch extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       selectedOptions: ''
     }
   }
 
-  render() {
-
+  render () {
     return (
       <Switch
-        //checked={this.props.ligado}
+        // checked={this.props.ligado}
         checked={false}
         onChange={() => this.props.acao(this.props.estadoAtual)}
         handleDiameter={this.props.diametro}
@@ -28,7 +27,7 @@ class WSwitch extends Component {
         className='react-switch'
         id={this.props.id}
       />
-    );
+    )
   }
 }
 

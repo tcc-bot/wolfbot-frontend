@@ -3,7 +3,7 @@ import { Card, CardBody, CardFooter, CardGroup, Button, Col, Container, Input, I
 import { Link } from 'react-router-dom'
 
 class Page404 extends Component {
-  render() {
+  render () {
     return (
       <div className='app flex-row align-items-center ComponentAuth'>
         <Container className='ContainerAuth'>
@@ -15,7 +15,7 @@ class Page404 extends Component {
                     <img src='dist/img/account/404.png' width='160px' height='70px'
                       style={{ display: 'block', margin: '10px auto' }} />
                     <h1 style={{ textAlign: 'center' }}>Oops!</h1>
-                    <p className='text-white' style={{ textAlign: "center" }}>A página que você está procurando não foi encontrada.</p>
+                    <p className='text-white' style={{ textAlign: 'center' }}>A página que você está procurando não foi encontrada.</p>
                   </CardBody>
                   <CardFooter className='pageCardFooter p-4'>
                     <Row className='justify-content-center'>

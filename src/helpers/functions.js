@@ -10,4 +10,4 @@ const loadLocalStorage = (key) => {
   }
 }
 
-export default { loadLocalStorage };
+export default { loadLocalStorage }
