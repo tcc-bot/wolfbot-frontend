@@ -1,11 +1,11 @@
 import { toastr } from 'react-redux-toastr'
 import axios from 'axios'
-import api from '../config/config-localhost'
+import ambiente from '../config-ambiente'
 import functions from '../helpers/functions'
 
 // Firebase Auth - Realizará o login do usuário
 export function login (values) {
-  const url = `${api.ACCOUNT_WOLFBOT_URL}/login`
+  const url = `${ambiente.URL.account}/login`
   return dispatch => {
     axios.post(url, values)
       .then(resp =>
@@ -23,7 +23,7 @@ export function login (values) {
 
 // Firebase Auth - Realizará o cadastro do usuário
 export function signup (values) {
-  const url = `${api.ACCOUNT_WOLFBOT_URL}/signup`
+  const url = `${ambiente.URL.account}/signup`
 
   return dispatch => {
     axios.post(url, values)
@@ -43,7 +43,7 @@ export function signup (values) {
 // Firebase Auth - Action que é chamada quando o usuário clica no link para ativar a conta
 export function verifiyActiveAccount (code) {
   return dispatch => {
-    axios.get(`${api.ACCOUNT_WOLFBOT_URL}/active`, { headers: { code: code } })
+    axios.get(`${ambiente.URL.account}/active`, { headers: { code: code } })
       .then(resp => {
         dispatch({ type: 'ACCOUNT_ACTIVE', payload: 1 })
       })
@@ -63,7 +63,7 @@ export function logout () {
 export function validateToken (token) {
   return dispatch => {
     if (token) {
-      axios.get(`${api.ACCOUNT_WOLFBOT_URL}/me`, { headers: { authorization: token } })
+      axios.get(`${ambiente.URL.account}/me`, { headers: { authorization: token } })
         .then(resp => {
           dispatch({ type: 'TOKEN_VALIDATED', payload: true })
         })
