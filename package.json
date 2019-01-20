@@ -38,7 +38,7 @@
     "react-redux-toastr": "^7.2.3",
     "react-router-config": "^1.0.0-beta.4",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "^1.1.4",
+    "react-scripts": "^2.0.0",
     "react-select": "^2.0.0-beta.7",
     "react-switch": "^3.0.4",
     "react-table": "^6.8.6",
@@ -49,9 +49,6 @@
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.2.0",
     "simple-line-icons": "^2.4.1"
-  },
-  "devDependencies": {
-    "babel-jest": "^22.4.3"
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
@@ -68,5 +65,11 @@
   },
   "bugs": {
     "url": "https://github.com/tcc-bot/wofbot-frontend/issues"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

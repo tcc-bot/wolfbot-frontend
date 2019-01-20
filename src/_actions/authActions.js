@@ -49,7 +49,7 @@ export function verifiyActiveAccount (code) {
       })
       .catch(e => {
         console.log(e.response.data.errors[0].code)
-        if (e.response.data.errors[0].code == 'emailIsActive') { dispatch({ type: 'ACCOUNT_ACTIVE', payload: 2 }) } else { dispatch({ type: 'ACCOUNT_ACTIVE', payload: 3 }) }
+        if (e.response.data.errors[0].code === 'emailIsActive') { dispatch({ type: 'ACCOUNT_ACTIVE', payload: 2 }) } else { dispatch({ type: 'ACCOUNT_ACTIVE', payload: 3 }) }
       })
   }
 }
